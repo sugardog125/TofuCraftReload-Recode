@@ -47,6 +47,8 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.SpawnUtil;
+import net.minecraft.util.profiling.Profiler;
+import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -338,9 +340,11 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		if (getRole() == Roles.TOFUNIAN && isTrading()) {
 			stopTrading();
 		}
-
+		ProfilerFiller profilerfiller = Profiler.get();
+		profilerfiller.push("tofunianCheck");
 		this.tofunianJobCheck();
 		this.tofunianHomeCheck();
+		profilerfiller.pop();
 
 		super.customServerAiStep(serverLevel);
 	}

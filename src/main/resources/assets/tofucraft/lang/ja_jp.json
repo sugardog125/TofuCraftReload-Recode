@@ -708,7 +708,7 @@
   "tooltip.tofucraft.energy": "トーフフォースエネルギー：%d/%d",
   "tooltip.tofucraft.tofu_boots": "崩れ具合 : %d/%d",
   "tooltip.tofucraft.tofuforce.broken": "破損",
-  "tooltip.tofucraft.soyball": "右クリックで、豆腐装備を修理",
+  "tooltip.tofucraft.soyball": "自分に使うことで、豆腐装備を修理",
   "trim_material.tofucraft.tofu_diamond": "金剛豆腐製装飾",
   "trim_material.tofucraft.tofu_metal": "鋼豆腐製装飾",
   "trim_material.tofucraft.zunda_ruby": "ずんだルビー製装飾",

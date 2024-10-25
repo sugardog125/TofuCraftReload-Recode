@@ -630,7 +630,7 @@
   "tooltip.tofucraft.energy" : "TofuForce, Energy: %d/%d",
   "tooltip.tofucraft.tofu_boots": "Tofu Deformation : %d/%d",
   "tooltip.tofucraft.tofuforce.broken" : "Broken",
-  "tooltip.tofucraft.soyball": "Repair Tofu Armor or Tool",
+  "tooltip.tofucraft.soyball": "Use Self to Repair Tofu Armor or Tool",
   "death.attack.zunda": "%1$s was affected natural energy by %2$s 's %3$s",
   "death.attack.fallingTofu": "%1$s was bumped into the corner of tofu by %2$s 's %3$s",
   "death.attack.soy_spore": "%1$s was affected by %2$s 's soy milk spores",
