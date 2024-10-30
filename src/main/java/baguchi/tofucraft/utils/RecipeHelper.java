@@ -9,7 +9,6 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
-import net.neoforged.neoforge.fluids.FluidStack;
 
 import javax.annotation.Nullable;
 import java.util.stream.Collectors;
@@ -39,7 +38,7 @@ public class RecipeHelper {
 	}
 
 	@Nullable
-	public static ItemStack getBitternResult(ServerLevel serverLevel, Fluid fluid, FluidStack extraFluid) {
+	public static ItemStack getBitternResult(ServerLevel serverLevel, Fluid fluid, ItemStack stack) {
 		final RecipeManager manager = serverLevel.recipeAccess();
 
 		if (fluid != null) {
@@ -48,7 +47,7 @@ public class RecipeHelper {
 			});
 			for (RecipeHolder<?> recipe : tofuRecipe.collect(Collectors.toList())) {
 				if (recipe.value() instanceof BitternRecipe bitternRecipe && bitternRecipe.getFluid().is(fluid)) {
-					if (bitternRecipe.getExtraFluid().getFluid() == extraFluid.getFluid()) {
+					if (bitternRecipe.getBitternIngredient().test(stack)) {
 						return bitternRecipe.getResult();
 					}
 				}

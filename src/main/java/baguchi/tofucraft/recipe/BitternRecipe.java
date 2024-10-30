@@ -3,6 +3,7 @@ package baguchi.tofucraft.recipe;
 import baguchi.tofucraft.registry.TofuRecipes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.PlacementInfo;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
@@ -21,15 +22,15 @@ public class BitternRecipe implements Recipe<RecipeInput> {
 	 * The ingredient used for the Before it hardens tofu.
 	 */
 	protected FluidStack fluid;
-	protected FluidStack extraFluid;
+	protected Ingredient ingredient;
 	/**
 	 * This ingredient used for the harden tofu.
 	 */
 	final ItemStack result;
 
-	public BitternRecipe(FluidStack fluid, FluidStack extraFluid, ItemStack results) {
+	public BitternRecipe(FluidStack fluid, Ingredient ingredient, ItemStack results) {
 		this.fluid = fluid;
-		this.extraFluid = extraFluid;
+		this.ingredient = ingredient;
 		this.result = results;
 	}
 
@@ -43,8 +44,8 @@ public class BitternRecipe implements Recipe<RecipeInput> {
 		return this.fluid;
 	}
 
-	public FluidStack getExtraFluid() {
-		return extraFluid;
+	public Ingredient getBitternIngredient() {
+		return ingredient;
 	}
 
 	@Override
@@ -52,10 +53,9 @@ public class BitternRecipe implements Recipe<RecipeInput> {
 		ItemStack stack = recipeInput.getItem(0);
 		ItemStack stack2 = recipeInput.getItem(1);
 		@Nullable IFluidHandlerItem fluidHandler = stack.getCapability(Capabilities.FluidHandler.ITEM);
-		@Nullable IFluidHandlerItem fluidHandler2 = stack2.getCapability(Capabilities.FluidHandler.ITEM);
 
-		if (fluidHandler != null && fluidHandler2 != null) {
-			return fluidHandler.isFluidValid(1000, fluid) && fluidHandler2.isFluidValid(250, extraFluid);
+		if (fluidHandler != null && !stack2.isEmpty()) {
+			return fluidHandler.isFluidValid(1000, fluid) && this.ingredient.test(stack2);
 		}
 
 		return false;

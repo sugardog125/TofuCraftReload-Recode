@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.neoforged.neoforge.fluids.FluidStack;
 
@@ -22,20 +23,20 @@ public class BitternRecipeBuilder implements RecipeBuilder {
 	;
 	private final ItemStack stackResult;
 	private final FluidStack ingredient;
-	private final FluidStack extraIngredient;
+	private final Ingredient extraIngredient;
 	private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
 	private BitternRecipeBuilder(
 			ItemStack result,
 			FluidStack fluidStack,
-			FluidStack extraIngredient
+			Ingredient extraIngredient
 	) {
 		this.stackResult = result;
 		this.ingredient = fluidStack;
 		this.extraIngredient = extraIngredient;
 	}
 
-	public static BitternRecipeBuilder bittern(ItemStack stack, FluidStack fluidStack, FluidStack extraFluid) {
+	public static BitternRecipeBuilder bittern(ItemStack stack, FluidStack fluidStack, Ingredient extraFluid) {
 		return new BitternRecipeBuilder(stack, fluidStack, extraFluid);
 	}
 

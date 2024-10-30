@@ -86,6 +86,7 @@ public class TofuTags {
 
 		public static final TagKey<Item> TOFU_COW_FOOD = tag("tofu_cow_food");
 		public static final TagKey<Item> TOFU_PIG_FOOD = tag("tofu_pig_food");
+		public static final TagKey<Item> BITTERN = tag("bittern");
 
 
 		private static TagKey<Item> tag(String name) {

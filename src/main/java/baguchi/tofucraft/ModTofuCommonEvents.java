@@ -1,8 +1,6 @@
 package baguchi.tofucraft;
 
-import baguchi.tofucraft.capability.wrapper.FluidBottleWrapper;
 import baguchi.tofucraft.registry.TofuBlockEntitys;
-import baguchi.tofucraft.registry.TofuItems;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -39,9 +37,5 @@ public class ModTofuCommonEvents {
 				return new ForwardingItemHandler(() -> new SidedInvWrapper(blockEntity, side));
 			}
 		});
-
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new FluidBottleWrapper(stack), TofuItems.BITTERN_BOTTLE.get());
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new FluidBottleWrapper(stack), TofuItems.CRIMSON_BOTTLE.get());
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new FluidBottleWrapper(stack), TofuItems.WARPED_BOTTLE.get());
 	}
 }

@@ -1,11 +1,9 @@
 package baguchi.tofucraft.registry;
 
 import baguchi.tofucraft.TofuCraftReload;
-import baguchi.tofucraft.capability.wrapper.FluidBottleWrapper;
 import baguchi.tofucraft.data.generator.CustomTagGenerator;
 import baguchi.tofucraft.dispenser.DamageableProjectileDispenseBehavior;
 import baguchi.tofucraft.item.ApricotItem;
-import baguchi.tofucraft.item.BitternItem;
 import baguchi.tofucraft.item.BugleItem;
 import baguchi.tofucraft.item.ChiliItem;
 import baguchi.tofucraft.item.DishItem;
@@ -75,8 +73,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
-import net.neoforged.neoforge.fluids.FluidUtil;
-import net.neoforged.neoforge.fluids.capability.IFluidHandlerItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -114,9 +110,9 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> TOFU_MINCED = ITEMS.registerItem("tofuminced", (properties) -> new Item((properties).food(TofuFoods.TOFU)));
 
 
-	public static final DeferredHolder<Item, Item> BITTERN_BOTTLE = ITEMS.registerItem("bittern_bottle", (properties) -> new BitternItem(TofuFluids.BITTERN, (properties).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> CRIMSON_BOTTLE = ITEMS.registerItem("crimson_fluid_bottle", (properties) -> new BitternItem(TofuFluids.CRIMSON, (properties).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> WARPED_BOTTLE = ITEMS.registerItem("warped_fluid_bottle", (properties) -> new BitternItem(TofuFluids.WARPED, (properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> BITTERN_BOTTLE = ITEMS.registerItem("bittern_bottle", (properties) -> new Item((properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> CRIMSON_BOTTLE = ITEMS.registerItem("crimson_fluid_bottle", (properties) -> new Item((properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> WARPED_BOTTLE = ITEMS.registerItem("warped_fluid_bottle", (properties) -> new Item((properties).craftRemainder(Items.GLASS_BOTTLE)));
 	public static final DeferredHolder<Item, Item> SHROOM_BOTTLE = ITEMS.registerItem("shroom_bottle", (properties) -> new Item((properties).craftRemainder(Items.GLASS_BOTTLE)));
 	public static final DeferredHolder<Item, Item> SALT = ITEMS.registerItem("salt", (properties) -> new Item((properties)));
 	public static final DeferredHolder<Item, Item> SEEDS_SOYBEANS = ITEMS.registerItem("seeds_soybeans", (properties) -> new DoubleUsageSeedItem(TofuBlocks.SOYBEAN, TofuBlocks.SPROUTS, (properties)));
@@ -505,16 +501,13 @@ public class TofuItems {
 			public ItemStack execute(BlockSource p_123561_, ItemStack p_123562_) {
 				BlockPos blockpos = p_123561_.pos().relative(p_123561_.state().getValue(DispenserBlock.FACING));
 				FluidState fluidState = p_123561_.level().getFluidState(blockpos);
-				IFluidHandlerItem handler = FluidUtil.getFluidHandler(p_123562_.copyWithCount(1)).orElse(null);
 
-				if (handler instanceof FluidBottleWrapper fluidBottleWrapper) {
-					ItemStack result = RecipeHelper.getBitternResult(p_123561_.level(), fluidState.getType(), fluidBottleWrapper.getFluid());
-					if (result != null) {
-						p_123561_.level().setBlock(blockpos, Block.byItem(result.getItem()).defaultBlockState(), 11);
-						p_123561_.level().levelEvent(2001, blockpos, Block.getId(p_123561_.level().getBlockState(blockpos)));
-						p_123562_.shrink(1);
-						this.defaultDispenseItemBehavior.dispense(p_123561_, new ItemStack(Items.GLASS_BOTTLE));
-					}
+				ItemStack result = RecipeHelper.getBitternResult(p_123561_.level(), fluidState.getType(), p_123562_.copyWithCount(1));
+				if (result != null) {
+					p_123561_.level().setBlock(blockpos, Block.byItem(result.getItem()).defaultBlockState(), 11);
+					p_123561_.level().levelEvent(2001, blockpos, Block.getId(p_123561_.level().getBlockState(blockpos)));
+					p_123562_.shrink(1);
+					this.defaultDispenseItemBehavior.dispense(p_123561_, new ItemStack(Items.GLASS_BOTTLE));
 				}
 				return p_123562_;
 			}

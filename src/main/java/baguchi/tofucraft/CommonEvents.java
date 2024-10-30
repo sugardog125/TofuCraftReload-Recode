@@ -19,10 +19,12 @@ import baguchi.tofucraft.registry.TofuStructures;
 import baguchi.tofucraft.registry.TofuTags;
 import baguchi.tofucraft.utils.ContainerUtils;
 import baguchi.tofucraft.utils.JigsawHelper;
+import baguchi.tofucraft.utils.RecipeHelper;
 import baguchi.tofucraft.utils.TofuDiamondToolUtil;
 import baguchi.tofucraft.world.TofuData;
 import baguchi.tofucraft.world.TofuLevelData;
 import baguchi.tofucraft.world.TravelerTofunianSpawner;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -65,7 +67,9 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -161,6 +165,38 @@ public class CommonEvents {
 			horse.playSound(SoundEvents.HORSE_EAT);
 			event.setCancellationResult(InteractionResult.SUCCESS);
 			event.setCanceled(true);
+		}
+	}
+
+
+	@SubscribeEvent
+	public static void onUsed(PlayerInteractEvent.RightClickItem event) {
+		Level level = event.getLevel();
+		Player playerIn = event.getEntity();
+		InteractionHand handIn = event.getHand();
+		ItemStack itemstack = playerIn.getItemInHand(handIn);
+		if (itemstack.is(TofuTags.Items.BITTERN)) {
+			BlockHitResult blockraytraceresult = getPlayerPOVHitResult(level, playerIn, ClipContext.Fluid.SOURCE_ONLY);
+			BlockHitResult blockraytraceresult1 = blockraytraceresult.withPosition(blockraytraceresult.getBlockPos());
+
+			if (level instanceof ServerLevel serverLevel) {
+				if (blockraytraceresult.getType() == HitResult.Type.BLOCK) {
+					FluidState fluidState = level.getFluidState(blockraytraceresult1.getBlockPos());
+
+					ItemStack result = RecipeHelper.getBitternResult(serverLevel, fluidState.getType(), itemstack.copyWithCount(1));
+					if (result != null) {
+						if (playerIn instanceof ServerPlayer serverPlayer) {
+							CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, blockraytraceresult1.getBlockPos(), itemstack);
+						}
+
+						level.setBlock(blockraytraceresult1.getBlockPos(), Block.byItem(result.getItem()).defaultBlockState(), 11);
+						level.levelEvent(2001, blockraytraceresult1.getBlockPos(), Block.getId(level.getBlockState(blockraytraceresult1.getBlockPos())));
+						level.playSound(null, blockraytraceresult1.getBlockPos(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1F, 1F);
+						ContainerUtils.addWithContainer(playerIn, handIn, itemstack, new ItemStack(Items.GLASS_BOTTLE), false);
+						event.setCancellationResult(InteractionResult.SUCCESS);
+					}
+				}
+			}
 		}
 	}
 

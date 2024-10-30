@@ -1,9 +1,6 @@
 {
   "type": "tofucraft:bittern",
-  "extra_fluid": {
-    "amount": 250,
-    "id": "tofucraft:warped"
-  },
+  "extra_fluid": "tofucraft:warped_fluid_bottle",
   "process": {
     "amount": 1000,
     "id": "tofucraft:soymilk_hell"
