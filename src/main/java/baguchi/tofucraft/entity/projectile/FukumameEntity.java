@@ -56,7 +56,7 @@ public class FukumameEntity extends ThrowableProjectile {
 	}
 
 	public FukumameEntity(EntityType<? extends FukumameEntity> entityType, LivingEntity throwerIn, Level worldIn) {
-		super(entityType, throwerIn.getX(), throwerIn.getY(), throwerIn.getZ(), worldIn);
+		super(entityType, throwerIn.getX(), throwerIn.getEyeY(), throwerIn.getZ(), worldIn);
 		this.setOwner(throwerIn);
 	}
 
