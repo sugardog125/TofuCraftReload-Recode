@@ -34,12 +34,12 @@ public class SoyballEntity extends ThrowableProjectile {
 	}
 
 	public SoyballEntity(Level worldIn, LivingEntity thrower) {
-		super(TofuEntityTypes.SOYBALL.get(), thrower.getX(), thrower.getY(), thrower.getZ(), worldIn);
+		super(TofuEntityTypes.SOYBALL.get(), thrower.getX(), thrower.getEyeY(), thrower.getZ(), worldIn);
 		this.setOwner(thrower);
 	}
 
 	public SoyballEntity(Level level, LivingEntity thrower, ItemStack stack) {
-		super(TofuEntityTypes.SOYBALL.get(), thrower.getX(), thrower.getY(), thrower.getZ(), level);
+		super(TofuEntityTypes.SOYBALL.get(), thrower.getX(), thrower.getEyeY(), thrower.getZ(), level);
 		this.setOwner(thrower);
 		this.firedFromWeapon = stack.copy();
 	}

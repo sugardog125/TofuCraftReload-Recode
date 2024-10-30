@@ -36,12 +36,12 @@ public class FukumameEntity extends ThrowableProjectile {
 	}
 
 	public FukumameEntity(Level worldIn, LivingEntity throwerIn) {
-		super(TofuEntityTypes.FUKUMAME.get(), throwerIn.getX(), throwerIn.getY(), throwerIn.getZ(), worldIn);
+		super(TofuEntityTypes.FUKUMAME.get(), throwerIn.getX(), throwerIn.getEyeY(), throwerIn.getZ(), worldIn);
 		this.setOwner(throwerIn);
 	}
 
 	public FukumameEntity(Level worldIn, LivingEntity throwerIn, ItemStack stack) {
-		super(TofuEntityTypes.FUKUMAME.get(), throwerIn.getX(), throwerIn.getY(), throwerIn.getZ(), worldIn);
+		super(TofuEntityTypes.FUKUMAME.get(), throwerIn.getX(), throwerIn.getEyeY(), throwerIn.getZ(), worldIn);
 		this.setOwner(throwerIn);
 		this.firedFromWeapon = stack.copy();
 	}
