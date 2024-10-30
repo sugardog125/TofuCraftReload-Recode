@@ -55,6 +55,7 @@ public class TofuTags {
 		public static final TagKey<Item> SOYSAUCE_SOYSAUCE = forgeTag("soysauce/soysauce");
 
 		public static final TagKey<Item> STATUE_HAPPY = tag("statue_happy");
+		public static final TagKey<Item> BITTERN = tag("bittern");
 
 		private static TagKey<Item> tag(String name) {
 			return ItemTags.create(new ResourceLocation(TofuCraftReload.MODID, name));

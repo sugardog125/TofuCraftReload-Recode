@@ -8,7 +8,6 @@ import baguchan.tofucraft.entity.projectile.FukumameEntity;
 import baguchan.tofucraft.entity.projectile.NetherFukumameEntity;
 import baguchan.tofucraft.entity.projectile.SoulFukumameEntity;
 import baguchan.tofucraft.entity.projectile.ZundaArrow;
-import baguchan.tofucraft.item.BitternItem;
 import baguchan.tofucraft.item.BugleItem;
 import baguchan.tofucraft.item.ChiliItem;
 import baguchan.tofucraft.item.FukumameItem;
@@ -122,9 +121,9 @@ public class TofuItems {
 	public static final RegistryObject<Item> TOFU_MINCED = ITEMS.register("tofuminced", () -> new Item((new Item.Properties()).food(TofuFoods.TOFU)));
 
 
-	public static final RegistryObject<Item> BITTERN_BOTTLE = ITEMS.register("bittern_bottle", () -> new BitternItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final RegistryObject<Item> CRIMSON_BOTTLE = ITEMS.register("crimson_fluid_bottle", () -> new BitternItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final RegistryObject<Item> WARPED_BOTTLE = ITEMS.register("warped_fluid_bottle", () -> new BitternItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final RegistryObject<Item> BITTERN_BOTTLE = ITEMS.register("bittern_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final RegistryObject<Item> CRIMSON_BOTTLE = ITEMS.register("crimson_fluid_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final RegistryObject<Item> WARPED_BOTTLE = ITEMS.register("warped_fluid_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
 	public static final RegistryObject<Item> SHROOM_BOTTLE = ITEMS.register("shroom_bottle", () -> new Item((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE)));
 
 	public static final RegistryObject<Item> SALT = ITEMS.register("salt", () -> new Item((new Item.Properties())));

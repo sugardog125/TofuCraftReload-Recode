@@ -11,11 +11,14 @@ import baguchan.tofucraft.registry.TofuEnchantments;
 import baguchan.tofucraft.registry.TofuItems;
 import baguchan.tofucraft.registry.TofuPoiTypes;
 import baguchan.tofucraft.registry.TofuStructures;
+import baguchan.tofucraft.registry.TofuTags;
 import baguchan.tofucraft.utils.ContainerUtils;
 import baguchan.tofucraft.utils.JigsawHelper;
+import baguchan.tofucraft.utils.RecipeHelper;
 import baguchan.tofucraft.world.TofuData;
 import baguchan.tofucraft.world.TofuLevelData;
 import baguchan.tofucraft.world.TravelerTofunianSpawner;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -23,6 +26,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -49,7 +53,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -165,6 +171,38 @@ public class CommonEvents {
 				horse.playSound(SoundEvents.HORSE_EAT);
 				event.setCancellationResult(InteractionResult.SUCCESS);
 				event.setCanceled(true);
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onUsed(PlayerInteractEvent.RightClickItem event) {
+		Level level = event.getLevel();
+		Player playerIn = event.getEntity();
+		InteractionHand handIn = event.getHand();
+		ItemStack itemstack = playerIn.getItemInHand(handIn);
+		if (itemstack.is(TofuTags.Items.BITTERN)) {
+			BlockHitResult blockraytraceresult = getPlayerPOVHitResult(level, playerIn, ClipContext.Fluid.SOURCE_ONLY);
+			BlockHitResult blockraytraceresult1 = blockraytraceresult.withPosition(blockraytraceresult.getBlockPos());
+
+			if (level instanceof ServerLevel serverLevel) {
+				if (blockraytraceresult.getType() == HitResult.Type.BLOCK) {
+					FluidState fluidState = level.getFluidState(blockraytraceresult1.getBlockPos());
+
+					ItemStack result = RecipeHelper.getBitternResult(serverLevel, fluidState.getType(), itemstack.copyWithCount(1));
+					if (result != null) {
+						if (playerIn instanceof ServerPlayer serverPlayer) {
+							CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, blockraytraceresult1.getBlockPos(), itemstack);
+						}
+
+						level.setBlock(blockraytraceresult1.getBlockPos(), Block.byItem(result.getItem()).defaultBlockState(), 11);
+						level.levelEvent(2001, blockraytraceresult1.getBlockPos(), Block.getId(level.getBlockState(blockraytraceresult1.getBlockPos())));
+						level.playSound(null, blockraytraceresult1.getBlockPos(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1F, 1F);
+						ContainerUtils.addWithContainer(playerIn, handIn, itemstack, new ItemStack(Items.GLASS_BOTTLE), false);
+						playerIn.swing(handIn);
+						event.setCancellationResult(InteractionResult.SUCCESS);
+					}
+				}
 			}
 		}
 	}
