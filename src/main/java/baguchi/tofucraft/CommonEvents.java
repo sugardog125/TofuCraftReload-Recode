@@ -193,6 +193,7 @@ public class CommonEvents {
 						level.levelEvent(2001, blockraytraceresult1.getBlockPos(), Block.getId(level.getBlockState(blockraytraceresult1.getBlockPos())));
 						level.playSound(null, blockraytraceresult1.getBlockPos(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1F, 1F);
 						ContainerUtils.addWithContainer(playerIn, handIn, itemstack, new ItemStack(Items.GLASS_BOTTLE), false);
+						playerIn.swing(handIn);
 						event.setCancellationResult(InteractionResult.SUCCESS);
 					}
 				}
