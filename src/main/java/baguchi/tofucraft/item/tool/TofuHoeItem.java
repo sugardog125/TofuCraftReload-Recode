@@ -6,6 +6,7 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,7 +22,7 @@ import java.util.function.Predicate;
 
 public class TofuHoeItem extends TofuDiggerItem implements IEnergyInsertable {
 	public TofuHoeItem(TofuToolMaterials.TofuToolMaterial tofuItemTier, float p_362481_, float p_364182_, Properties properties) {
-		super(tofuItemTier, tofuItemTier.incorrectBlocksForDrops(), p_362481_, p_364182_, properties);
+		super(tofuItemTier, BlockTags.MINEABLE_WITH_HOE, p_362481_, p_364182_, properties);
 	}
 
 	@Override

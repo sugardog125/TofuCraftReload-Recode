@@ -2,12 +2,13 @@ package baguchi.tofucraft.item.tool;
 
 import baguchi.tofucraft.api.tfenergy.IEnergyInsertable;
 import baguchi.tofucraft.registry.TofuToolMaterials;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 
 public class TofuPickaxeItem extends TofuDiggerItem implements IEnergyInsertable {
 	public TofuPickaxeItem(TofuToolMaterials.TofuToolMaterial tofuItemTier, float p_362481_, float p_364182_, Properties properties) {
-		super(tofuItemTier, tofuItemTier.incorrectBlocksForDrops(), p_362481_, p_364182_, properties);
+		super(tofuItemTier, BlockTags.MINEABLE_WITH_PICKAXE, p_362481_, p_364182_, properties);
 	}
 
 	@Override

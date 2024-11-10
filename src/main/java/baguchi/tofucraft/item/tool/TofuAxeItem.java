@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -24,7 +25,7 @@ import java.util.Optional;
 
 public class TofuAxeItem extends TofuDiggerItem implements IEnergyInsertable {
 	public TofuAxeItem(TofuToolMaterials.TofuToolMaterial tofuItemTier, float p_362481_, float p_364182_, Properties properties) {
-		super(tofuItemTier, tofuItemTier.incorrectBlocksForDrops(), p_362481_, p_364182_, properties);
+		super(tofuItemTier, BlockTags.MINEABLE_WITH_AXE, p_362481_, p_364182_, properties);
 	}
 
 	@Override
