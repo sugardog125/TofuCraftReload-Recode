@@ -65,6 +65,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -72,7 +73,6 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -360,20 +360,20 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> TOFU_CORE = ITEMS.registerItem("tofu_core", (properties) -> new Item((properties)));
 	public static final DeferredHolder<Item, Item> TF_BATTERY = ITEMS.registerItem("tf_battery", (properties) -> new TFBatteryItem((properties.stacksTo(1))));
 
-	public static final DeferredHolder<Item, Item> TOFUNIAN_SPAWNEGG = ITEMS.registerItem("tofunian_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUNIAN, 15460584, 13291425, (properties)));
-	public static final DeferredHolder<Item, Item> TOFUCOW_SPAWNEGG = ITEMS.registerItem("tofucow_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUCOW, 15460584, 10724259, (properties)));
-	public static final DeferredHolder<Item, Item> TOFUPIG_SPAWNEGG = ITEMS.registerItem("tofupig_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUPIG, 15460584, 10066329, (properties)));
-	public static final DeferredHolder<Item, Item> TOFUSLIME_SPAWNEGG = ITEMS.registerItem("tofuslime_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUSLIME, 15460584, 3026478, (properties)));
-	public static final DeferredHolder<Item, Item> TOFUCREEPER_SPAWNEGG = ITEMS.registerItem("tofucreeper_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUCREEPER, 15460584, 3026478, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUNIAN_SPAWNEGG = ITEMS.registerItem("tofunian_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUNIAN.get(), 15460584, 13291425, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUCOW_SPAWNEGG = ITEMS.registerItem("tofucow_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUCOW.get(), 15460584, 10724259, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUPIG_SPAWNEGG = ITEMS.registerItem("tofupig_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUPIG.get(), 15460584, 10066329, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUSLIME_SPAWNEGG = ITEMS.registerItem("tofuslime_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUSLIME.get(), 15460584, 3026478, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUCREEPER_SPAWNEGG = ITEMS.registerItem("tofucreeper_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUCREEPER.get(), 15460584, 3026478, (properties)));
 
-	public static final DeferredHolder<Item, Item> TOFUSPIDER_SPAWNEGG = ITEMS.registerItem("tofuspider_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUSPIDER, 15460584, 3026478, (properties)));
-	public static final DeferredHolder<Item, Item> TOFUFISH_SPAWNEGG = ITEMS.registerItem("tofufish_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFUFISH, 15460584, 3026478, (properties)));
-	public static final DeferredHolder<Item, Item> TRAVELER_TOFUNIAN_SPAWNEGG = ITEMS.registerItem("traveler_tofunian_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TRAVELER_TOFUNIAN, 15460584, 8763986, (properties)));
-	public static final DeferredHolder<Item, Item> TOFU_GANDLEM_SPAWNEGG = ITEMS.registerItem("tofu_gandlem_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFU_GANDLEM, 0xDDD8B5, 0x92D4F9, (properties)));
-	public static final DeferredHolder<Item, Item> TOFU_GOLEM_SPAWNEGG = ITEMS.registerItem("tofu_golem_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.TOFU_GOLEM, 0xDDD8B5, 0xFFFFFF, (properties)));
-	public static final DeferredHolder<Item, Item> SHUDOFUSPIDER_SPAWNEGG = ITEMS.registerItem("shudofuspider_spawnegg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.SHUDOFUSPIDER, 0xDDD8B5, 0x5FA039, (properties)));
-	public static final DeferredHolder<Item, Item> FUKUMAME_THOWER_SPAWNEGG = ITEMS.registerItem("fukumame_thower_spawn_egg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.FUKUMAME_THOWER, 0xF2BA86, 0xAC452D, (properties)));
-	public static final DeferredHolder<Item, Item> ZUNDAMITE_SPAWNEGG = ITEMS.registerItem("zundamite_spawn_egg", (properties) -> new DeferredSpawnEggItem(TofuEntityTypes.ZUNDAMITE, 15460584, 0xA4D148, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUSPIDER_SPAWNEGG = ITEMS.registerItem("tofuspider_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUSPIDER.get(), 15460584, 3026478, (properties)));
+	public static final DeferredHolder<Item, Item> TOFUFISH_SPAWNEGG = ITEMS.registerItem("tofufish_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUFISH.get(), 15460584, 3026478, (properties)));
+	public static final DeferredHolder<Item, Item> TRAVELER_TOFUNIAN_SPAWNEGG = ITEMS.registerItem("traveler_tofunian_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TRAVELER_TOFUNIAN.get(), 15460584, 8763986, (properties)));
+	public static final DeferredHolder<Item, Item> TOFU_GANDLEM_SPAWNEGG = ITEMS.registerItem("tofu_gandlem_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFU_GANDLEM.get(), 0xDDD8B5, 0x92D4F9, (properties)));
+	public static final DeferredHolder<Item, Item> TOFU_GOLEM_SPAWNEGG = ITEMS.registerItem("tofu_golem_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFU_GOLEM.get(), 0xDDD8B5, 0xFFFFFF, (properties)));
+	public static final DeferredHolder<Item, Item> SHUDOFUSPIDER_SPAWNEGG = ITEMS.registerItem("shudofuspider_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.SHUDOFUSPIDER.get(), 0xDDD8B5, 0x5FA039, (properties)));
+	public static final DeferredHolder<Item, Item> FUKUMAME_THOWER_SPAWNEGG = ITEMS.registerItem("fukumame_thower_spawn_egg", (properties) -> new SpawnEggItem(TofuEntityTypes.FUKUMAME_THOWER.get(), 0xF2BA86, 0xAC452D, (properties)));
+	public static final DeferredHolder<Item, Item> ZUNDAMITE_SPAWNEGG = ITEMS.registerItem("zundamite_spawn_egg", (properties) -> new SpawnEggItem(TofuEntityTypes.ZUNDAMITE.get(), 15460584, 0xA4D148, (properties)));
 
 	public static final DeferredHolder<Item, Item> NATTO_COBWEB = ITEMS.registerItem("natto_cobweb", (properties) -> new NattoCobWebItem((properties)));
 
