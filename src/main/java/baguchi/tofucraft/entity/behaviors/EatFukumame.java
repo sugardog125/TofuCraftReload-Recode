@@ -1,6 +1,6 @@
 package baguchi.tofucraft.entity.behaviors;
 
-import baguchi.tofucraft.entity.FukumameThower;
+import baguchi.tofucraft.entity.FukumameThrower;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -8,7 +8,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.behavior.Behavior;
 
-public class EatFukumame<E extends FukumameThower> extends Behavior<E> {
+public class EatFukumame<E extends FukumameThrower> extends Behavior<E> {
 	protected int ticks;
 
 	public EatFukumame() {

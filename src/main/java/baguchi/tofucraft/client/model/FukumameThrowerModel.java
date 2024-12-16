@@ -2,7 +2,7 @@ package baguchi.tofucraft.client.model;// Made with Blockbench 4.7.4
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-import baguchi.tofucraft.client.render.state.FukumameThowerRenderState;
+import baguchi.tofucraft.client.render.state.FukumameThrowerRenderState;
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -17,12 +17,13 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.monster.piglin.PiglinArmPose;
 
-public class FukumameThowerModel extends HumanoidModel<FukumameThowerRenderState> {
+public class FukumameThrowerModel extends HumanoidModel<FukumameThrowerRenderState> {
 
 	public final ModelPart fukumame;
 	public final ModelPart rightEar = this.head.getChild("right_ear");
 	public final ModelPart leftEar = this.head.getChild("left_ear");
-	public FukumameThowerModel(ModelPart root) {
+
+	public FukumameThrowerModel(ModelPart root) {
 		super(root);
 		this.fukumame = root.getChild("body").getChild("bone2").getChild("fukumame");
 	}
@@ -75,7 +76,7 @@ public class FukumameThowerModel extends HumanoidModel<FukumameThowerRenderState
 	}
 
 	@Override
-	public void setupAnim(FukumameThowerRenderState entity) {
+	public void setupAnim(FukumameThrowerRenderState entity) {
 		super.setupAnim(entity);
 		float f = entity.walkAnimationPos;
 		float f1 = entity.walkAnimationSpeed;
@@ -132,7 +133,7 @@ public class FukumameThowerModel extends HumanoidModel<FukumameThowerRenderState
 	}
 
 
-	protected void setupAttackAnimation(FukumameThowerRenderState p_362671_, float p_103352_) {
+	protected void setupAttackAnimation(FukumameThrowerRenderState p_362671_, float p_103352_) {
 		float f = p_362671_.attackTime;
 		if (f > 0.0F && p_362671_.armPose == PiglinArmPose.ATTACKING_WITH_MELEE_WEAPON) {
 			AnimationUtils.swingWeaponDown(this.rightArm, this.leftArm, p_362671_.mainArm, f, p_362671_.ageInTicks);

@@ -78,7 +78,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-public class FukumameThowerAi {
+public class FukumameThrowerAi {
 	public static final int REPELLENT_DETECTION_RANGE_HORIZONTAL = 8;
 	public static final int REPELLENT_DETECTION_RANGE_VERTICAL = 4;
 	public static final Item BARTERING_ITEM = Items.GOLD_INGOT;
@@ -116,7 +116,7 @@ public class FukumameThowerAi {
 	private static final float SPEED_MULTIPLIER_WHEN_DANCING = 0.6F;
 	private static final float SPEED_MULTIPLIER_WHEN_IDLING = 0.6F;
 
-	protected static Brain<?> makeBrain(FukumameThower p_34841_, Brain<FukumameThower> p_34842_) {
+	protected static Brain<?> makeBrain(FukumameThrower p_34841_, Brain<FukumameThrower> p_34842_) {
 		initCoreActivity(p_34842_);
 		initIdleActivity(p_34842_);
 		initAdmireItemActivity(p_34842_);
@@ -130,21 +130,21 @@ public class FukumameThowerAi {
 		return p_34842_;
 	}
 
-	protected static void initMemories(FukumameThower p_219206_, RandomSource p_219207_) {
+	protected static void initMemories(FukumameThrower p_219206_, RandomSource p_219207_) {
 		int i = TIME_BETWEEN_HUNTS.sample(p_219207_);
 		p_219206_.getBrain().setMemoryWithExpiry(MemoryModuleType.HUNTED_RECENTLY, true, (long) i);
 	}
 
-	private static void initCoreActivity(Brain<FukumameThower> p_34821_) {
-		p_34821_.addActivity(Activity.CORE, 0, ImmutableList.of(new LookAtTargetSink(45, 90), new MoveToTargetSink(), InteractWithDoor.create(), babyAvoidNemesis(), avoidZombified(), StopHoldingItemIfNoLongerAdmiring.create(), StartAdmiringItemIfSeen.create(120), StartCelebratingIfTargetDead.create(300, FukumameThowerAi::wantsToDance), StopBeingAngryIfTargetDead.create()));
+	private static void initCoreActivity(Brain<FukumameThrower> p_34821_) {
+		p_34821_.addActivity(Activity.CORE, 0, ImmutableList.of(new LookAtTargetSink(45, 90), new MoveToTargetSink(), InteractWithDoor.create(), babyAvoidNemesis(), avoidZombified(), StopHoldingItemIfNoLongerAdmiring.create(), StartAdmiringItemIfSeen.create(120), StartCelebratingIfTargetDead.create(300, FukumameThrowerAi::wantsToDance), StopBeingAngryIfTargetDead.create()));
 	}
 
-	private static void initIdleActivity(Brain<FukumameThower> p_34892_) {
-		p_34892_.addActivity(Activity.IDLE, 10, ImmutableList.of(SetEntityLookTarget.create(FukumameThowerAi::isPlayerHoldingLovedItem, 14.0F), StartAttacking.<Piglin>create((serverlevel, living) -> living.isAdult(), FukumameThowerAi::findNearestValidAttackTarget), BehaviorBuilder.triggerIf(FukumameThower::canHunt, StartHuntingHoglin.create()), new EatFukumame<>(), avoidRepellent(), babySometimesRideBabyHoglin(), createIdleLookBehaviors(), createIdleMovementBehaviors(), SetLookAndInteract.create(EntityType.PLAYER, 4)));
+	private static void initIdleActivity(Brain<FukumameThrower> p_34892_) {
+		p_34892_.addActivity(Activity.IDLE, 10, ImmutableList.of(SetEntityLookTarget.create(FukumameThrowerAi::isPlayerHoldingLovedItem, 14.0F), StartAttacking.<Piglin>create((serverlevel, living) -> living.isAdult(), FukumameThrowerAi::findNearestValidAttackTarget), BehaviorBuilder.triggerIf(FukumameThrower::canHunt, StartHuntingHoglin.create()), new EatFukumame<>(), avoidRepellent(), babySometimesRideBabyHoglin(), createIdleLookBehaviors(), createIdleMovementBehaviors(), SetLookAndInteract.create(EntityType.PLAYER, 4)));
 	}
 
-	private static void initFightActivity(FukumameThower p_34904_, Brain<FukumameThower> p_34905_) {
-		p_34905_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.<BehaviorControl<? super FukumameThower>>of(StopAttackingIfTargetInvalid.<Piglin>create((p_375910_, p_375911_, living) -> {
+	private static void initFightActivity(FukumameThrower p_34904_, Brain<FukumameThrower> p_34905_) {
+		p_34905_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.<BehaviorControl<? super FukumameThrower>>of(StopAttackingIfTargetInvalid.<Piglin>create((p_375910_, p_375911_, living) -> {
 					isNearestValidAttackTarget(p_375910_, p_34904_, living);
 				})
 				, BehaviorBuilder.triggerIf((entity) -> {
@@ -153,27 +153,27 @@ public class FukumameThowerAi {
 			return p_34904_.getFukumameCount() <= 0;
 		}, MeleeAttack.create(20)), BackUpIfTooClose.create(10, 0.75F), new EatFukumame<>(), BehaviorBuilder.triggerIf((entity) -> {
 			return p_34904_.getFukumameCount() <= 0;
-		}, SetWalkTargetFromAttackTargetIfTargetOutOfReachOneShot.create(1.0F)), new ThrowFukumame<>(), RememberIfHoglinWasKilled.create(), EraseMemoryIf.create(FukumameThowerAi::isNearZombified, MemoryModuleType.ATTACK_TARGET)), MemoryModuleType.ATTACK_TARGET);
+				}, SetWalkTargetFromAttackTargetIfTargetOutOfReachOneShot.create(1.0F)), new ThrowFukumame<>(), RememberIfHoglinWasKilled.create(), EraseMemoryIf.create(FukumameThrowerAi::isNearZombified, MemoryModuleType.ATTACK_TARGET)), MemoryModuleType.ATTACK_TARGET);
 	}
 
-	private static void initCelebrateActivity(Brain<FukumameThower> p_34921_) {
-		p_34921_.addActivityAndRemoveMemoryWhenStopped(Activity.CELEBRATE, 10, ImmutableList.of(avoidRepellent(), SetEntityLookTarget.create(FukumameThowerAi::isPlayerHoldingLovedItem, 14.0F), StartAttacking.<Piglin>create((serverlevel, living) -> living.isAdult(), FukumameThowerAi::findNearestValidAttackTarget), BehaviorBuilder.<Piglin>triggerIf((p_34804_) -> {
+	private static void initCelebrateActivity(Brain<FukumameThrower> p_34921_) {
+		p_34921_.addActivityAndRemoveMemoryWhenStopped(Activity.CELEBRATE, 10, ImmutableList.of(avoidRepellent(), SetEntityLookTarget.create(FukumameThrowerAi::isPlayerHoldingLovedItem, 14.0F), StartAttacking.<Piglin>create((serverlevel, living) -> living.isAdult(), FukumameThrowerAi::findNearestValidAttackTarget), BehaviorBuilder.<Piglin>triggerIf((p_34804_) -> {
 			return !p_34804_.isDancing();
 		}, GoToTargetLocation.create(MemoryModuleType.CELEBRATE_LOCATION, 2, 1.0F)), BehaviorBuilder.<Piglin>triggerIf(Piglin::isDancing, GoToTargetLocation.create(MemoryModuleType.CELEBRATE_LOCATION, 4, 0.6F)), new RunOne<Piglin>(ImmutableList.of(Pair.of(SetEntityLookTarget.create(EntityType.PIGLIN, 8.0F), 1), Pair.of(RandomStroll.stroll(0.6F, 2, 1), 1), Pair.of(new DoNothing(10, 20), 1)))), MemoryModuleType.CELEBRATE_LOCATION);
 	}
 
-	private static void initAdmireItemActivity(Brain<FukumameThower> p_34941_) {
-		p_34941_.addActivityAndRemoveMemoryWhenStopped(Activity.ADMIRE_ITEM, 10, ImmutableList.of(GoToWantedItem.create(FukumameThowerAi::isNotHoldingLovedItemInOffHand, 1.0F, true, 9), StopAdmiringIfItemTooFarAway.create(9), StopAdmiringIfTiredOfTryingToReachItem.create(200, 200)), MemoryModuleType.ADMIRING_ITEM);
+	private static void initAdmireItemActivity(Brain<FukumameThrower> p_34941_) {
+		p_34941_.addActivityAndRemoveMemoryWhenStopped(Activity.ADMIRE_ITEM, 10, ImmutableList.of(GoToWantedItem.create(FukumameThrowerAi::isNotHoldingLovedItemInOffHand, 1.0F, true, 9), StopAdmiringIfItemTooFarAway.create(9), StopAdmiringIfTiredOfTryingToReachItem.create(200, 200)), MemoryModuleType.ADMIRING_ITEM);
 	}
 
-	private static void initRetreatActivity(Brain<FukumameThower> p_34959_) {
-		p_34959_.addActivityAndRemoveMemoryWhenStopped(Activity.AVOID, 10, ImmutableList.of(SetWalkTargetAwayFrom.entity(MemoryModuleType.AVOID_TARGET, 1.0F, 12, true), createIdleLookBehaviors(), createIdleMovementBehaviors(), EraseMemoryIf.<Piglin>create(FukumameThowerAi::wantsToStopFleeing, MemoryModuleType.AVOID_TARGET)), MemoryModuleType.AVOID_TARGET);
+	private static void initRetreatActivity(Brain<FukumameThrower> p_34959_) {
+		p_34959_.addActivityAndRemoveMemoryWhenStopped(Activity.AVOID, 10, ImmutableList.of(SetWalkTargetAwayFrom.entity(MemoryModuleType.AVOID_TARGET, 1.0F, 12, true), createIdleLookBehaviors(), createIdleMovementBehaviors(), EraseMemoryIf.<Piglin>create(FukumameThrowerAi::wantsToStopFleeing, MemoryModuleType.AVOID_TARGET)), MemoryModuleType.AVOID_TARGET);
 	}
 
-	private static void initRideHoglinActivity(Brain<FukumameThower> p_34974_) {
-		p_34974_.addActivityAndRemoveMemoryWhenStopped(Activity.RIDE, 10, ImmutableList.of(Mount.create(0.8F), SetEntityLookTarget.create(FukumameThowerAi::isPlayerHoldingLovedItem, 8.0F), BehaviorBuilder.sequence(BehaviorBuilder.triggerIf(Entity::isPassenger), TriggerGate.triggerOneShuffled(ImmutableList.<Pair<? extends Trigger<? super LivingEntity>, Integer>>builder().addAll(createLookBehaviors()).add(Pair.of(BehaviorBuilder.triggerIf((p_258950_) -> {
+	private static void initRideHoglinActivity(Brain<FukumameThrower> p_34974_) {
+		p_34974_.addActivityAndRemoveMemoryWhenStopped(Activity.RIDE, 10, ImmutableList.of(Mount.create(0.8F), SetEntityLookTarget.create(FukumameThrowerAi::isPlayerHoldingLovedItem, 8.0F), BehaviorBuilder.sequence(BehaviorBuilder.triggerIf(Entity::isPassenger), TriggerGate.triggerOneShuffled(ImmutableList.<Pair<? extends Trigger<? super LivingEntity>, Integer>>builder().addAll(createLookBehaviors()).add(Pair.of(BehaviorBuilder.triggerIf((p_258950_) -> {
 			return true;
-		}), 1)).build())), DismountOrSkipMounting.<Piglin>create(8, FukumameThowerAi::wantsToStopRiding)), MemoryModuleType.RIDE_TARGET);
+		}), 1)).build())), DismountOrSkipMounting.<Piglin>create(8, FukumameThrowerAi::wantsToStopRiding)), MemoryModuleType.RIDE_TARGET);
 	}
 
 	private static ImmutableList<Pair<OneShot<LivingEntity>, Integer>> createLookBehaviors() {
@@ -185,7 +185,7 @@ public class FukumameThowerAi {
 	}
 
 	private static RunOne<Piglin> createIdleMovementBehaviors() {
-		return new RunOne<>(ImmutableList.of(Pair.of(RandomStroll.stroll(0.6F), 2), Pair.of(InteractWith.of(EntityType.PIGLIN, 8, MemoryModuleType.INTERACTION_TARGET, 0.6F, 2), 2), Pair.of(BehaviorBuilder.triggerIf(FukumameThowerAi::doesntSeeAnyPlayerHoldingLovedItem, SetWalkTargetFromLookTarget.create(0.6F, 3)), 2), Pair.of(new DoNothing(30, 60), 1)));
+		return new RunOne<>(ImmutableList.of(Pair.of(RandomStroll.stroll(0.6F), 2), Pair.of(InteractWith.of(EntityType.PIGLIN, 8, MemoryModuleType.INTERACTION_TARGET, 0.6F, 2), 2), Pair.of(BehaviorBuilder.triggerIf(FukumameThrowerAi::doesntSeeAnyPlayerHoldingLovedItem, SetWalkTargetFromLookTarget.create(0.6F, 3)), 2), Pair.of(new DoNothing(30, 60), 1)));
 	}
 
 	private static BehaviorControl<PathfinderMob> avoidRepellent() {
@@ -197,7 +197,7 @@ public class FukumameThowerAi {
 	}
 
 	private static BehaviorControl<Piglin> avoidZombified() {
-		return CopyMemoryWithExpiry.create(FukumameThowerAi::isNearZombified, MemoryModuleType.NEAREST_VISIBLE_ZOMBIFIED, MemoryModuleType.AVOID_TARGET, AVOID_ZOMBIFIED_DURATION);
+		return CopyMemoryWithExpiry.create(FukumameThrowerAi::isNearZombified, MemoryModuleType.NEAREST_VISIBLE_ZOMBIFIED, MemoryModuleType.AVOID_TARGET, AVOID_ZOMBIFIED_DURATION);
 	}
 
 	private static boolean isBabyRidingBaby(Piglin p_34993_) {
@@ -209,7 +209,7 @@ public class FukumameThowerAi {
 		}
 	}
 
-	private static void putInInventory(FukumameThower p_34953_, ItemStack p_34954_) {
+	private static void putInInventory(FukumameThrower p_34953_, ItemStack p_34954_) {
 		ItemStack itemstack = p_34953_.addToInventory(p_34954_);
 		throwItemsTowardRandomPos(p_34953_, Collections.singletonList(itemstack));
 	}
@@ -243,7 +243,7 @@ public class FukumameThowerAi {
 
 	}
 
-	public static void stopHoldingOffHandItem(ServerLevel serverLevel, FukumameThower p_34868_, boolean p_34869_) {
+	public static void stopHoldingOffHandItem(ServerLevel serverLevel, FukumameThrower p_34868_, boolean p_34869_) {
 		ItemStack itemstack = p_34868_.getItemInHand(InteractionHand.OFF_HAND);
 		p_34868_.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
 		if (p_34868_.isAdult()) {
@@ -286,7 +286,7 @@ public class FukumameThowerAi {
 		}
 	}
 
-	protected static boolean wantsToPickup(FukumameThower p_34858_, ItemStack p_34859_) {
+	protected static boolean wantsToPickup(FukumameThrower p_34858_, ItemStack p_34859_) {
 		if (p_34858_.isBaby() && p_34859_.is(ItemTags.IGNORED_BY_PIGLIN_BABIES)) {
 			return false;
 		} else if (p_34859_.is(ItemTags.PIGLIN_REPELLENTS)) {
@@ -525,7 +525,7 @@ public class FukumameThowerAi {
 	}
 
 	public static boolean isPlayerHoldingLovedItem(LivingEntity p_34884_) {
-		return p_34884_.getType() == EntityType.PLAYER && p_34884_.isHolding(FukumameThowerAi::isLovedItem);
+		return p_34884_.getType() == EntityType.PLAYER && p_34884_.isHolding(FukumameThrowerAi::isLovedItem);
 	}
 
 	private static boolean isAdmiringDisabled(Piglin p_35025_) {

@@ -84,8 +84,10 @@ public class TofuCraftReload {
 		TofuItems.ITEMS.addAlias(prefix("sculk_bone_chestplate"), prefix("tofu_diamond_chestplate"));
 		TofuItems.ITEMS.addAlias(prefix("sculk_bone_leggings"), prefix("tofu_diamond_leggings"));
 		TofuItems.ITEMS.addAlias(prefix("sculk_bone_boots"), prefix("tofu_diamond_boots"));
+		TofuItems.ITEMS.addAlias(prefix("fukumame_thower"), prefix("fukumame_thrower"));
 
 		TofuEntityTypes.ENTITIES.register(modBus);
+		TofuEntityTypes.ENTITIES.addAlias(prefix("fukumame_thower"), prefix("fukumame_thrower"));
 		TofuEnchantmentEffects.ENTITY_EFFECTS.register(modBus);
 		TofuBlockEntitys.BLOCK_ENTITIES.register(modBus);
 		TofuMenus.MENU_TYPES.register(modBus);

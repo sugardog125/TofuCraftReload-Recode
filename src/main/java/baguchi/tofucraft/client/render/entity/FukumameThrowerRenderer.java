@@ -2,9 +2,9 @@ package baguchi.tofucraft.client.render.entity;
 
 import baguchi.tofucraft.TofuCraftReload;
 import baguchi.tofucraft.client.TofuModelLayers;
-import baguchi.tofucraft.client.model.FukumameThowerModel;
-import baguchi.tofucraft.client.render.state.FukumameThowerRenderState;
-import baguchi.tofucraft.entity.FukumameThower;
+import baguchi.tofucraft.client.model.FukumameThrowerModel;
+import baguchi.tofucraft.client.render.state.FukumameThrowerRenderState;
+import baguchi.tofucraft.entity.FukumameThrower;
 import net.minecraft.client.model.HumanoidArmorModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -17,11 +17,11 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class FukumameThowerRenderer extends HumanoidMobRenderer<FukumameThower, FukumameThowerRenderState, FukumameThowerModel> {
-	private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "textures/entity/piglin_fukumame_thower.png");
+public class FukumameThrowerRenderer extends HumanoidMobRenderer<FukumameThrower, FukumameThrowerRenderState, FukumameThrowerModel> {
+	private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "textures/entity/piglin_fukumame_thrower.png");
 
-	public FukumameThowerRenderer(EntityRendererProvider.Context p_174344_) {
-		super(p_174344_, new FukumameThowerModel(p_174344_.bakeLayer(TofuModelLayers.FUKUMAME_THOWER)), 0.5F);
+	public FukumameThrowerRenderer(EntityRendererProvider.Context p_174344_) {
+		super(p_174344_, new FukumameThrowerModel(p_174344_.bakeLayer(TofuModelLayers.FUKUMAME_THROWER)), 0.5F);
 		this.addLayer(
 				new HumanoidArmorLayer(
 						this,
@@ -35,12 +35,12 @@ public class FukumameThowerRenderer extends HumanoidMobRenderer<FukumameThower, 
 	}
 
 
-	protected boolean isShaking(FukumameThowerRenderState p_115712_) {
+	protected boolean isShaking(FukumameThrowerRenderState p_115712_) {
 		return super.isShaking(p_115712_) || p_115712_.isConverting;
 	}
 
 
-	public void extractRenderState(FukumameThower p_361113_, FukumameThowerRenderState p_364996_, float p_362352_) {
+	public void extractRenderState(FukumameThrower p_361113_, FukumameThrowerRenderState p_364996_, float p_362352_) {
 		super.extractRenderState(p_361113_, p_364996_, p_362352_);
 		p_364996_.isBrute = p_361113_.getType() == EntityType.PIGLIN_BRUTE;
 		p_364996_.armPose = p_361113_.getArmPose();
@@ -50,12 +50,12 @@ public class FukumameThowerRenderer extends HumanoidMobRenderer<FukumameThower, 
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FukumameThowerRenderState p_110775_1_) {
+	public ResourceLocation getTextureLocation(FukumameThrowerRenderState p_110775_1_) {
 		return TEXTURE;
 	}
 
 	@Override
-	public FukumameThowerRenderState createRenderState() {
-		return new FukumameThowerRenderState();
+	public FukumameThrowerRenderState createRenderState() {
+		return new FukumameThrowerRenderState();
 	}
 }

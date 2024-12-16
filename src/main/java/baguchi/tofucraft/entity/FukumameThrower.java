@@ -23,12 +23,12 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.Nullable;
 
-public class FukumameThower extends Piglin {
-	private static final EntityDataAccessor<Boolean> DATA_CHARGE = SynchedEntityData.defineId(FukumameThower.class, EntityDataSerializers.BOOLEAN);
+public class FukumameThrower extends Piglin {
+	private static final EntityDataAccessor<Boolean> DATA_CHARGE = SynchedEntityData.defineId(FukumameThrower.class, EntityDataSerializers.BOOLEAN);
 
-	private static final EntityDataAccessor<Integer> DATA_FUKUMAME_COUNT = SynchedEntityData.defineId(FukumameThower.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> DATA_FUKUMAME_COUNT = SynchedEntityData.defineId(FukumameThrower.class, EntityDataSerializers.INT);
 
-	public FukumameThower(EntityType<? extends FukumameThower> p_34683_, Level p_34684_) {
+	public FukumameThrower(EntityType<? extends FukumameThrower> p_34683_, Level p_34684_) {
 		super(p_34683_, p_34684_);
 	}
 
@@ -72,14 +72,14 @@ public class FukumameThower extends Piglin {
 		return true;
 	}
 
-	protected Brain.Provider<FukumameThower> revampedBrainProvider() {
+	protected Brain.Provider<FukumameThrower> revampedBrainProvider() {
 		return Brain.provider(Piglin.MEMORY_TYPES, SENSOR_TYPES);
 	}
 
 
 	@Override
 	protected Brain<?> makeBrain(Dynamic<?> p_34723_) {
-		return FukumameThowerAi.makeBrain(this, this.revampedBrainProvider().makeBrain(p_34723_));
+		return FukumameThrowerAi.makeBrain(this, this.revampedBrainProvider().makeBrain(p_34723_));
 	}
 
 	public ItemStack addToInventory(ItemStack p_34779_) {
@@ -120,7 +120,7 @@ public class FukumameThower extends Piglin {
 		return false;
 	}
 
-	public static boolean checkFukumameSpawnRules(EntityType<? extends FukumameThower> p_219198_, LevelAccessor p_219199_, EntitySpawnReason p_219200_, BlockPos p_219201_, RandomSource p_219202_) {
+	public static boolean checkFukumameSpawnRules(EntityType<? extends FukumameThrower> p_219198_, LevelAccessor p_219199_, EntitySpawnReason p_219200_, BlockPos p_219201_, RandomSource p_219202_) {
 		return !p_219199_.getBlockState(p_219201_.below()).is(Blocks.NETHER_WART_BLOCK);
 	}
 

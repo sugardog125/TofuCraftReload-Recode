@@ -1,7 +1,7 @@
 package baguchi.tofucraft.registry;
 
 import baguchi.tofucraft.TofuCraftReload;
-import baguchi.tofucraft.entity.FukumameThower;
+import baguchi.tofucraft.entity.FukumameThrower;
 import baguchi.tofucraft.entity.ShuDofuSpider;
 import baguchi.tofucraft.entity.TofuCow;
 import baguchi.tofucraft.entity.TofuCreeper;
@@ -114,7 +114,7 @@ public class TofuEntityTypes {
 	public static final Supplier<EntityType<ShuDofuSpider>> SHUDOFUSPIDER = ENTITIES.register("shudofuspider", () -> EntityType.Builder.of(ShuDofuSpider::new, MobCategory.CREATURE)
 			.sized(3.5F, 2.9F).eyeHeight(2.0F).clientTrackingRange(10).fireImmune().build(prefix("shudofuspider")));
 
-	public static final Supplier<EntityType<FukumameThower>> FUKUMAME_THOWER = ENTITIES.register("fukumame_thower", () -> EntityType.Builder.of(FukumameThower::new, MobCategory.MONSTER).sized(0.6F, 1.85F).clientTrackingRange(8).build(prefix("fukumame_thower")));
+	public static final Supplier<EntityType<FukumameThrower>> FUKUMAME_THROWER = ENTITIES.register("fukumame_thrower", () -> EntityType.Builder.of(FukumameThrower::new, MobCategory.MONSTER).sized(0.6F, 1.85F).clientTrackingRange(8).build(prefix("fukumame_thower")));
 
 	public static final Supplier<EntityType<Boat>> LEEK_BOAT = ENTITIES.register(
 			"leek_boat",
@@ -210,7 +210,7 @@ public class TofuEntityTypes {
 		event.put(TOFU_GANDLEM.get(), TofuGandlem.createAttributes().build());
 		event.put(SHUDOFUSPIDER.get(), ShuDofuSpider.createAttributes().build());
 		event.put(NATTO_COBWEB.get(), NattoCobWebEntity.createAttributes().build());
-		event.put(FUKUMAME_THOWER.get(), FukumameThower.createAttributes().build());
+		event.put(FUKUMAME_THROWER.get(), FukumameThrower.createAttributes().build());
 	}
 
 	@SubscribeEvent
@@ -227,7 +227,7 @@ public class TofuEntityTypes {
 		event.register(TOFUFISH.get(), IN_SOYMILK, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TofuFish::checkTofuFishSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		event.register(TOFU_GANDLEM.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 
-		event.register(FUKUMAME_THOWER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FukumameThower::checkFukumameSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		event.register(FUKUMAME_THROWER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FukumameThrower::checkFukumameSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		event.register(ZUNDAMITE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 

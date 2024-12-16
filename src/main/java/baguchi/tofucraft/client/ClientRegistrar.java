@@ -2,7 +2,7 @@ package baguchi.tofucraft.client;
 
 import baguchi.tofucraft.TofuCraftReload;
 import baguchi.tofucraft.attachment.TofuLivingAttachment;
-import baguchi.tofucraft.client.model.FukumameThowerModel;
+import baguchi.tofucraft.client.model.FukumameThrowerModel;
 import baguchi.tofucraft.client.model.ShuDofuSpiderModel;
 import baguchi.tofucraft.client.model.SoyBallModel;
 import baguchi.tofucraft.client.model.TofuFishModel;
@@ -22,7 +22,7 @@ import baguchi.tofucraft.client.render.blockentity.TofuBedRenderer;
 import baguchi.tofucraft.client.render.blockentity.TofuChestRenderer;
 import baguchi.tofucraft.client.render.blockentity.TofunianStatueRender;
 import baguchi.tofucraft.client.render.entity.FallingTofuRenderer;
-import baguchi.tofucraft.client.render.entity.FukumameThowerRenderer;
+import baguchi.tofucraft.client.render.entity.FukumameThrowerRenderer;
 import baguchi.tofucraft.client.render.entity.ShuDofuSpiderRender;
 import baguchi.tofucraft.client.render.entity.SoyballRenderer;
 import baguchi.tofucraft.client.render.entity.TofuCowRender;
@@ -312,7 +312,7 @@ public class ClientRegistrar {
 		event.registerEntityRenderer(TofuEntityTypes.NATTO_COBWEB.get(), NattoCobWebRender::new);
 		event.registerEntityRenderer(TofuEntityTypes.NATTO_BALL.get(), NattoBallRender::new);
 		event.registerEntityRenderer(TofuEntityTypes.FALLING_TOFU.get(), FallingTofuRenderer::new);
-		event.registerEntityRenderer(TofuEntityTypes.FUKUMAME_THOWER.get(), FukumameThowerRenderer::new);
+		event.registerEntityRenderer(TofuEntityTypes.FUKUMAME_THROWER.get(), FukumameThrowerRenderer::new);
 		event.registerEntityRenderer(TofuEntityTypes.ZUNDAMITE.get(), ZundamiteRender::new);
 		event.registerEntityRenderer(TofuEntityTypes.LEEK_BOAT.get(), p_375462_ -> new BoatRenderer(p_375462_, TofuModelLayers.LEEK_BOAT));
 		event.registerEntityRenderer(TofuEntityTypes.LEEK_GREEN_BOAT.get(), p_375462_ -> new BoatRenderer(p_375462_, TofuModelLayers.LEEK_GREEN_BOAT));
@@ -337,7 +337,7 @@ public class ClientRegistrar {
 		event.registerLayerDefinition(TofuModelLayers.TOFU_GOLEM, TofuGolemModel::createBodyLayer);
 		event.registerLayerDefinition(TofuModelLayers.TOFU_GANDLEM, TofuGandlemModel::createBodyLayer);
 		event.registerLayerDefinition(TofuModelLayers.SHUDOFUSPIDER, ShuDofuSpiderModel::createBodyLayer);
-		event.registerLayerDefinition(TofuModelLayers.FUKUMAME_THOWER, FukumameThowerModel::createBodyLayer);
+		event.registerLayerDefinition(TofuModelLayers.FUKUMAME_THROWER, FukumameThrowerModel::createBodyLayer);
 		event.registerLayerDefinition(TofuModelLayers.SOYBALL, SoyBallModel::createBodyLayer);
 		event.registerLayerDefinition(TofuModelLayers.TOFU_STEM_BOAT, BoatModel::createBoatModel);
 		event.registerLayerDefinition(TofuModelLayers.LEEK_BOAT, BoatModel::createBoatModel);

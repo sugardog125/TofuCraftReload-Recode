@@ -1,6 +1,6 @@
 package baguchi.tofucraft.entity.behaviors;
 
-import baguchi.tofucraft.entity.FukumameThower;
+import baguchi.tofucraft.entity.FukumameThrower;
 import baguchi.tofucraft.entity.projectile.NetherFukumameEntity;
 import baguchi.tofucraft.registry.TofuEntityTypes;
 import com.google.common.collect.ImmutableMap;
@@ -17,7 +17,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 
-public class ThrowFukumame<E extends FukumameThower> extends Behavior<E> {
+public class ThrowFukumame<E extends FukumameThrower> extends Behavior<E> {
 	protected int ticks;
 
 	public ThrowFukumame() {
