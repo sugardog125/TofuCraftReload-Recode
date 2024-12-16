@@ -28,7 +28,7 @@
         "model": "tofucraft:item/zunda_bow_pulling_0"
       },
       "property": "minecraft:use_duration",
-      "scale": 0.025
+      "scale": 0.1
     },
     "property": "minecraft:using_item"
   }

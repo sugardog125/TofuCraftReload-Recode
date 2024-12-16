@@ -29,7 +29,7 @@ public class TofuClientItemsProvider implements DataProvider {
 
 	private static void bootstrap(BiConsumer<ResourceLocation, ClientItem> p_387865_) {
 		TofuItems.ITEMS.getEntries().forEach(p_388426_ -> {
-			if (!(p_388426_.value() instanceof SpawnEggItem) && !p_388426_.is(TofuItems.ZUNDA_BOW.getId()) && !p_388426_.is(TofuBlocks.TOFUCHEST.getId()) && !p_388426_.is(TofuBlocks.TOFUBED.getId()) && !p_388426_.is(TofuBlocks.TOFUNIAN_STATUE.getId())) {
+			if (!(p_388426_.value() instanceof SpawnEggItem) && !p_388426_.is(TofuItems.ZUNDA_BOW.getId()) && !p_388426_.is(TofuBlocks.TOFUCHEST.getId()) && !p_388426_.is(TofuBlocks.TOFUBED.getId()) && !p_388426_.is(TofuBlocks.TOFUNIAN_STATUE.getId()) && !p_388426_.is(TofuItems.TOFU_SHIELD.getId())) {
 				ResourceLocation resourcelocation = ModelLocationUtils.getModelLocation(p_388426_.value());
 				p_387865_.accept(getLocation(p_388426_.value()), new ClientItem(ItemModelUtils.plainModel(resourcelocation), ClientItem.Properties.DEFAULT));
 			}

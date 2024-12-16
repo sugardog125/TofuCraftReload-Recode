@@ -53,6 +53,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BannerPatternItem;
 import net.minecraft.world.item.BoatItem;
@@ -330,7 +331,8 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> TOFU_DIAMOND_LEGGINGS = ITEMS.registerItem("tofu_diamond_leggings", (properties) -> new TofuArmorItem(TofuArmorMaterials.DIAMOND, ArmorType.LEGGINGS, (properties.stacksTo(1).rarity(Rarity.UNCOMMON))));
 	public static final DeferredHolder<Item, Item> TOFU_DIAMOND_BOOTS = ITEMS.registerItem("tofu_diamond_boots", (properties) -> new TofuArmorItem(TofuArmorMaterials.DIAMOND, ArmorType.BOOTS, (properties.stacksTo(1).rarity(Rarity.UNCOMMON))));
 
-	public static final DeferredHolder<Item, Item> TOFU_SHIELD = ITEMS.registerItem("tofu_shield", (properties) -> new TofuShieldItem((properties).stacksTo(1).durability(420)));
+	public static final DeferredHolder<Item, Item> TOFU_SHIELD = ITEMS.registerItem("tofu_shield", (properties) -> new TofuShieldItem((properties).stacksTo(1).durability(420).repairable(TofuTags.Items.TOFU_METAL_TOOL_MATERIAL)
+			.equippableUnswappable(EquipmentSlot.OFFHAND)));
 
 	public static final DeferredHolder<Item, Item> ROLLINGPIN = ITEMS.registerItem("rollingpin", (properties) -> new RollingPinItem((properties)));
 

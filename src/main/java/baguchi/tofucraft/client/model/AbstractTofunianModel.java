@@ -13,8 +13,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 
 public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extends EntityModel<T> implements ArmedModel, HeadedModel, IArmor {
-	public final ModelPart realRoot;
-	public final ModelPart root;
 	public final ModelPart head;
 	public final ModelPart hat;
 	public final ModelPart body;
@@ -22,18 +20,18 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 	public final ModelPart rightLeg;
 	public final ModelPart rightArm;
 	public final ModelPart leftArm;
+	private final ModelPart roots;
 
 	public AbstractTofunianModel(ModelPart p_170688_) {
 		super(p_170688_);
-		this.realRoot = p_170688_;
-		this.root = p_170688_.getChild("root");
-		this.head = this.root.getChild("head");
+		this.roots = p_170688_.getChild("roots");
+		this.head = this.roots.getChild("head");
 		this.hat = this.head.getChild("hat");
-		this.body = this.root.getChild("body");
-		this.leftLeg = this.root.getChild("left_leg");
-		this.rightLeg = this.root.getChild("right_leg");
-		this.leftArm = this.root.getChild("left_arm");
-		this.rightArm = this.root.getChild("right_arm");
+		this.body = this.roots.getChild("body");
+		this.leftLeg = this.roots.getChild("left_leg");
+		this.rightLeg = this.roots.getChild("right_leg");
+		this.leftArm = this.roots.getChild("left_arm");
+		this.rightArm = this.roots.getChild("right_arm");
 	}
 
 	@Override
@@ -105,12 +103,15 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 
 	@Override
 	public void translateToHead(ModelPart modelPart, PoseStack poseStack) {
+		poseStack.translate(0, (24F / 16F), 0);
 		this.root.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
 	}
 
 	@Override
 	public void translateToChest(ModelPart modelPart, PoseStack poseStack) {
+
+		poseStack.translate(0, (24F / 16F), 0);
 		this.root.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
 		poseStack.scale(0.75F, 0.75F, 0.75F);
@@ -118,16 +119,32 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 
 	@Override
 	public void translateToLeg(ModelPart modelPart, PoseStack poseStack) {
+		if (this.rightLeg == modelPart) {
+			poseStack.translate(1 / 16F, 0F, 0);
+		}
+		if (this.leftLeg == modelPart) {
+			poseStack.translate(-1 / 16F, 0F, 0);
+		}
+		poseStack.translate(0, (18F / 16F), 0);
 		this.root.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
+
 		poseStack.scale(0.5F, 0.5F, 0.5F);
 	}
 
 	@Override
 	public void translateToChestPat(ModelPart modelPart, PoseStack poseStack) {
+		if (this.rightArm == modelPart) {
+			poseStack.translate(1 / 16F, 0F, 0);
+		}
+		if (this.leftArm == modelPart) {
+			poseStack.translate(-1 / 16F, 0F, 0);
+		}
+		poseStack.translate(0, (24F / 16F), 0);
 		this.root.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
-		poseStack.scale(0.75F, 0.75F, 0.75F);
+
+		poseStack.scale(0.5F, 0.5F, 0.5F);
 	}
 
 	@Override
