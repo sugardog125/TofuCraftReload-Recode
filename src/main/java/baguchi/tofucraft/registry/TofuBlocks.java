@@ -242,51 +242,50 @@ public class TofuBlocks {
 	public static final DeferredBlock<Block> WALLTOFUTORCH_SOUL = noItemRegisterWithEmpty("walltofutorch_soul", (properties) -> new WallTorchBlock(ParticleTypes.SOUL_FIRE_FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
 
-	public static final DeferredBlock<Block> TOFU_METAL_CHAIN = register("tofu_metal_chain", (properties) -> new ChainBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)
-			.sound(SoundType.CHAIN));
-	public static final DeferredBlock<Block> TOFU_METAL_LANTERN = register("tofu_metal_lantern", (properties) -> new LanternBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(state -> 15)
-			.sound(SoundType.LANTERN));
-	public static final DeferredBlock<Block> TOFU_METAL_SOUL_LANTERN = register("tofu_metal_soul_lantern", (properties) -> new LanternBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_LANTERN).lightLevel(state -> 10)
-			.sound(SoundType.LANTERN));
+	public static final DeferredBlock<Block> TOFU_METAL_CHAIN = register("tofu_metal_chain", (properties) -> new ChainBlock(properties.strength(5.0F, 6.0F).noOcclusion().sound(SoundType.CHAIN)));
+	public static final DeferredBlock<Block> TOFU_METAL_LANTERN = register("tofu_metal_lantern", (properties) -> new LanternBlock(properties.strength(5.0F, 6.0F).noOcclusion().sound(SoundType.LANTERN).lightLevel(state -> 15)
+			.sound(SoundType.LANTERN)));
+	public static final DeferredBlock<Block> TOFU_METAL_SOUL_LANTERN = register("tofu_metal_soul_lantern", (properties) -> new LanternBlock(properties.strength(5.0F, 6.0F).noOcclusion().sound(SoundType.LANTERN).lightLevel(state -> 10)
+			.sound(SoundType.LANTERN)));
 
-	public static final DeferredBlock<Block> TOFULADDER_KINU = register("tofuladder_kinu", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(0.1F, 0.2F).noOcclusion());
-	public static final DeferredBlock<Block> TOFULADDER_MOMEN = register("tofuladder_momen", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(0.3F, 0.5F).noOcclusion());
-	public static final DeferredBlock<Block> TOFULADDER_ISHI = register("tofuladder_ishi", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(1.5F, 6.0F).noOcclusion());
-	public static final DeferredBlock<Block> TOFULADDER_METAL = register("tofuladder_metal", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(5.0F, 6.0F).noOcclusion());
+	public static final DeferredBlock<Block> TOFULADDER_KINU = register("tofuladder_kinu", (properties) -> new LadderBlock(properties.strength(0.1F, 0.2F).noOcclusion()));
+	public static final DeferredBlock<Block> TOFULADDER_MOMEN = register("tofuladder_momen", (properties) -> new LadderBlock(properties.strength(0.3F, 0.5F).noOcclusion()));
+	public static final DeferredBlock<Block> TOFULADDER_ISHI = register("tofuladder_ishi", (properties) -> new LadderBlock(properties.strength(1.5F, 6.0F).noOcclusion()));
+	public static final DeferredBlock<Block> TOFULADDER_METAL = register("tofuladder_metal", (properties) -> new LadderBlock(properties.strength(5.0F, 6.0F).noOcclusion()));
 
-	public static final DeferredBlock<Block> TOFULADDER_GRILLED = register("tofuladder_grilled", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(0.3F, 0.5F).noOcclusion());
-	public static final DeferredBlock<Block> TOFULADDER_ZUNDA = register("tofuladder_zunda", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(0.3F, 0.5F).noOcclusion());
-	public static final DeferredBlock<Block> TOFULADDER_HELL = register("tofuladder_hell", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(0.3F, 0.5F).noOcclusion());
-	public static final DeferredBlock<Block> TOFULADDER_SOUL = register("tofuladder_soul", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(0.3F, 0.5F).noOcclusion());
+	public static final DeferredBlock<Block> TOFULADDER_GRILLED = register("tofuladder_grilled", (properties) -> new LadderBlock(properties.strength(0.3F, 0.5F).noOcclusion()));
+	public static final DeferredBlock<Block> TOFULADDER_ZUNDA = register("tofuladder_zunda", (properties) -> new LadderBlock(properties.strength(0.3F, 0.5F).noOcclusion()));
+	public static final DeferredBlock<Block> TOFULADDER_HELL = register("tofuladder_hell", (properties) -> new LadderBlock(properties.strength(0.3F, 0.5F).noOcclusion()));
+	public static final DeferredBlock<Block> TOFULADDER_SOUL = register("tofuladder_soul", (properties) -> new LadderBlock(properties.strength(0.3F, 0.5F).noOcclusion()));
 
-	public static final DeferredBlock<Block> TOFULADDER_ISHIBRICK = register("tofuladder_ishibrick", (properties) -> new LadderBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).strength(1.5F, 6.0F).noOcclusion());
+	public static final DeferredBlock<Block> TOFULADDER_ISHIBRICK = register("tofuladder_ishibrick", (properties) -> new LadderBlock(properties.strength(1.5F, 6.0F).noOcclusion()));
 	public static final DeferredBlock<WallBlock> TOFUFENCE_KINU = register("tofufence_kinu", (properties) -> new WallBlock(properties.strength(0.1F, 0.2F).sound(SoundType.SNOW).noOcclusion()));
 	public static final DeferredBlock<WallBlock> TOFUFENCE_MOMEN = register("tofufence_momen", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion()));
-	public static final DeferredBlock<WallBlock> TOFUFENCE_ISHI = register("tofufence_ishi", (properties) -> new WallBlock(properties.requiresCorrectToolForDrops().strength(1.5F, 6.0F).sound(SoundType.STONE).noOcclusion()));
-	public static final DeferredBlock<WallBlock> TOFUFENCE_METAL = register("tofufence_metal", (properties) -> new WallBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion());
-	public static final DeferredBlock<WallBlock> TOFUFENCE_HELL = register("tofufence_hell", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW)), BlockBehaviour.Properties.of().noOcclusion());
-	public static final DeferredBlock<WallBlock> TOFUFENCE_SOUL = register("tofufence_soul", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW)), BlockBehaviour.Properties.of().noOcclusion());
-	public static final DeferredBlock<WallBlock> TOFUFENCE_GRILLED = register("tofufence_grilled", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW)), BlockBehaviour.Properties.of().noOcclusion());
-	public static final DeferredBlock<WallBlock> TOFUFENCE_ZUNDA = register("tofufence_zunda", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW)), BlockBehaviour.Properties.of().noOcclusion());
+	public static final DeferredBlock<WallBlock> TOFUFENCE_ISHI = register("tofufence_ishi", (properties) -> new WallBlock(properties.requiresCorrectToolForDrops().strength(1.5F, 6.0F).sound(SoundType.STONE).requiresCorrectToolForDrops().noOcclusion()));
+	public static final DeferredBlock<WallBlock> TOFUFENCE_METAL = register("tofufence_metal", (properties) -> new WallBlock(properties.strength(5.0F, 6.0F).noOcclusion().requiresCorrectToolForDrops()));
+	public static final DeferredBlock<WallBlock> TOFUFENCE_HELL = register("tofufence_hell", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion()));
+	public static final DeferredBlock<WallBlock> TOFUFENCE_SOUL = register("tofufence_soul", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion()));
+	public static final DeferredBlock<WallBlock> TOFUFENCE_GRILLED = register("tofufence_grilled", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion()));
+	public static final DeferredBlock<WallBlock> TOFUFENCE_ZUNDA = register("tofufence_zunda", (properties) -> new WallBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion()));
 
 
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_KINU = register("tofudoor_kinu", (properties) -> new TofuDoorBlock(properties.strength(0.2F, 0.4F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_MOMEN = register("tofudoor_momen", (properties) -> new TofuDoorBlock(properties.strength(0.5F, 1.0F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_ISHI = register("tofudoor_ishi", (properties) -> new TofuDoorBlock(properties.requiresCorrectToolForDrops().strength(1.5F, 6.0F).sound(SoundType.STONE).noOcclusion(), BlockSetType.OAK));
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_METAL = register("tofudoor_metal", (properties) -> new TofuDoorBlock(properties, BlockSetType.IRON), BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion());
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_HELL = register("tofudoor_hell", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion());
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_SOUL = register("tofudoor_soul", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion());
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_GRILLED = register("tofudoor_grilled", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion());
-	public static final DeferredBlock<DoorBlock> TOFUDOOR_ZUNDA = register("tofudoor_zunda", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion());
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_KINU = register("tofudoor_kinu", (properties) -> new TofuDoorBlock(properties.noOcclusion().strength(0.2F, 0.4F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_MOMEN = register("tofudoor_momen", (properties) -> new TofuDoorBlock(properties.noOcclusion().strength(0.5F, 1.0F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_ISHI = register("tofudoor_ishi", (properties) -> new TofuDoorBlock(properties.noOcclusion().strength(1.5F, 6.0F).sound(SoundType.STONE).noOcclusion(), BlockSetType.OAK));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_METAL = register("tofudoor_metal", (properties) -> new TofuDoorBlock(properties.strength(5.0F, 6.0F).noOcclusion(), BlockSetType.IRON));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_HELL = register("tofudoor_hell", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_SOUL = register("tofudoor_soul", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_GRILLED = register("tofudoor_grilled", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
+	public static final DeferredBlock<DoorBlock> TOFUDOOR_ZUNDA = register("tofudoor_zunda", (properties) -> new TofuDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion(), BlockSetType.OAK));
 
 	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_KINU = register("tofutrapdoor_kinu", (properties) -> new TofuTrapDoorBlock(properties.strength(0.2F, 0.4F).sound(SoundType.SNOW).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
 	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_MOMEN = register("tofutrapdoor_momen", (properties) -> new TofuTrapDoorBlock(properties.strength(0.5F, 1.0F).sound(SoundType.SNOW).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
 	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_ISHI = register("tofutrapdoor_ishi", (properties) -> new TofuTrapDoorBlock(properties.requiresCorrectToolForDrops().strength(1.5F, 6.0F).sound(SoundType.STONE).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
-	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_METAL = register("tofutrapdoor_metal", (properties) -> new TofuTrapDoorBlock(properties, BlockSetType.IRON), BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
-	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_HELL = register("tofutrapdoor_hell", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
-	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_SOUL = register("tofutrapdoor_soul", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
-	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_GRILLED = register("tofutrapdoor_grilled", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
-	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_ZUNDA = register("tofutrapdoor_zunda", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW), BlockSetType.OAK), BlockBehaviour.Properties.of().noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
+	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_METAL = register("tofutrapdoor_metal", (properties) -> new TofuTrapDoorBlock(properties.noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false).sound(SoundType.METAL), BlockSetType.IRON));
+	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_HELL = register("tofutrapdoor_hell", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
+	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_SOUL = register("tofutrapdoor_soul", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
+	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_GRILLED = register("tofutrapdoor_grilled", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
+	public static final DeferredBlock<TrapDoorBlock> TOFUTRAPDOOR_ZUNDA = register("tofutrapdoor_zunda", (properties) -> new TofuTrapDoorBlock(properties.strength(0.35F, 0.5F).sound(SoundType.SNOW).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false), BlockSetType.OAK));
 
 	public static final DeferredBlock<Block> TOFU_TERRAIN = register("tofu_terrain", (properties) -> new TofuTerrainBlock(properties.strength(0.4F, 0.5F).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.SNOW)));
 	public static final DeferredBlock<Block> MABOU_TERRAIN = register("mabou_terrain", (properties) -> new TofuMagmaBlock(properties.mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASEDRUM)
@@ -312,60 +311,60 @@ public class TofuBlocks {
 
 	public static final DeferredBlock<Block> LEEK = register("blockleek", (properties) -> new LeekBlock(properties.instabreak().noOcclusion().noCollission().sound(SoundType.GRASS)));
 
-	public static final DeferredBlock<Block> SAPLING_APRICOT = register("sapling_apricot", (properties) -> new ApricotSaplingBlock(TofuTreeGrowers.APRICOT_TREE, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+	public static final DeferredBlock<Block> SAPLING_APRICOT = register("sapling_apricot", (properties) -> new ApricotSaplingBlock(TofuTreeGrowers.APRICOT_TREE, properties.instabreak()));
 	public static final DeferredBlock<Block> LEAVES_APRICOT = register("leaves_apricot", (properties) -> new ApricotLeavesBlock(properties.strength(0.2F).noOcclusion().isSuffocating((state, getter, pos) -> false).randomTicks().sound(SoundType.GRASS)));
 
 	public static final DeferredBlock<RotatedPillarBlock> LEEK_GREEN_STEM = register("leek_green_stem", (properties) -> new BurnableRotatedPillarBlock(properties.strength(2.0F, 3.0F).sound(SoundType.STEM)));
 
 	public static final DeferredBlock<Block> LEEK_GREEN_PLANKS = register("leek_green_planks", (properties) -> new Block(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
-	public static final DeferredBlock<StairBlock> LEEK_GREEN_PLANKS_STAIR = register("leek_green_planks_stair", (properties) -> new DeferredStairBlock(LEEK_GREEN_PLANKS, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.NETHER_WOOD));
-	public static final DeferredBlock<SlabBlock> LEEK_GREEN_PLANKS_SLAB = register("leek_green_planks_slab", (properties) -> new SlabBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.NETHER_WOOD));
+	public static final DeferredBlock<StairBlock> LEEK_GREEN_PLANKS_STAIR = register("leek_green_planks_stair", (properties) -> new DeferredStairBlock(LEEK_GREEN_PLANKS, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<SlabBlock> LEEK_GREEN_PLANKS_SLAB = register("leek_green_planks_slab", (properties) -> new SlabBlock(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<FenceBlock> LEEK_GREEN_FENCE = register("leek_green_fence", (properties) -> new FenceBlock(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<FenceGateBlock> LEEK_GREEN_FENCE_GATE = register("leek_green_fence_gate", (properties) -> new FenceGateBlock(TofuWoodTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F)));
-	public static final DeferredBlock<StandingSignBlock> LEEK_GREEN_SIGN = register("leek_green_sign", (properties) -> new StandingSignBlock(TofuWoodTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SIGN));
-	public static final DeferredBlock<WallSignBlock> LEEK_GREEN_WALL_SIGN = noItemRegister("leek_green_wall_sign", (properties) -> new WallSignBlock(TofuWoodTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_SIGN));
-	public static final DeferredBlock<CeilingHangingSignBlock> LEEK_GREEN_HANGING_SIGN = register("leek_green_hanging_sign", (properties) -> new CeilingHangingSignBlock(TofuWoodTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_HANGING_SIGN));
+	public static final DeferredBlock<StandingSignBlock> LEEK_GREEN_SIGN = register("leek_green_sign", (properties) -> new StandingSignBlock(TofuWoodTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<WallSignBlock> LEEK_GREEN_WALL_SIGN = noItemRegister("leek_green_wall_sign", (properties) -> new WallSignBlock(TofuWoodTypes.LEEK_GREEN, properties.sound(SoundType.NETHER_WOOD)), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_SIGN));
+	public static final DeferredBlock<CeilingHangingSignBlock> LEEK_GREEN_HANGING_SIGN = register("leek_green_hanging_sign", (properties) -> new CeilingHangingSignBlock(TofuWoodTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<WallHangingSignBlock> LEEK_GREEN_WALL_HANGING_SIGN = noItemRegister("leek_green_wall_hanging_sign", (properties) -> new WallHangingSignBlock(TofuWoodTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_HANGING_SIGN));
-	public static final DeferredBlock<DoorBlock> LEEK_GREEN_DOOR = register("leek_green_door", (properties) -> new DoorBlock(TofuBlockSetTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.NETHER_WOOD).noOcclusion());
-	public static final DeferredBlock<TrapDoorBlock> LEEK_GREEN_TRAPDOOR = register("leek_green_trapdoor", (properties) -> new TrapDoorBlock(TofuBlockSetTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.NETHER_WOOD).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
-	public static final DeferredBlock<ButtonBlock> LEEK_GREEN_BUTTON = register("leek_green_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.LEEK_GREEN, 30, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_BUTTON));
-	public static final DeferredBlock<PressurePlateBlock> LEEK_GREEN_PRESSURE_PLATE = register("leek_green_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PRESSURE_PLATE));
+	public static final DeferredBlock<DoorBlock> LEEK_GREEN_DOOR = register("leek_green_door", (properties) -> new DoorBlock(TofuBlockSetTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F).noOcclusion().strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<TrapDoorBlock> LEEK_GREEN_TRAPDOOR = register("leek_green_trapdoor", (properties) -> new TrapDoorBlock(TofuBlockSetTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false)));
+	public static final DeferredBlock<ButtonBlock> LEEK_GREEN_BUTTON = register("leek_green_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.LEEK_GREEN, 30, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<PressurePlateBlock> LEEK_GREEN_PRESSURE_PLATE = register("leek_green_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 
 
 	public static final DeferredBlock<RotatedPillarBlock> LEEK_STEM = register("leek_stem", (properties) -> new BurnableRotatedPillarBlock(properties.strength(2.0F, 3.0F).sound(SoundType.STEM)));
 
 	public static final DeferredBlock<Block> LEEK_PLANKS = register("leek_planks", (properties) -> new Block(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
-	public static final DeferredBlock<StairBlock> LEEK_PLANKS_STAIR = register("leek_planks_stair", (properties) -> new DeferredStairBlock(LEEK_PLANKS, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS));
-	public static final DeferredBlock<SlabBlock> LEEK_PLANKS_SLAB = register("leek_planks_slab", (properties) -> new SlabBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB));
-	public static final DeferredBlock<FenceBlock> LEEK_FENCE = register("leek_fence", (properties) -> new FenceBlock(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
-	public static final DeferredBlock<FenceGateBlock> LEEK_FENCE_GATE = register("leek_fence_gate", (properties) -> new FenceGateBlock(TofuWoodTypes.LEEK, properties.strength(2.0F, 3.0F)));
-	public static final DeferredBlock<StandingSignBlock> LEEK_SIGN = register("leek_sign", (properties) -> new StandingSignBlock(TofuWoodTypes.LEEK, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SIGN));
+	public static final DeferredBlock<StairBlock> LEEK_PLANKS_STAIR = register("leek_planks_stair", (properties) -> new DeferredStairBlock(LEEK_PLANKS, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<SlabBlock> LEEK_PLANKS_SLAB = register("leek_planks_slab", (properties) -> new SlabBlock(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<FenceBlock> LEEK_FENCE = register("leek_fence", (properties) -> new FenceBlock(properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<FenceGateBlock> LEEK_FENCE_GATE = register("leek_fence_gate", (properties) -> new FenceGateBlock(TofuWoodTypes.LEEK, properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<StandingSignBlock> LEEK_SIGN = register("leek_sign", (properties) -> new StandingSignBlock(TofuWoodTypes.LEEK, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<WallSignBlock> LEEK_WALL_SIGN = noItemRegister("leek_wall_sign", (properties) -> new WallSignBlock(TofuWoodTypes.LEEK, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_SIGN));
-	public static final DeferredBlock<CeilingHangingSignBlock> LEEK_HANGING_SIGN = register("leek_hanging_sign", (properties) -> new CeilingHangingSignBlock(TofuWoodTypes.LEEK, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_HANGING_SIGN));
+	public static final DeferredBlock<CeilingHangingSignBlock> LEEK_HANGING_SIGN = register("leek_hanging_sign", (properties) -> new CeilingHangingSignBlock(TofuWoodTypes.LEEK, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<WallHangingSignBlock> LEEK_WALL_HANGING_SIGN = noItemRegister("leek_wall_hanging_sign", (properties) -> new WallHangingSignBlock(TofuWoodTypes.LEEK, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_HANGING_SIGN));
-	public static final DeferredBlock<ButtonBlock> LEEK_BUTTON = register("leek_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.LEEK, 30, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_BUTTON));
-	public static final DeferredBlock<PressurePlateBlock> LEEK_PRESSURE_PLATE = register("leek_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.LEEK_GREEN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PRESSURE_PLATE));
+	public static final DeferredBlock<ButtonBlock> LEEK_BUTTON = register("leek_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.LEEK, 30, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<PressurePlateBlock> LEEK_PRESSURE_PLATE = register("leek_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.LEEK_GREEN, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 
 
 	public static final DeferredBlock<Block> ZUNDATOFU_MUSHROOM = register("zundatofu_mushroom", (properties) -> new TofuMushroomBlock(TofuTreeGrowers.ZUNDA_MUSHROOM, properties.instabreak().noCollission().sound(SoundType.FUNGUS)));
 
 
 	public static final DeferredBlock<RotatedPillarBlock> TOFU_STEM = register("tofustem", (properties) -> new BurnableRotatedPillarBlock(properties.strength(2.0F, 3.0F).sound(SoundType.STEM)));
-	public static final DeferredBlock<Block> TOFU_STEM_PLANKS = register("tofustem_planks", (properties) -> new Block(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
-	public static final DeferredBlock<StairBlock> TOFU_STEM_PLANKS_STAIR = register("tofustem_planks_stair", (properties) -> new DeferredStairBlock(TOFU_STEM_PLANKS, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_STAIRS));
-	public static final DeferredBlock<SlabBlock> TOFU_STEM_PLANKS_SLAB = register("tofustem_planks_slab", (properties) -> new SlabBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB));
-	public static final DeferredBlock<FenceBlock> TOFU_STEM_FENCE = register("tofustem_fence", (properties) -> new FenceBlock(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
-	public static final DeferredBlock<FenceGateBlock> TOFU_STEM_FENCE_GATE = register("tofustem_fence_gate", (properties) -> new FenceGateBlock(TofuWoodTypes.TOFU_STEM, properties.strength(2.0F, 3.0F)));
+	public static final DeferredBlock<Block> TOFU_STEM_PLANKS = register("tofustem_planks", (properties) -> new Block(properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<StairBlock> TOFU_STEM_PLANKS_STAIR = register("tofustem_planks_stair", (properties) -> new DeferredStairBlock(TOFU_STEM_PLANKS, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<SlabBlock> TOFU_STEM_PLANKS_SLAB = register("tofustem_planks_slab", (properties) -> new SlabBlock(properties.strength(2.0F, 3.0F).sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<FenceBlock> TOFU_STEM_FENCE = register("tofustem_fence", (properties) -> new FenceBlock(properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<FenceGateBlock> TOFU_STEM_FENCE_GATE = register("tofustem_fence_gate", (properties) -> new FenceGateBlock(TofuWoodTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 
 
-	public static final DeferredBlock<StandingSignBlock> TOFU_STEM_SIGN = register("tofustem_sign", (properties) -> new StandingSignBlock(TofuWoodTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SIGN));
+	public static final DeferredBlock<StandingSignBlock> TOFU_STEM_SIGN = register("tofustem_sign", (properties) -> new StandingSignBlock(TofuWoodTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<WallSignBlock> TOFU_STEM_WALL_SIGN = noItemRegister("tofustem_wall_sign", (properties) -> new WallSignBlock(TofuWoodTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_SIGN));
-	public static final DeferredBlock<CeilingHangingSignBlock> TOFU_STEM_HANGING_SIGN = register("tofustem_hanging_sign", (properties) -> new CeilingHangingSignBlock(TofuWoodTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_HANGING_SIGN));
-	public static final DeferredBlock<WallHangingSignBlock> TOFU_STEM_WALL_HANGING_SIGN = noItemRegister("tofustem_wall_hanging_sign", (properties) -> new WallHangingSignBlock(TofuWoodTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_HANGING_SIGN));
-	public static final DeferredBlock<DoorBlock> TOFU_STEM_DOOR = register("tofustem_door", (properties) -> new DoorBlock(TofuBlockSetTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_DOOR).noOcclusion());
-	public static final DeferredBlock<TrapDoorBlock> TOFU_STEM_TRAPDOOR = register("tofustem_trapdoor", (properties) -> new TrapDoorBlock(TofuBlockSetTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_TRAPDOOR).noOcclusion().isValidSpawn((state, blockGetter, blockPos, entityType) -> false));
-	public static final DeferredBlock<ButtonBlock> TOFU_STEM_BUTTON = register("tofustem_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.TOFU_STEM, 30, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_BUTTON));
-	public static final DeferredBlock<PressurePlateBlock> TOFU_STEM_PRESSURE_PLATE = register("tofustem_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.TOFU_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PRESSURE_PLATE));
+	public static final DeferredBlock<CeilingHangingSignBlock> TOFU_STEM_HANGING_SIGN = register("tofustem_hanging_sign", (properties) -> new CeilingHangingSignBlock(TofuWoodTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<WallHangingSignBlock> TOFU_STEM_WALL_HANGING_SIGN = noItemRegister("tofustem_wall_hanging_sign", (properties) -> new WallHangingSignBlock(TofuWoodTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion()), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_WALL_HANGING_SIGN));
+	public static final DeferredBlock<DoorBlock> TOFU_STEM_DOOR = register("tofustem_door", (properties) -> new DoorBlock(TofuBlockSetTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<TrapDoorBlock> TOFU_STEM_TRAPDOOR = register("tofustem_trapdoor", (properties) -> new TrapDoorBlock(TofuBlockSetTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion().noOcclusion().sound(SoundType.NETHER_WOOD).isValidSpawn((state, blockGetter, blockPos, entityType) -> false)));
+	public static final DeferredBlock<ButtonBlock> TOFU_STEM_BUTTON = register("tofustem_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.TOFU_STEM, 30, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
+	public static final DeferredBlock<PressurePlateBlock> TOFU_STEM_PRESSURE_PLATE = register("tofustem_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion()));
 
 	public static final DeferredBlock<TofuPortalBlock> TOFU_PORTAL = noItemRegisterWithEmpty("tofuportal", (properties) -> new TofuPortalBlock(properties.strength(-1.0F).noCollission().noLootTable().sound(SoundType.GLASS).lightLevel((p_50872_) -> {
 		return 11;
@@ -495,7 +494,7 @@ public class TofuBlocks {
 	public static final DeferredBlock<FlowerPotBlock> POTTED_ZUNDA_TOFU_MUSHROOM = noItemRegister("potted_zunda_tofu_mushroom", (properties) -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZUNDATOFU_MUSHROOM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT));
 	public static final DeferredBlock<FlowerPotBlock> POTTED_APRICOT_SAPLING = noItemRegister("potted_apricot_sapling", (properties) -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SAPLING_APRICOT, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT));
 
-	public static final DeferredBlock<Block> TOFU_DETECTOR = register("tofu_detector", (properties) -> new TofuDetectorBlock(properties), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).requiresCorrectToolForDrops().isRedstoneConductor(TofuBlocks::never));
+	public static final DeferredBlock<Block> TOFU_DETECTOR = register("tofu_detector", (properties) -> new TofuDetectorBlock(properties.strength(5.0F, 6.0F).requiresCorrectToolForDrops().isRedstoneConductor(TofuBlocks::never)));
 	public static final DeferredBlock<Block> TF_STORAGE = register("tf_storage", (properties) -> new TFStorageBlock(properties.requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL).noOcclusion().lightLevel((p_50872_) -> {
 		return p_50872_.getValue(TFStorageBlock.LIT) ? 13 : 0;
 	})));
@@ -530,12 +529,6 @@ public class TofuBlocks {
 	}
 
 	private static <B extends Block> DeferredBlock<B> register(String name, Function<BlockBehaviour.Properties, ? extends B> block) {
-		DeferredBlock<B> bDeferredBlock = noItemRegister(name, block, BlockBehaviour.Properties.of());
-		TofuBlocks.registerBlockItem(name, bDeferredBlock);
-		return bDeferredBlock;
-	}
-
-	private static <B extends Block> DeferredBlock<B> register(String name, Function<BlockBehaviour.Properties, ? extends B> block, BlockBehaviour.Properties p_368547_) {
 		DeferredBlock<B> bDeferredBlock = noItemRegister(name, block, BlockBehaviour.Properties.of());
 		TofuBlocks.registerBlockItem(name, bDeferredBlock);
 		return bDeferredBlock;
