@@ -247,6 +247,7 @@ public class TofuCreativeModeTabs {
 						TofuBlocks.CHIKUWA_BLOCK,
 						TofuBlocks.TOFUBED,
 						TofuBlocks.TOFUCHEST,
+						TofuBlocks.TOFUNIAN_STATUE,
 						TofuBlocks.FOODPLATE,
 						TofuBlocks.ZUNDAMA_BLOCK,
 						TofuBlocks.SPROUTSJAR,

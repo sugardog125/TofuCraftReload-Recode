@@ -277,7 +277,7 @@ public class ClientRegistrar {
 	@SubscribeEvent
 	public static void specialModelRender(RegisterSpecialModelRendererEvent event) {
 		event.register(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "tofu_shield"), TofuShieldSpecialRenderer.Unbaked.MAP_CODEC);
-		event.register(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "tofu_statue"), TofunianStatueSpecialRenderer.Unbaked.MAP_CODEC);
+		event.register(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "tofunian_statue"), TofunianStatueSpecialRenderer.Unbaked.MAP_CODEC);
 	}
 
 

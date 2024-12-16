@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "tofucraft:item/tofunian_statue",
+    "model": {
+      "type": "tofucraft:tofunian_statue"
+    }
+  }
+}

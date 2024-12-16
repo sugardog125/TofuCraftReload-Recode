@@ -1,10 +1,10 @@
 {
   "model": {
     "type": "minecraft:special",
-    "base": "tofucraft:item/tofu_bed",
+    "base": "tofucraft:item/tofubed",
     "model": {
       "type": "minecraft:bed",
-      "texture": "tofucraft:tofu_bed"
+      "texture": "tofucraft:tofubed"
     }
   }
 }
