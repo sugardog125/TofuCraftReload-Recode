@@ -5,10 +5,8 @@ import baguchi.tofucraft.registry.TofuBlocks;
 import baguchi.tofucraft.registry.TofuItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
@@ -17,7 +15,6 @@ import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -216,8 +213,6 @@ public class ItemModelGenerator extends ItemModelProvider {
 		singleTex(TofuBlocks.SOYCHEESE_TART);
 
 		toBlock(TofuBlocks.ZUNDAMA_BLOCK);
-
-		toBlock(TofuBlocks.TOFU_VAULT);
 
 		//item
 		singleTex(TofuItems.TOFUKINU);
@@ -456,30 +451,30 @@ public class ItemModelGenerator extends ItemModelProvider {
 		singleTex(TofuItems.TOFU_UPGRADE_SMITHING_TEMPLATE);
 		singleTex(TofuItems.ZUNDA_UPGRADE_SMITHING_TEMPLATE);
 
-		trimmedArmor(TofuItems.TOFU_KINU_HELMET, ArmorType.HELMET);
-		trimmedArmor(TofuItems.TOFU_KINU_CHESTPLATE, ArmorType.CHESTPLATE);
-		trimmedArmor(TofuItems.TOFU_KINU_LEGGINGS, ArmorType.LEGGINGS);
-		trimmedArmor(TofuItems.TOFU_KINU_BOOTS, ArmorType.BOOTS);
+		singleTex(TofuItems.TOFU_KINU_HELMET);
+		singleTex(TofuItems.TOFU_KINU_CHESTPLATE);
+		singleTex(TofuItems.TOFU_KINU_LEGGINGS);
+		singleTex(TofuItems.TOFU_KINU_BOOTS);
 
-		trimmedArmor(TofuItems.TOFU_MOMEN_HELMET, ArmorType.HELMET);
-		trimmedArmor(TofuItems.TOFU_MOMEN_CHESTPLATE, ArmorType.CHESTPLATE);
-		trimmedArmor(TofuItems.TOFU_MOMEN_LEGGINGS, ArmorType.LEGGINGS);
-		trimmedArmor(TofuItems.TOFU_MOMEN_BOOTS, ArmorType.BOOTS);
+		singleTex(TofuItems.TOFU_MOMEN_HELMET);
+		singleTex(TofuItems.TOFU_MOMEN_CHESTPLATE);
+		singleTex(TofuItems.TOFU_MOMEN_LEGGINGS);
+		singleTex(TofuItems.TOFU_MOMEN_BOOTS);
 
-		trimmedArmor(TofuItems.ARMOR_TOFU_SOLIDHELMET, ArmorType.HELMET);
-		trimmedArmor(TofuItems.ARMOR_TOFU_SOLIDCHESTPLATE, ArmorType.CHESTPLATE);
-		trimmedArmor(TofuItems.ARMOR_TOFU_SOLIDLEGGINGS, ArmorType.LEGGINGS);
-		trimmedArmor(TofuItems.ARMOR_TOFU_SOLIDBOOTS, ArmorType.BOOTS);
+		singleTex(TofuItems.ARMOR_TOFU_SOLIDHELMET);
+		singleTex(TofuItems.ARMOR_TOFU_SOLIDCHESTPLATE);
+		singleTex(TofuItems.ARMOR_TOFU_SOLIDLEGGINGS);
+		singleTex(TofuItems.ARMOR_TOFU_SOLIDBOOTS);
 
-		trimmedArmor(TofuItems.TOFU_METAL_HELMET, ArmorType.HELMET);
-		trimmedArmor(TofuItems.TOFU_METAL_CHESTPLATE, ArmorType.CHESTPLATE);
-		trimmedArmor(TofuItems.TOFU_METAL_LEGGINGS, ArmorType.LEGGINGS);
-		trimmedArmor(TofuItems.TOFU_METAL_BOOTS, ArmorType.BOOTS);
+		singleTex(TofuItems.TOFU_METAL_HELMET);
+		singleTex(TofuItems.TOFU_METAL_CHESTPLATE);
+		singleTex(TofuItems.TOFU_METAL_LEGGINGS);
+		singleTex(TofuItems.TOFU_METAL_BOOTS);
 
-		trimmedArmor(TofuItems.TOFU_DIAMOND_HELMET, ArmorType.HELMET);
-		trimmedArmor(TofuItems.TOFU_DIAMOND_CHESTPLATE, ArmorType.CHESTPLATE);
-		trimmedArmor(TofuItems.TOFU_DIAMOND_LEGGINGS, ArmorType.LEGGINGS);
-		trimmedArmor(TofuItems.TOFU_DIAMOND_BOOTS, ArmorType.BOOTS);
+		singleTex(TofuItems.TOFU_DIAMOND_HELMET);
+		singleTex(TofuItems.TOFU_DIAMOND_CHESTPLATE);
+		singleTex(TofuItems.TOFU_DIAMOND_LEGGINGS);
+		singleTex(TofuItems.TOFU_DIAMOND_BOOTS);
 
 		egg(TofuItems.TOFUNIAN_SPAWNEGG);
 		egg(TofuItems.TRAVELER_TOFUNIAN_SPAWNEGG);
@@ -538,7 +533,6 @@ public class ItemModelGenerator extends ItemModelProvider {
 		toBlock(TofuBlocks.NETHER_SOYBEANS_SEEDS_BLOCK);
 		toBlock(TofuBlocks.SOUL_SOYBEANS_SEEDS_BLOCK);
 
-		singleTex(TofuItems.TOFU_KEY);
 		singleTex(TofuItems.MUSIC_DISC_GREEN_BRANCH);
 	}
 
@@ -687,18 +681,5 @@ public class ItemModelGenerator extends ItemModelProvider {
 
 	public ResourceLocation itemPath(Supplier<? extends ItemLike> item) {
 		return BuiltInRegistries.ITEM.getKey(item.get().asItem());
-	}
-
-	//Thanks Twilight Forest Team! https://github.com/TeamTwilight/twilightforest/blob/1.20.x/src/main/java/twilightforest/data/ItemModelGenerator.java#L827C23-L837
-	private void trimmedArmor(Supplier<Item> armor, ArmorType type) {
-		ItemModelBuilder base = this.singleTex(armor);
-		for (ItemModelGenerators.TrimModelData trim : ItemModelGenerators.GENERATED_TRIM_MODELS) {
-			String material = trim.name();
-			String name = itemPath(armor).getPath() + "_" + material + "_trim";
-			ModelFile trimModel = this.withExistingParent(name, this.mcLoc("item/generated"))
-					.texture("layer0", prefix("item/" + itemPath(armor).getPath()))
-					.texture("layer1", this.mcLoc("trims/items/" + type.getName() + "_trim_" + material));
-			base.override().predicate(ResourceLocation.parse("trim_type"), trim.itemModelIndex()).model(trimModel).end();
-		}
 	}
 }

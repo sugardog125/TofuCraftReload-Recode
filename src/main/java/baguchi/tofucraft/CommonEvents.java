@@ -1,9 +1,7 @@
 package baguchi.tofucraft;
 
-import baguchi.tofucraft.api.tfenergy.IEnergyContained;
 import baguchi.tofucraft.attachment.SoyHealthAttachment;
 import baguchi.tofucraft.attachment.TofuLivingAttachment;
-import baguchi.tofucraft.entity.TofuGandlem;
 import baguchi.tofucraft.item.armor.BreakableTofuBootsItem;
 import baguchi.tofucraft.registry.TofuAdvancements;
 import baguchi.tofucraft.registry.TofuAttachments;
@@ -12,7 +10,6 @@ import baguchi.tofucraft.registry.TofuDataComponents;
 import baguchi.tofucraft.registry.TofuDimensions;
 import baguchi.tofucraft.registry.TofuEffects;
 import baguchi.tofucraft.registry.TofuEnchantments;
-import baguchi.tofucraft.registry.TofuEntityTypes;
 import baguchi.tofucraft.registry.TofuItems;
 import baguchi.tofucraft.registry.TofuPoiTypes;
 import baguchi.tofucraft.registry.TofuStructures;
@@ -26,6 +23,7 @@ import baguchi.tofucraft.world.TofuLevelData;
 import baguchi.tofucraft.world.TravelerTofunianSpawner;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.sounds.MusicInfo;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
@@ -34,12 +32,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.Musics;
+import net.minecraft.sounds.Music;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
-import net.minecraft.util.SpawnUtil;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -64,7 +61,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.TorchBlock;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.material.FluidState;
@@ -78,8 +74,6 @@ import net.neoforged.neoforge.event.entity.EntityMobGriefingEvent;
 import net.neoforged.neoforge.event.entity.living.FinalizeSpawnEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDestroyBlockEvent;
-import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -105,31 +99,6 @@ public class CommonEvents {
 
 		if (!entity.level().isClientSide() && entity instanceof LivingEntity livingEntity) {
 			soyHealth.tick(livingEntity);
-			//bad omen
-			if (livingEntity.hasEffect(MobEffects.BAD_OMEN)) {
-				if (entity.level() instanceof ServerLevel serverLevel) {
-					Structure structure = serverLevel.registryAccess().lookupOrThrow(Registries.STRUCTURE).getValueOrThrow(TofuStructures.TOFU_CASTLE);
-					if (structure != null) {
-						TofuData data = TofuData.get(serverLevel);
-						StructureStart structureStart = serverLevel.structureManager().getStructureAt(entity.blockPosition(), structure);
-						if (structureStart.isValid() && data.getBeatenDungeons().contains(structureStart.getBoundingBox())) {
-							BlockPos.MutableBlockPos blockPos = entity.blockPosition().mutable();
-
-							BoundingBox box = structureStart.getBoundingBox();
-							Optional<TofuGandlem> tofuGandlemOptional = SpawnUtil.trySpawnMob(TofuEntityTypes.TOFU_GANDLEM.get(), EntitySpawnReason.TRIGGERED, serverLevel, blockPos, 2, 8, 8, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
-
-							if (tofuGandlemOptional.isPresent()) {
-								TofuGandlem tofuGandlem = tofuGandlemOptional.get();
-								tofuGandlem.setSleepSelf(true);
-								livingEntity.removeEffect(MobEffects.BAD_OMEN);
-								serverLevel.playSound(null, livingEntity.blockPosition(), SoundEvents.APPLY_EFFECT_BAD_OMEN, SoundSource.AMBIENT);
-								serverLevel.levelEvent(3020, BlockPos.containing(livingEntity.getEyePosition()), 0);
-								serverLevel.levelEvent(3020, BlockPos.containing(tofuGandlem.getEyePosition()), 0);
-							}
-						}
-					}
-				}
-			}
 		}
 		TofuLivingAttachment tofuLivingAttachment = entity.getData(TofuAttachments.TOFU_LIVING);
 		tofuLivingAttachment.tick(entity);
@@ -140,7 +109,10 @@ public class CommonEvents {
 		if (Minecraft.getInstance().level != null && Minecraft.getInstance().player != null) {
 			Holder<Biome> biome = Minecraft.getInstance().player.level().getBiome(Minecraft.getInstance().player.blockPosition());
 			if (Minecraft.getInstance().level.dimension() == TofuDimensions.tofu_world) {
-				event.setMusic(biome.value().getBackgroundMusic().orElse(Musics.GAME));
+				Optional<Music> musicInfo = biome.value().getBackgroundMusic().get().getRandomValue(Minecraft.getInstance().level.random);
+				if (!musicInfo.isEmpty()) {
+					event.setMusic(new MusicInfo(musicInfo.get()));
+				}
 			}
 		}
 	}
@@ -462,38 +434,6 @@ public class CommonEvents {
 					if (entity instanceof ServerPlayer serverPlayer) {
 						TofuAdvancements.NARROW_ESCAPE_TRIGGER.get().trigger((ServerPlayer) serverPlayer);
 					}
-				}
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public static void onHurt(LivingIncomingDamageEvent event) {
-		LivingEntity entity = event.getEntity();
-		if (entity.isDamageSourceBlocked(event.getSource())) {
-			if (entity.getUseItem().is(TofuItems.REFLECT_TOFU_SHIELD.get())) {
-				Entity attacker = event.getSource().getDirectEntity();
-				if (entity.getUseItem().getItem() instanceof IEnergyContained energyContained) {
-
-					if (energyContained.getEnergy(entity.getUseItem()) >= 50) {
-						energyContained.setEnergy(entity.getUseItem(), energyContained.getEnergy(entity.getUseItem()) - 50);
-
-						if (attacker != null) {
-							attacker.hurt(entity.damageSources().thorns(entity), 3.0F);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public static void onShieldEvent(LivingShieldBlockEvent event) {
-		if (event.getEntity().getUseItem().is(TofuItems.REFLECT_TOFU_SHIELD.get())) {
-			if (event.getEntity().getUseItem().getItem() instanceof IEnergyContained energyContained) {
-
-				if (energyContained.getEnergy(event.getEntity().getUseItem()) >= 50) {
-					event.setBlockedDamage(0);
 				}
 			}
 		}

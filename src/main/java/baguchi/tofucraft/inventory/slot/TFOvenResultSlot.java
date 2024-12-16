@@ -52,8 +52,9 @@ public class TFOvenResultSlot extends Slot {
 				abstractfurnaceblockentity.awardUsedRecipesAndPopExperience(serverplayer);
 			}
 		}
-
+		if (this.removeCount != 0) {
+			net.neoforged.neoforge.event.EventHooks.firePlayerSmeltedEvent(this.player, p_39558_, this.removeCount);
+		}
 		this.removeCount = 0;
-		net.neoforged.neoforge.event.EventHooks.firePlayerSmeltedEvent(this.player, p_39558_);
 	}
 }

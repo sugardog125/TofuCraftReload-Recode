@@ -293,4 +293,9 @@ public abstract class AbstractTofunian extends AgeableMob implements InventoryCa
 		}
 		return super.canAttack(p_20355_);
 	}
+
+	@Override
+	public boolean stillValid(Player p_383034_) {
+		return this.getTradingPlayer() == p_383034_ && this.isAlive() && p_383034_.canInteractWithEntity(this, 4.0);
+	}
 }

@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoubleBlockCombiner;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -192,10 +191,6 @@ public class TofuBedBlock extends BedBlock {
 
 	public PushReaction getPistonPushReaction(BlockState p_49556_) {
 		return PushReaction.DESTROY;
-	}
-
-	public RenderShape getRenderShape(BlockState p_49545_) {
-		return RenderShape.ENTITYBLOCK_ANIMATED;
 	}
 
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_49532_) {

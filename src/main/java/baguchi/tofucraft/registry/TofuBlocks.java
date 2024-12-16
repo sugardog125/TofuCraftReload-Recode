@@ -27,7 +27,6 @@ import baguchi.tofucraft.block.TofuPortalBlock;
 import baguchi.tofucraft.block.TofuSaplingBlock;
 import baguchi.tofucraft.block.TofuTerrainBlock;
 import baguchi.tofucraft.block.TofuTrapDoorBlock;
-import baguchi.tofucraft.block.TofuVaultBlock;
 import baguchi.tofucraft.block.TofunianStatueBlock;
 import baguchi.tofucraft.block.YubaBlock;
 import baguchi.tofucraft.block.ZundamaBlock;
@@ -93,7 +92,6 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TorchBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.VaultBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
@@ -513,10 +511,6 @@ public class TofuBlocks {
 
 	public static final DeferredBlock<Block> ANTENNA_BASIC = register("antenna_basic", (properties) -> new TFAntennaBlock(properties.requiresCorrectToolForDrops().noOcclusion().noCollission().strength(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final DeferredBlock<Block> TOFU_WORK_STATION = register("tofu_work_station", (properties) -> new TofuWorkStationBlock(properties.requiresCorrectToolForDrops().noOcclusion().strength(1.5F, 6.0F).sound(SoundType.STONE)));
-	public static final DeferredBlock<Block> TOFU_VAULT = register("tofu_vault", (properties) -> new TofuVaultBlock(properties.lightLevel(p_323402_ -> p_323402_.getValue(VaultBlock.STATE).lightLevel())
-			.strength(50.0F).noOcclusion().isViewBlocking((state, blockGetter, blockPos) -> false).sound(SoundType.VAULT)));
-
-
 	private static boolean always(BlockState p_50775_, BlockGetter p_50776_, BlockPos p_50777_) {
 		return true;
 	}

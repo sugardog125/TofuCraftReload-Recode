@@ -8,6 +8,7 @@ import baguchi.tofucraft.client.render.layer.TofunianEyeLayer;
 import baguchi.tofucraft.client.render.state.AbstractTofunianRenderState;
 import baguchi.tofucraft.entity.TravelerTofunian;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +23,7 @@ public class TravelerTofunianRender extends MobRenderer<TravelerTofunian, Abstra
 		super(p_173956_, new TravelerTofunianModel<>(p_173956_.bakeLayer(TofuModelLayers.TRAVELER_TOFUNIAN)), 0.5F);
 		this.addLayer(new TofunianEyeLayer<>(this));
 		this.addLayer(new CustomArmorLayer<>(this, p_173956_));
-		this.addLayer(new ItemInHandLayer<>(this, p_173956_.getItemRenderer()));
+		this.addLayer(new ItemInHandLayer<>(this));
 	}
 
 	@Override
@@ -38,6 +39,8 @@ public class TravelerTofunianRender extends MobRenderer<TravelerTofunian, Abstra
 	@Override
 	public void extractRenderState(TravelerTofunian p_362733_, AbstractTofunianRenderState p_360515_, float p_361157_) {
 		super.extractRenderState(p_362733_, p_360515_, p_361157_);
+		HumanoidMobRenderer.extractHumanoidRenderState(p_362733_, p_360515_, p_361157_, this.itemModelResolver);
+
 		p_360515_.id = p_362733_.getId();
 		p_360515_.riding = !p_362733_.getPassengers().isEmpty();
 		p_360515_.unhappyCounter = p_362733_.getUnhappyCounter();

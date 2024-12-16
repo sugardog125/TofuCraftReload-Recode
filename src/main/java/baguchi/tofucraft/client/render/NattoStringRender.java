@@ -5,6 +5,7 @@ import baguchi.tofucraft.entity.projectile.NattoStringEntity;
 import baguchi.tofucraft.registry.TofuItems;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -26,7 +27,7 @@ public class NattoStringRender<E extends NattoStringEntity, T extends Projectile
 		super(context);
 		this.scale = scale;
 		this.fullBright = bright;
-		this.itemRenderer = context.getItemRenderer();
+		this.itemRenderer = Minecraft.getInstance().getItemRenderer();
 	}
 
 	protected int getBlockLightLevel(E p_116092_, BlockPos p_116093_) {

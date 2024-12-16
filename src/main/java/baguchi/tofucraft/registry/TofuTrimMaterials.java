@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
 
 import java.util.Map;
@@ -24,15 +25,31 @@ public class TofuTrimMaterials {
 	}
 
 	public static void bootstrap(BootstrapContext<TrimMaterial> context) {
-		register(context, TOFU_METAL, TofuItems.TOFUMETAL.get(), Style.EMPTY.withColor(0xAAB9C2), 0.2F);
-		register(context, TOFU_DIAMOND, TofuItems.TOFUDIAMOND.get(), Style.EMPTY.withColor(0x6CBEEB), 0.8F);
-		register(context, ZUNDA_RUBY, TofuItems.ZUNDARUBY.get(), Style.EMPTY.withColor(0x39650D), 0.7F);
+		register(context, TOFU_METAL, TofuItems.TOFUMETAL.get(), Style.EMPTY.withColor(0xAAB9C2));
+		register(context, TOFU_DIAMOND, TofuItems.TOFUDIAMOND.get(), Style.EMPTY.withColor(0x6CBEEB));
+		register(context, ZUNDA_RUBY, TofuItems.ZUNDARUBY.get(), Style.EMPTY.withColor(0x39650D));
 
 	}
 
-	private static void register(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> trimKey, Item trimItem, Style color, float itemModelIndex) {
-		TrimMaterial material = TrimMaterial.create(trimKey.location().getPath(), trimItem, itemModelIndex, Component.translatable(Util.makeDescriptionId("trim_material", trimKey.location())).withStyle(color), Map.of());
-		context.register(trimKey, material);
+	private static void register(BootstrapContext<TrimMaterial> p_371580_, ResourceKey<TrimMaterial> p_371417_, Item p_371230_, Style p_371405_) {
+		register(p_371580_, p_371417_, p_371230_, p_371405_, Map.of());
 	}
+
+	private static void register(
+			BootstrapContext<TrimMaterial> p_371763_,
+			ResourceKey<TrimMaterial> p_371867_,
+			Item p_371472_,
+			Style p_371730_,
+			Map<ResourceKey<EquipmentAsset>, String> p_388368_
+	) {
+		TrimMaterial trimmaterial = TrimMaterial.create(
+				p_371867_.location().getPath(),
+				p_371472_,
+				Component.translatable(Util.makeDescriptionId("trim_material", p_371867_.location())).withStyle(p_371730_),
+				p_388368_
+		);
+		p_371763_.register(p_371867_, trimmaterial);
+	}
+
 
 }

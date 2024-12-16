@@ -7,7 +7,6 @@ import baguchi.tofucraft.entity.goal.SpinAttackGoal;
 import baguchi.tofucraft.entity.projectile.FukumameEntity;
 import baguchi.tofucraft.network.BossInfoPacket;
 import baguchi.tofucraft.registry.TofuEntityTypes;
-import baguchi.tofucraft.registry.TofuItems;
 import baguchi.tofucraft.registry.TofuParticleTypes;
 import baguchi.tofucraft.registry.TofuSounds;
 import baguchi.tofucraft.registry.TofuStructures;
@@ -42,7 +41,6 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
@@ -55,7 +53,6 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -146,7 +143,6 @@ public class TofuGandlem extends Monster implements RangedAttackMob, TofuBossMob
 		FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, p_218342_);
 		flyingpathnavigation.setCanOpenDoors(false);
 		flyingpathnavigation.setCanFloat(true);
-		flyingpathnavigation.setCanPassDoors(true);
 		return flyingpathnavigation;
 	}
 
@@ -576,12 +572,6 @@ public class TofuGandlem extends Monster implements RangedAttackMob, TofuBossMob
 						data.addBeatenDungeons(structureStart.getBoundingBox());
 					}
 				}
-			}
-			List<Player> players = this.level().getEntitiesOfClass(Player.class, new AABB(this.blockPosition()).inflate(32F), player -> {
-				return !player.isSpectator();
-			});
-			for (Player player : players) {
-				BehaviorUtils.throwItem(this, new ItemStack(TofuItems.TOFU_KEY.get()), player.position().add(0, 1, 0));
 			}
 		}
 	}

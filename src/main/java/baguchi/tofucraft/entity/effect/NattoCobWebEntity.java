@@ -62,7 +62,7 @@ public class NattoCobWebEntity extends LivingEntity {
 	}
 
 	@Override
-	protected AABB makeBoundingBox() {
+	protected AABB makeBoundingBox(Vec3 vec3) {
 		Direction direction = this.getAttachFace().getOpposite();
 		double d0 = (double) this.getX();
 		double d1 = (double) this.getY();

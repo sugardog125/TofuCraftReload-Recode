@@ -974,7 +974,8 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 				return p_186293_.wantsToSpawnGolem(p_35398_, p_35399_) && p_186293_.getTofunianHome() != null;
 			}).limit(5L).collect(Collectors.toList());
 			if (list1.size() >= p_35400_) {
-				if (SpawnUtil.trySpawnMob(TofuEntityTypes.TOFU_GOLEM.get(), EntitySpawnReason.MOB_SUMMONED, p_35398_, this.blockPosition(), 10, 8, 6, SpawnUtil.Strategy.LEGACY_IRON_GOLEM).isPresent()) {
+				if (SpawnUtil.trySpawnMob(TofuEntityTypes.TOFU_GOLEM.get(), EntitySpawnReason.MOB_SUMMONED, p_35398_, this.blockPosition(), 10, 8, 6, SpawnUtil.Strategy.LEGACY_IRON_GOLEM,
+						false).isPresent()) {
 				}
 			}
 		}

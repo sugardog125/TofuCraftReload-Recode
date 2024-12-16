@@ -1,5 +1,6 @@
 package baguchi.tofucraft.inventory;
 
+import baguchi.tofucraft.inventory.slot.TFOvenResultSlot;
 import baguchi.tofucraft.registry.TofuMenus;
 import net.minecraft.recipebook.ServerPlaceRecipe;
 import net.minecraft.server.level.ServerLevel;
@@ -10,7 +11,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.FurnaceResultSlot;
 import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.inventory.SimpleContainerData;
@@ -66,7 +66,7 @@ public class TFOvenMenu extends RecipeBookMenu {
 		this.level = p_38964_.player.level();
 		this.acceptedInputs = this.level.recipeAccess().propertySet(RecipePropertySet.FURNACE_INPUT);
 		this.addSlot(new Slot(p_379971_, 0, 39, 15));
-		this.addSlot(new FurnaceResultSlot(p_38964_.player, p_379971_, 1, 109, 15));
+		this.addSlot(new TFOvenResultSlot(p_38964_.player, p_379971_, 1, 109, 15));
 		this.addStandardInventorySlots(p_38964_, 7, 83);
 		this.addDataSlots(p_379737_);
 	}

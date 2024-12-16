@@ -185,7 +185,6 @@ public class TofuGolem extends AbstractGolem implements NeutralMob, RangedAttack
 		FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, p_218342_);
 		flyingpathnavigation.setCanOpenDoors(false);
 		flyingpathnavigation.setCanFloat(true);
-		flyingpathnavigation.setCanPassDoors(true);
 		return flyingpathnavigation;
 	}
 

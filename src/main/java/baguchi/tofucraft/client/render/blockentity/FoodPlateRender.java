@@ -35,9 +35,7 @@ public class FoodPlateRender implements BlockEntityRenderer<FoodPlateBlockEntity
 				poseStack.pushPose();
 				ItemRenderer itemRenderer = Minecraft.getInstance()
 						.getItemRenderer();
-				boolean isBlockItem = itemRenderer.getModel(boardStack, plateBlockEntity.getLevel(), null, 0)
-						.isGui3d();
-				if (isBlockItem) {
+				/*if (isBlockItem) {
 					if (k > 0) {
 						float f11 = (this.random.nextFloat()) * 0.15F;
 						float f13 = (this.random.nextFloat()) * 0.15F;
@@ -45,14 +43,13 @@ public class FoodPlateRender implements BlockEntityRenderer<FoodPlateBlockEntity
 						poseStack.translate(f11, f13, f10);
 					}
 					renderBlock(poseStack, direction);
-				} else {
+				} else {*/
 					if (k > 0) {
 						float f12 = (this.random.nextFloat()) * 0.15F * 0.5F;
 						float f14 = (this.random.nextFloat()) * 0.15F * 0.5F;
 						poseStack.translate(f12, k * 0.1F * 0.5F, f14);
 					}
 					renderItemLayingDown(poseStack, direction);
-				}
 				Minecraft.getInstance().getItemRenderer().renderStatic(boardStack, ItemDisplayContext.FIXED, p_112311_, p_112312_, poseStack, p_112310_, plateBlockEntity.getLevel(), posLong);
 				poseStack.popPose();
 			}

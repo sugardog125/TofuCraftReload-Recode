@@ -44,7 +44,7 @@ public class ParticleZundaCloud extends TextureSheetParticle {
 
 	@Override
 	public ParticleRenderType getRenderType() {
-		return TofuCraftRenderType.NO_TRANSLUCENT_DEPTH;
+		return TofuCraftRenderType.PARTICLE_SHEET_TRANSLUCENT;
 	}
 
 	@Override

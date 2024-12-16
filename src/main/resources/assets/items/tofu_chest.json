@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "tofucraft:item/tofuchest",
+    "model": {
+      "type": "minecraft:chest",
+      "texture": "tofucraft:tofuchest"
+    }
+  }
+}

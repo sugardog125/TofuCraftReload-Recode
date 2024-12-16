@@ -4,6 +4,5 @@
     "color": "#39650D",
     "translate": "trim_material.tofucraft.zunda_ruby"
   },
-  "ingredient": "tofucraft:zundaruby",
-  "item_model_index": 0.7
+  "ingredient": "tofucraft:zundaruby"
 }

@@ -1,6 +1,5 @@
 package baguchi.tofucraft.item.armor;
 
-import baguchi.tofucraft.registry.TofuArmorMaterials;
 import baguchi.tofucraft.registry.TofuDataComponents;
 import com.google.common.base.Suppliers;
 import net.minecraft.network.chat.Component;
@@ -11,6 +10,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 
 import java.awt.*;
@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 public class BreakableTofuBootsItem extends BreakableTofuArmorItem {
 	private final Supplier<ItemAttributeModifiers> defaultModifiers;
 
-	public BreakableTofuBootsItem(TofuArmorMaterials.TofuArmorMaterial tofuArmorMaterial, ArmorType type, float reduceFallDamage, Properties properties) {
+	public BreakableTofuBootsItem(ArmorMaterial tofuArmorMaterial, ArmorType type, float reduceFallDamage, Properties properties) {
 		super(tofuArmorMaterial, type, properties);
 		this.defaultModifiers = Suppliers.memoize(
 				() -> {

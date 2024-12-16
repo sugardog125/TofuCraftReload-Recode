@@ -4,6 +4,5 @@
     "color": "#AAB9C2",
     "translate": "trim_material.tofucraft.tofu_metal"
   },
-  "ingredient": "tofucraft:tofumetal",
-  "item_model_index": 0.2
+  "ingredient": "tofucraft:tofumetal"
 }

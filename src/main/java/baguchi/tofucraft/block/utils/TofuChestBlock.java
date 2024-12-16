@@ -34,7 +34,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -140,11 +139,6 @@ public class TofuChestBlock extends AbstractChestBlock<TofuChestBlockEntity> imp
 		} else {
 			return chesttype == ChestType.RIGHT ? DoubleBlockCombiner.BlockType.FIRST : DoubleBlockCombiner.BlockType.SECOND;
 		}
-	}
-
-	@Override
-	public RenderShape getRenderShape(BlockState p_51567_) {
-		return RenderShape.ENTITYBLOCK_ANIMATED;
 	}
 
 	@Override

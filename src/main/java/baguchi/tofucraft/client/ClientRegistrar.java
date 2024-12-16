@@ -37,10 +37,8 @@ import baguchi.tofucraft.client.render.entity.TofunianRender;
 import baguchi.tofucraft.client.render.entity.TravelerTofunianRender;
 import baguchi.tofucraft.client.render.entity.ZundamiteRender;
 import baguchi.tofucraft.client.render.entity.effect.NattoCobWebRender;
-import baguchi.tofucraft.client.render.item.TofuBedBWLR;
-import baguchi.tofucraft.client.render.item.TofuChestBWLR;
-import baguchi.tofucraft.client.render.item.TofuShieldBWLR;
-import baguchi.tofucraft.client.render.item.TofunianStatueBWLR;
+import baguchi.tofucraft.client.render.special.TofuShieldSpecialRenderer;
+import baguchi.tofucraft.client.render.special.TofunianStatueSpecialRenderer;
 import baguchi.tofucraft.client.screen.ReceivingTofuLevelScreen;
 import baguchi.tofucraft.client.screen.SaltFurnaceScreen;
 import baguchi.tofucraft.client.screen.TFCrafterScreen;
@@ -52,7 +50,6 @@ import baguchi.tofucraft.registry.TofuBlocks;
 import baguchi.tofucraft.registry.TofuDimensions;
 import baguchi.tofucraft.registry.TofuEntityTypes;
 import baguchi.tofucraft.registry.TofuFluidTypes;
-import baguchi.tofucraft.registry.TofuItems;
 import baguchi.tofucraft.registry.TofuMenus;
 import baguchi.tofucraft.registry.TofuWoodTypes;
 import baguchi.tofucraft.utils.ClientUtils;
@@ -65,11 +62,10 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.BoatRenderer;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -79,14 +75,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.neoforged.neoforge.client.event.RegisterDimensionTransitionScreenEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterSpecialModelRendererEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import org.jetbrains.annotations.Nullable;
 
@@ -133,7 +128,7 @@ public class ClientRegistrar {
 			}
 
 			@Override
-			public void renderOverlay(Minecraft mc, PoseStack stack) {
+			public void renderOverlay(Minecraft mc, PoseStack stack, MultiBufferSource buffers) {
 				ClientUtils.renderOverlay(mc, stack, this);
 			}
 		}, TofuFluidTypes.SOYMILK.get());
@@ -158,7 +153,7 @@ public class ClientRegistrar {
 			}
 
 			@Override
-			public void renderOverlay(Minecraft mc, PoseStack stack) {
+			public void renderOverlay(Minecraft mc, PoseStack stack, MultiBufferSource buffers) {
 				ClientUtils.renderOverlay(mc, stack, this);
 			}
 		}, TofuFluidTypes.SOYMILK_HELL.get());
@@ -184,7 +179,7 @@ public class ClientRegistrar {
 
 
 			@Override
-			public void renderOverlay(Minecraft mc, PoseStack stack) {
+			public void renderOverlay(Minecraft mc, PoseStack stack, MultiBufferSource buffers) {
 				ClientUtils.renderOverlay(mc, stack, this);
 			}
 		}, TofuFluidTypes.SOYMILK_SOUL.get());
@@ -209,7 +204,7 @@ public class ClientRegistrar {
 			}
 
 			@Override
-			public void renderOverlay(Minecraft mc, PoseStack stack) {
+			public void renderOverlay(Minecraft mc, PoseStack stack, MultiBufferSource buffers) {
 				ClientUtils.renderOverlay(mc, stack, this);
 			}
 		}, TofuFluidTypes.BITTERN.get());
@@ -235,7 +230,7 @@ public class ClientRegistrar {
 			}
 
 			@Override
-			public void renderOverlay(Minecraft mc, PoseStack stack) {
+			public void renderOverlay(Minecraft mc, PoseStack stack, MultiBufferSource buffers) {
 				ClientUtils.renderOverlay(mc, stack, this);
 			}
 		}, TofuFluidTypes.DOUBANJIANG.get());
@@ -269,37 +264,6 @@ public class ClientRegistrar {
 				return FLOW;
 			}
 		}, TofuFluidTypes.WARPED.get());
-
-		event.registerItem(new IClientItemExtensions() {
-			@Override
-			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return new TofuShieldBWLR();
-			}
-		}, TofuItems.REFLECT_TOFU_SHIELD.get());
-		event.registerItem(new IClientItemExtensions() {
-			@Override
-			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return new TofuShieldBWLR();
-			}
-		}, TofuItems.TOFU_SHIELD.get());
-		event.registerItem(new IClientItemExtensions() {
-			@Override
-			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return new TofuChestBWLR();
-			}
-		}, TofuBlocks.TOFUCHEST.get().asItem());
-		event.registerItem(new IClientItemExtensions() {
-			@Override
-			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return new TofunianStatueBWLR();
-			}
-		}, TofuBlocks.TOFUNIAN_STATUE.get().asItem());
-		event.registerItem(new IClientItemExtensions() {
-			@Override
-			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return new TofuBedBWLR();
-			}
-		}, TofuBlocks.TOFUBED.get().asItem());
 	}
 
 	@SubscribeEvent
@@ -310,26 +274,10 @@ public class ClientRegistrar {
 		event.register(TofuMenus.TF_CRAFTER.get(), TFCrafterScreen::new);
 		event.register(TofuMenus.TF_OVEN.get(), TFOvenScreen::new);
 	}
-
 	@SubscribeEvent
-	public static void modelBake(ModelEvent.ModifyBakingResult event) {
-
-		ItemProperties.register(TofuItems.TOFU_SHIELD.get(), ResourceLocation.parse("blocking"), (p_174590_, p_174591_, p_174592_, p_174593_) -> {
-			return p_174592_ != null && p_174592_.isUsingItem() && p_174592_.getUseItem() == p_174590_ ? 1.0F : 0.0F;
-		});
-		ItemProperties.register(TofuItems.REFLECT_TOFU_SHIELD.get(), ResourceLocation.parse("blocking"), (p_174590_, p_174591_, p_174592_, p_174593_) -> {
-			return p_174592_ != null && p_174592_.isUsingItem() && p_174592_.getUseItem() == p_174590_ ? 1.0F : 0.0F;
-		});
-		ItemProperties.register(TofuItems.ZUNDA_BOW.get(), ResourceLocation.parse("pull"), (p_174635_, p_174636_, p_174637_, p_174638_) -> {
-			if (p_174637_ == null) {
-				return 0.0F;
-			} else {
-				return p_174637_.getUseItem() != p_174635_ ? 0.0F : (float) (p_174635_.getUseDuration(p_174637_) - p_174637_.getUseItemRemainingTicks()) / 20.0F;
-			}
-		});
-		ItemProperties.register(TofuItems.ZUNDA_BOW.get(), ResourceLocation.parse("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> {
-			return p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F;
-		});
+	public static void specialModelRender(RegisterSpecialModelRendererEvent event) {
+		event.register(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "tofu_shield"), TofuShieldSpecialRenderer.Unbaked.MAP_CODEC);
+		event.register(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "tofu_statue"), TofunianStatueSpecialRenderer.Unbaked.MAP_CODEC);
 	}
 
 
@@ -338,11 +286,6 @@ public class ClientRegistrar {
 		event.register((p_92621_, p_92622_, p_92623_, p_92624_) -> {
 			return p_92622_ != null && p_92623_ != null ? BiomeColors.getAverageWaterColor(p_92622_, p_92623_) : -1;
 		}, TofuBlocks.SALTPAN.get(), TofuBlocks.SPROUTSJAR.get());
-	}
-
-	@SubscribeEvent
-	public static void registerColorItem(RegisterColorHandlersEvent.Item event) {
-
 	}
 
 	@SubscribeEvent
