@@ -40,6 +40,8 @@ import com.google.common.collect.Maps;
 import com.google.common.reflect.Reflection;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterList;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -51,6 +53,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -69,8 +73,13 @@ public class TofuCraftReload {
 
 	public static final Logger LOGGER = LogManager.getLogger(TofuCraftReload.MODID);
 
-	public TofuCraftReload(ModContainer modContainer, IEventBus modBus) {
+	public static final FeatureFlag EXPERIMENTAL = FeatureFlags.REGISTRY.getFlag(ResourceLocation.fromNamespaceAndPath(MODID, "experimental_extra"));
+
+	public TofuCraftReload(ModContainer modContainer, Dist dist, IEventBus modBus) {
 		IEventBus forgeBus = NeoForge.EVENT_BUS;
+		if (dist.isClient()) {
+			modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+		}
 
 		modBus.addListener(this::setup);
 		modBus.addListener(this::setupPackets);

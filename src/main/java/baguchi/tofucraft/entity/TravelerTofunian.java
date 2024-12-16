@@ -106,14 +106,14 @@ public class TravelerTofunian extends AbstractTofunian {
 			}
 
 			if (this.getOffers().isEmpty()) {
-				return InteractionResult.TRY_WITH_EMPTY_HAND;
+				return InteractionResult.CONSUME;
 			} else {
 				if (!this.level().isClientSide) {
 					this.setTradingPlayer(p_35856_);
 					this.openTradingScreen(p_35856_, this.getDisplayName(), 1);
 				}
 
-				return InteractionResult.TRY_WITH_EMPTY_HAND;
+				return InteractionResult.SUCCESS;
 			}
 		} else {
 			return super.mobInteract(p_35856_, p_35857_);

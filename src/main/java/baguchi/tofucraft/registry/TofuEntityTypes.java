@@ -58,29 +58,29 @@ public class TofuEntityTypes {
 			.sized(0.6F, 1.2F).eyeHeight(1.2F * 0.8F).build(prefix("traveler_tofunian")));
 
 	public static final Supplier<EntityType<TofuCow>> TOFUCOW = ENTITIES.register("tofucow", () -> EntityType.Builder.of(TofuCow::new, MobCategory.CREATURE)
-			.sized(0.9F, 1.4F).eyeHeight(1.4F * 0.8F).build(prefix("tofucow")));
+			.sized(0.9F, 1.4F).eyeHeight(1.4F * 0.8F).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofucow")));
 
 	public static final Supplier<EntityType<TofuPig>> TOFUPIG = ENTITIES.register("tofupig", () -> EntityType.Builder.of(TofuPig::new, MobCategory.CREATURE)
-			.sized(0.9F, 0.9F).eyeHeight(0.9F * 0.8F).build(prefix("tofupig")));
+			.sized(0.9F, 0.9F).eyeHeight(0.9F * 0.8F).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofupig")));
 
 	public static final Supplier<EntityType<TofuFish>> TOFUFISH = ENTITIES.register("tofufish", () -> EntityType.Builder.of(TofuFish::new, MobCategory.WATER_AMBIENT)
-			.sized(0.5F, 0.35F).eyeHeight(0.3F).setTrackingRange(4).build(prefix("tofufish")));
+			.sized(0.5F, 0.35F).eyeHeight(0.3F).setTrackingRange(4).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofufish")));
 	public static final Supplier<EntityType<TofuGolem>> TOFU_GOLEM = ENTITIES.register("tofu_golem", () -> EntityType.Builder.of(TofuGolem::new, MobCategory.MISC)
 			.sized(0.8F, 0.9F).eyeHeight(0.9F * 0.55F).clientTrackingRange(10).fireImmune().build(prefix("tofu_golem")));
 
 	public static final Supplier<EntityType<TofuGandlem>> TOFU_GANDLEM = ENTITIES.register("tofu_gandlem", () -> EntityType.Builder.of(TofuGandlem::new, MobCategory.CREATURE)
-			.sized(0.6F, 1.6F).eyeHeight(1.6F * 0.8F).clientTrackingRange(10).fireImmune().build(prefix("tofu_gandlem")));
+			.sized(0.6F, 1.6F).eyeHeight(1.6F * 0.8F).clientTrackingRange(10).fireImmune().requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofu_gandlem")));
 
 
 	public static final Supplier<EntityType<TofuSlime>> TOFUSLIME = ENTITIES.register("tofuslime", () -> EntityType.Builder.of(TofuSlime::new, MobCategory.MONSTER)
-			.sized(0.52F, 0.52F).eyeHeight(0.325F).build(prefix("tofuslime")));
+			.sized(0.52F, 0.52F).eyeHeight(0.325F).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofuslime")));
 	public static final Supplier<EntityType<TofuCreeper>> TOFUCREEPER = ENTITIES.register("tofucreeper", () -> EntityType.Builder.of(TofuCreeper::new, MobCategory.MONSTER)
-			.sized(0.6F, 1.6F).build(prefix("tofucreeper")));
+			.sized(0.6F, 1.6F).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofucreeper")));
 
 	public static final Supplier<EntityType<TofuSpider>> TOFUSPIDER = ENTITIES.register("tofuspider", () -> EntityType.Builder.of(TofuSpider::new, MobCategory.MONSTER)
-			.sized(0.95F, 0.55F).eyeHeight(0.3F).build(prefix("tofuspider")));
+			.sized(0.95F, 0.55F).eyeHeight(0.3F).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("tofuspider")));
 	public static final Supplier<EntityType<Zundamite>> ZUNDAMITE = ENTITIES.register("zundamite", () -> EntityType.Builder.of(Zundamite::new, MobCategory.MONSTER)
-			.sized(0.4F, 0.3F).eyeHeight(0.13F).clientTrackingRange(8).build(prefix("zundamite")));
+			.sized(0.4F, 0.3F).eyeHeight(0.13F).clientTrackingRange(8).requiredFeatures(TofuCraftReload.EXPERIMENTAL).build(prefix("zundamite")));
 
 	public static final Supplier<EntityType<FukumameEntity>> FUKUMAME = ENTITIES.register("fukumame", () -> EntityType.Builder.<FukumameEntity>of(FukumameEntity::new, MobCategory.MISC)
 			.sized(0.25F, 0.25F).updateInterval(30).build(prefix("fukumame")));
@@ -112,7 +112,7 @@ public class TofuEntityTypes {
 			.sized(1.0F, 1.0F).updateInterval(20).build(prefix("falling_tofu")));
 
 	public static final Supplier<EntityType<ShuDofuSpider>> SHUDOFUSPIDER = ENTITIES.register("shudofuspider", () -> EntityType.Builder.of(ShuDofuSpider::new, MobCategory.CREATURE)
-			.sized(3.5F, 2.9F).eyeHeight(2.0F).clientTrackingRange(10).fireImmune().build(prefix("shudofuspider")));
+			.sized(3.5F, 2.9F).eyeHeight(2.0F).clientTrackingRange(10).requiredFeatures(TofuCraftReload.EXPERIMENTAL).fireImmune().build(prefix("shudofuspider")));
 
 	public static final Supplier<EntityType<FukumameThrower>> FUKUMAME_THROWER = ENTITIES.register("fukumame_thrower", () -> EntityType.Builder.of(FukumameThrower::new, MobCategory.MONSTER).sized(0.6F, 1.85F).clientTrackingRange(8).build(prefix("fukumame_thower")));
 
@@ -121,6 +121,7 @@ public class TofuEntityTypes {
 			() ->
 					EntityType.Builder.of(boatFactory(TofuItems.LEEK_BOAT), MobCategory.MISC)
 							.noLootTable()
+							.requiredFeatures(TofuCraftReload.EXPERIMENTAL)
 							.sized(1.375F, 0.5625F)
 							.eyeHeight(0.5625F)
 							.clientTrackingRange(10).build(prefix("leek_boat"))
@@ -130,6 +131,7 @@ public class TofuEntityTypes {
 			() ->
 					EntityType.Builder.of(chestBoatFactory(TofuItems.LEEK_CHEST_BOAT), MobCategory.MISC)
 							.noLootTable()
+							.requiredFeatures(TofuCraftReload.EXPERIMENTAL)
 							.sized(1.375F, 0.5625F)
 							.eyeHeight(0.5625F)
 							.clientTrackingRange(10).build(prefix("leek_chest_boat"))
@@ -139,6 +141,7 @@ public class TofuEntityTypes {
 			() ->
 					EntityType.Builder.of(boatFactory(TofuItems.LEEK_GREEN_BOAT), MobCategory.MISC)
 							.noLootTable()
+							.requiredFeatures(TofuCraftReload.EXPERIMENTAL)
 							.sized(1.375F, 0.5625F)
 							.eyeHeight(0.5625F)
 							.clientTrackingRange(10).build(prefix("leek_green_boat"))
@@ -148,6 +151,7 @@ public class TofuEntityTypes {
 			() ->
 					EntityType.Builder.of(chestBoatFactory(TofuItems.LEEK_GREEN_CHEST_BOAT), MobCategory.MISC)
 							.noLootTable()
+							.requiredFeatures(TofuCraftReload.EXPERIMENTAL)
 							.sized(1.375F, 0.5625F)
 							.eyeHeight(0.5625F)
 							.clientTrackingRange(10).build(prefix("leek_green_chest_boat"))
@@ -157,6 +161,7 @@ public class TofuEntityTypes {
 			() ->
 					EntityType.Builder.of(boatFactory(TofuItems.TOFU_STEM_BOAT), MobCategory.MISC)
 							.noLootTable()
+							.requiredFeatures(TofuCraftReload.EXPERIMENTAL)
 							.sized(1.375F, 0.5625F)
 							.eyeHeight(0.5625F)
 							.clientTrackingRange(10).build(prefix("tofu_stem_boat"))
@@ -166,6 +171,7 @@ public class TofuEntityTypes {
 			() ->
 					EntityType.Builder.of(chestBoatFactory(TofuItems.TOFU_STEM_CHEST_BOAT), MobCategory.MISC)
 							.noLootTable()
+							.requiredFeatures(TofuCraftReload.EXPERIMENTAL)
 							.sized(1.375F, 0.5625F)
 							.eyeHeight(0.5625F)
 							.clientTrackingRange(10).build(prefix("tofu_stem_chest_boat"))

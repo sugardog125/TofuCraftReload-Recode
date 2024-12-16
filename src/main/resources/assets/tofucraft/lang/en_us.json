@@ -698,6 +698,7 @@
   "tofucraft.need_defeat_boss" : "Need To Defeat Boss first",
   "block.tofucraft.rice_block" : "Rice bale",
   "tofucraft.config.travelerTofunianSpawn" : "Traveler Tofunian Spawn",
+  "tofucraft.config.enable_extra": "Always Enable Extra Feature",
   "itemGroup.tofucraft.tofus.main_tab" : "Tofus",
   "itemGroup.tofucraft.tofu_foods.main_tab" : "TofuCraft's Food",
   "itemGroup.tofucraft.tofu_misc.main_tab" : "TofuCraft's Misc",

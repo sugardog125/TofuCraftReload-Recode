@@ -1,0 +1,11 @@
+{
+  "features": {
+    "enabled": [
+      "tofucraft:experimental_extra"
+    ]
+  },
+  "pack": {
+    "pack_format": 45,
+    "description": "TofucraftReload's extra!"
+  }
+}

@@ -338,7 +338,7 @@ public class TofuItems {
 
 	public static final DeferredHolder<Item, Item> BUGLE = ITEMS.registerItem("bugle", (properties) -> new BugleItem((properties).stacksTo(1)));
 	public static final DeferredHolder<Item, Item> TOFUSCOOP = ITEMS.registerItem("tofuscoop", (properties) -> new TofuScoopItem((properties).stacksTo(1).durability(264)));
-	public static final DeferredHolder<Item, Item> TOFUSTICK = ITEMS.registerItem("tofustick", (properties) -> new TofuStickItem((properties).stacksTo(1).rarity(Rarity.UNCOMMON).durability(264)));
+	public static final DeferredHolder<Item, Item> TOFUSTICK = ITEMS.registerItem("tofustick", (properties) -> new TofuStickItem((properties).stacksTo(1).rarity(Rarity.UNCOMMON).durability(264).requiredFeatures(TofuCraftReload.EXPERIMENTAL)));
 	public static final DeferredHolder<Item, Item> FUKUMAME = ITEMS.registerItem("fukumame", (properties) -> new FukumameItem((properties).stacksTo(1).enchantable(3).durability(64)));
 	public static final DeferredHolder<Item, Item> NETHER_FUKUMAME = ITEMS.registerItem("nether_fukumame", (properties) -> new NetherFukumameItem((properties).stacksTo(1).enchantable(3).durability(64)));
 	public static final DeferredHolder<Item, Item> INFERNO_NETHER_FUKUMAME = ITEMS.registerItem("inferno_nether_fukumame", (properties) -> new InfernoNetherFukumameItem((properties).stacksTo(1).enchantable(3).durability(64)));
@@ -361,21 +361,21 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> TF_BATTERY = ITEMS.registerItem("tf_battery", (properties) -> new TFBatteryItem((properties.stacksTo(1))));
 
 	public static final DeferredHolder<Item, Item> TOFUNIAN_SPAWNEGG = ITEMS.registerItem("tofunian_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUNIAN.get(), (properties)));
-	public static final DeferredHolder<Item, Item> TOFUCOW_SPAWNEGG = ITEMS.registerItem("tofucow_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUCOW.get(), (properties)));
-	public static final DeferredHolder<Item, Item> TOFUPIG_SPAWNEGG = ITEMS.registerItem("tofupig_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUPIG.get(), (properties)));
-	public static final DeferredHolder<Item, Item> TOFUSLIME_SPAWNEGG = ITEMS.registerItem("tofuslime_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUSLIME.get(), (properties)));
-	public static final DeferredHolder<Item, Item> TOFUCREEPER_SPAWNEGG = ITEMS.registerItem("tofucreeper_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUCREEPER.get(), (properties)));
+	public static final DeferredHolder<Item, Item> TOFUCOW_SPAWNEGG = ITEMS.registerItem("tofucow_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUCOW.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
+	public static final DeferredHolder<Item, Item> TOFUPIG_SPAWNEGG = ITEMS.registerItem("tofupig_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUPIG.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
+	public static final DeferredHolder<Item, Item> TOFUSLIME_SPAWNEGG = ITEMS.registerItem("tofuslime_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUSLIME.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
+	public static final DeferredHolder<Item, Item> TOFUCREEPER_SPAWNEGG = ITEMS.registerItem("tofucreeper_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUCREEPER.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
 
-	public static final DeferredHolder<Item, Item> TOFUSPIDER_SPAWNEGG = ITEMS.registerItem("tofuspider_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUSPIDER.get(), (properties)));
-	public static final DeferredHolder<Item, Item> TOFUFISH_SPAWNEGG = ITEMS.registerItem("tofufish_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUFISH.get(), (properties)));
+	public static final DeferredHolder<Item, Item> TOFUSPIDER_SPAWNEGG = ITEMS.registerItem("tofuspider_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUSPIDER.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
+	public static final DeferredHolder<Item, Item> TOFUFISH_SPAWNEGG = ITEMS.registerItem("tofufish_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFUFISH.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
 	public static final DeferredHolder<Item, Item> TRAVELER_TOFUNIAN_SPAWNEGG = ITEMS.registerItem("traveler_tofunian_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TRAVELER_TOFUNIAN.get(), (properties)));
-	public static final DeferredHolder<Item, Item> TOFU_GANDLEM_SPAWNEGG = ITEMS.registerItem("tofu_gandlem_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFU_GANDLEM.get(), (properties)));
+	public static final DeferredHolder<Item, Item> TOFU_GANDLEM_SPAWNEGG = ITEMS.registerItem("tofu_gandlem_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFU_GANDLEM.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
 	public static final DeferredHolder<Item, Item> TOFU_GOLEM_SPAWNEGG = ITEMS.registerItem("tofu_golem_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.TOFU_GOLEM.get(), (properties)));
-	public static final DeferredHolder<Item, Item> SHUDOFUSPIDER_SPAWNEGG = ITEMS.registerItem("shudofuspider_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.SHUDOFUSPIDER.get(), (properties)));
+	public static final DeferredHolder<Item, Item> SHUDOFUSPIDER_SPAWNEGG = ITEMS.registerItem("shudofuspider_spawnegg", (properties) -> new SpawnEggItem(TofuEntityTypes.SHUDOFUSPIDER.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
 	public static final DeferredHolder<Item, Item> FUKUMAME_THROWER_SPAWNEGG = ITEMS.registerItem("fukumame_thrower_spawn_egg", (properties) -> new SpawnEggItem(TofuEntityTypes.FUKUMAME_THROWER.get(), (properties)));
-	public static final DeferredHolder<Item, Item> ZUNDAMITE_SPAWNEGG = ITEMS.registerItem("zundamite_spawn_egg", (properties) -> new SpawnEggItem(TofuEntityTypes.ZUNDAMITE.get(), (properties)));
+	public static final DeferredHolder<Item, Item> ZUNDAMITE_SPAWNEGG = ITEMS.registerItem("zundamite_spawn_egg", (properties) -> new SpawnEggItem(TofuEntityTypes.ZUNDAMITE.get(), (properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
 
-	public static final DeferredHolder<Item, Item> NATTO_COBWEB = ITEMS.registerItem("natto_cobweb", (properties) -> new NattoCobWebItem((properties)));
+	public static final DeferredHolder<Item, Item> NATTO_COBWEB = ITEMS.registerItem("natto_cobweb", (properties) -> new NattoCobWebItem((properties.requiredFeatures(TofuCraftReload.EXPERIMENTAL))));
 
 	//Tofu delight item
 	public static final DeferredHolder<Item, Item> TOMATO_SOYBEAN_STEW = ITEMS.registerItem("tomato_soybean_stew", (properties) -> new DishItem((properties).stacksTo(16).craftRemainder(Items.BOWL).food(TofuFoods.TOMATO_SOYBEAN_STEW)));
@@ -401,16 +401,16 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> SOY_KARAAGE = ITEMS.registerItem("soy_karaage", (properties) -> new Item((properties).food(TofuFoods.SOY_KARAAGE)));
 	public static final DeferredHolder<Item, Item> SOYMEATDON = ITEMS.registerItem("soymeatdon", (properties) -> new Item((properties).food(TofuFoods.SOYMEATDON)));
 
-	public static final DeferredHolder<Item, Item> TOFUNIAN_BANNER_PATTERN = ITEMS.registerItem("tofunian_banner_pattern", (properties) -> new BannerPatternItem(CustomTagGenerator.BannerPatternTagGenerator.TOFUNIAN_BANNER_PATTERN, properties.stacksTo(1).rarity(Rarity.RARE)));
+	public static final DeferredHolder<Item, Item> TOFUNIAN_BANNER_PATTERN = ITEMS.registerItem("tofunian_banner_pattern", (properties) -> new BannerPatternItem(CustomTagGenerator.BannerPatternTagGenerator.TOFUNIAN_BANNER_PATTERN, properties.stacksTo(1).rarity(Rarity.RARE).requiredFeatures(TofuCraftReload.EXPERIMENTAL)));
 
 	public static final DeferredHolder<Item, Item> LEEK_BOAT = ITEMS.registerItem("leek_boat", (properties) -> new BoatItem(TofuEntityTypes.LEEK_BOAT.get(), properties.stacksTo(1)));
 	public static final DeferredHolder<Item, Item> LEEK_GREEN_BOAT = ITEMS.registerItem("leek_green_boat", (properties) -> new BoatItem(TofuEntityTypes.LEEK_GREEN_BOAT.get(), properties.stacksTo(1)));
 	public static final DeferredHolder<Item, Item> TOFU_STEM_BOAT = ITEMS.registerItem("tofu_stem_boat", (properties) -> new BoatItem(TofuEntityTypes.TOFU_STEM_BOAT.get(), properties.stacksTo(1)));
 
-	public static final DeferredHolder<Item, Item> LEEK_CHEST_BOAT = ITEMS.registerItem("leek_chest_boat", (properties) -> new BoatItem(TofuEntityTypes.LEEK_CHEST_BOAT.get(), properties.stacksTo(1)));
-	public static final DeferredHolder<Item, Item> LEEK_GREEN_CHEST_BOAT = ITEMS.registerItem("leek_green_chest_boat", (properties) -> new BoatItem(TofuEntityTypes.LEEK_GREEN_CHEST_BOAT.get(), properties.stacksTo(1)));
-	public static final DeferredHolder<Item, Item> TOFU_STEM_CHEST_BOAT = ITEMS.registerItem("tofu_stem_chest_boat", (properties) -> new BoatItem(TofuEntityTypes.TOFU_STEM_CHEST_BOAT.get(), properties.stacksTo(1)));
-	public static final DeferredHolder<Item, Item> MUSIC_DISC_GREEN_BRANCH = ITEMS.registerItem("music_disc_green_branch", (properties) -> new Item(properties.jukeboxPlayable(TofuJukeboxSongs.GREEN_BRANCH)));
+	public static final DeferredHolder<Item, Item> LEEK_CHEST_BOAT = ITEMS.registerItem("leek_chest_boat", (properties) -> new BoatItem(TofuEntityTypes.LEEK_CHEST_BOAT.get(), properties.stacksTo(1).requiredFeatures(TofuCraftReload.EXPERIMENTAL)));
+	public static final DeferredHolder<Item, Item> LEEK_GREEN_CHEST_BOAT = ITEMS.registerItem("leek_green_chest_boat", (properties) -> new BoatItem(TofuEntityTypes.LEEK_GREEN_CHEST_BOAT.get(), properties.stacksTo(1).requiredFeatures(TofuCraftReload.EXPERIMENTAL)));
+	public static final DeferredHolder<Item, Item> TOFU_STEM_CHEST_BOAT = ITEMS.registerItem("tofu_stem_chest_boat", (properties) -> new BoatItem(TofuEntityTypes.TOFU_STEM_CHEST_BOAT.get(), properties.stacksTo(1).requiredFeatures(TofuCraftReload.EXPERIMENTAL)));
+	public static final DeferredHolder<Item, Item> MUSIC_DISC_GREEN_BRANCH = ITEMS.registerItem("music_disc_green_branch", (properties) -> new Item(properties.jukeboxPlayable(TofuJukeboxSongs.GREEN_BRANCH).requiredFeatures(TofuCraftReload.EXPERIMENTAL)));
 
 
 	private static Supplier<Item> register(String name, Supplier<Item> item) {
@@ -457,7 +457,7 @@ public class TofuItems {
 
 
 	public static SmithingTemplateItem createTofuUpgradeTemplate(Item.Properties p_363106_) {
-		return new SmithingTemplateItem(TOFU_UPGRADE_APPLIES_TO, TOFU_UPGRADE_INGREDIENTS, TOFU_UPGRADE, TOFU_UPGRADE_BASE_SLOT_DESCRIPTION, createTofuUpgradeMaterialList(), createTofuUpgradeIconList(), p_363106_);
+		return new SmithingTemplateItem(TOFU_UPGRADE_APPLIES_TO, TOFU_UPGRADE_INGREDIENTS, TOFU_UPGRADE, TOFU_UPGRADE_BASE_SLOT_DESCRIPTION, createTofuUpgradeMaterialList(), createTofuUpgradeIconList(), p_363106_.requiredFeatures(TofuCraftReload.EXPERIMENTAL));
 	}
 
 	private static List<ResourceLocation> createZundaBowUpgradeIconList() {

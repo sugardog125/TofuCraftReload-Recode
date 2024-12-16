@@ -694,6 +694,7 @@
   "tofucraft.blocktofukinu.jei_desc": "このブロックは、豆乳をにがりで固めることでできます。上からエンティティが落ちると壊れてしまいます。",
   "tofucraft.blocktofumomen.jei_desc": "このブロックは、上と下に石を置くと時間経過でより硬くなります。",
   "tofucraft.config.travelerTofunianSpawn": "豆腐商人をスポーンさせる",
+  "tofucraft.config.enable_extra": "追加の要素を常時オンにする",
   "tofucraft.has_comfort": "健康入り",
   "tofucraft.has_nourishment": "栄養入り",
   "tofucraft.jei.bittern": "にがりで固める工程",

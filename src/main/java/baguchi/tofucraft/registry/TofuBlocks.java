@@ -366,7 +366,7 @@ public class TofuBlocks {
 	public static final DeferredBlock<ButtonBlock> TOFU_STEM_BUTTON = register("tofustem_button", (properties) -> new ButtonBlock(TofuBlockSetTypes.TOFU_STEM, 30, properties.strength(2.0F, 3.0F).noOcclusion().sound(SoundType.NETHER_WOOD)));
 	public static final DeferredBlock<PressurePlateBlock> TOFU_STEM_PRESSURE_PLATE = register("tofustem_pressure_plate", (properties) -> new PressurePlateBlock(TofuBlockSetTypes.TOFU_STEM, properties.strength(2.0F, 3.0F).noOcclusion()));
 
-	public static final DeferredBlock<TofuPortalBlock> TOFU_PORTAL = noItemRegisterWithEmpty("tofuportal", (properties) -> new TofuPortalBlock(properties.strength(-1.0F).noCollission().noLootTable().sound(SoundType.GLASS).lightLevel((p_50872_) -> {
+	public static final DeferredBlock<TofuPortalBlock> TOFU_PORTAL = noItemRegisterWithEmpty("tofuportal", (properties) -> new TofuPortalBlock(properties.strength(-1.0F).noCollission().noLootTable().sound(SoundType.GLASS).requiredFeatures(TofuCraftReload.EXPERIMENTAL).lightLevel((p_50872_) -> {
 		return 11;
 	})));
 	public static final DeferredBlock<Block> TOFU_FARMLAND = register("tofu_farmland", (properties) -> new TofuFarmlandBlock(properties.strength(0.5F, 1.0F).noOcclusion().randomTicks().sound(SoundType.SNOW)));

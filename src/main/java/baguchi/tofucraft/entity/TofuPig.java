@@ -87,17 +87,17 @@ public class TofuPig extends Pig implements ItemInteractable {
 			p_28298_.playSound(SoundEvents.ANVIL_USE, 1.0F, 1.0F);
 			var3.shrink(1);
 			this.setTofuPigType(TofuPigType.METAL);
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
+			return InteractionResult.SUCCESS;
 		} else if (var3.is(TofuItems.TOFUGRILLED.get()) && !this.isBaby() && this.getTofuPigType().equals(TofuPigType.NORMAL)) {
 			p_28298_.playSound(SoundEvents.GENERIC_EAT.value(), 1.0F, 1.0F);
 			var3.shrink(1);
 			this.setTofuPigType(TofuPigType.GRILLED);
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
+			return InteractionResult.SUCCESS;
 		} else if (var3.is(TofuItems.TOFUZUNDA.get()) && !this.isBaby() && this.getTofuPigType().equals(TofuPigType.NORMAL)) {
 			p_28298_.playSound(SoundEvents.GENERIC_EAT.value(), 1.0F, 1.0F);
 			var3.shrink(1);
 			this.setTofuPigType(TofuPigType.ZUNDA);
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
+			return InteractionResult.SUCCESS;
 		} else {
 			return super.mobInteract(p_28298_, p_28299_);
 		}

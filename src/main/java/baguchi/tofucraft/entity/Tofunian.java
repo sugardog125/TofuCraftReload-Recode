@@ -510,7 +510,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 			}
 			if (this.isBaby()) {
 				this.setUnhappy();
-				return InteractionResult.TRY_WITH_EMPTY_HAND;
+				return InteractionResult.SUCCESS;
 			} else {
 				boolean flag = this.getOffers().isEmpty();
 				if (this.getAction() == Actions.HAPPY || this.getAction() == Actions.EAT || this.getAction() == Actions.CRY) {
@@ -526,13 +526,13 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 				}
 
 				if (flag) {
-					return InteractionResult.TRY_WITH_EMPTY_HAND;
+					return InteractionResult.SUCCESS;
 				} else {
 					if (!this.level().isClientSide && !this.offers.isEmpty()) {
 						this.startTrading(p_35472_);
 					}
 
-					return InteractionResult.TRY_WITH_EMPTY_HAND;
+					return InteractionResult.SUCCESS;
 				}
 			}
 		} else {
