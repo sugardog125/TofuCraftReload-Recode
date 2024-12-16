@@ -25,8 +25,8 @@ public class TofuConfig {
 					.define("Traveler Tofunian Spawn", true);
 			enableExtra = builder
 					.translation(TofuCraftReload.MODID + ".config.enable_extra")
-					.comment("Enable The Extra Feature(Such as enable Enter the Tofu World).")
-					.define("Enable Extra Feature", true);
+					.comment("Force Enable The Extra Feature(Such as enable Enter the Tofu World).")
+					.define("Force Enable Extra Feature", true);
 		}
 	}
 }
