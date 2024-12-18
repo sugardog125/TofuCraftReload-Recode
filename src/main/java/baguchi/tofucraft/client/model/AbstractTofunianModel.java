@@ -96,8 +96,8 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 	public void translateToHand(HumanoidArm p_102925_, PoseStack p_102926_) {
 		this.root.translateAndRotate(p_102926_);
 		this.getArm(p_102925_).translateAndRotate(p_102926_);
-		p_102926_.translate(0, -0.15D, 0);
-		p_102926_.scale(0.95F, 0.95F, 0.95F);
+		p_102926_.translate(0, (22F / 16F), 0);
+		p_102926_.scale(0.85F, 0.85F, 0.85F);
 	}
 
 
