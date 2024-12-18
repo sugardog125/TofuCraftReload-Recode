@@ -2,6 +2,7 @@
   "parent": "tofucraft:block/crop_emissive",
   "render_type": "cutout",
   "textures": {
-    "crop": "tofucraft:block/soybean_pale_open"
+    "crop": "tofucraft:block/soybean_pale_3",
+    "crop_emissive": "tofucraft:block/soybean_pale_open"
   }
 }
