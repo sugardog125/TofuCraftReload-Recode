@@ -30,7 +30,7 @@ public class ModPalePlacements {
 
 	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeature = context.lookup(Registries.CONFIGURED_FEATURE);
-		PlacementUtils.register(context, PATCH_PALE_SOYBEAN, configuredFeature.getOrThrow(ModPaleFeatures.PALE_SOYBEAN), List.of(RarityFilter.onAverageOnceEvery(36),
+		PlacementUtils.register(context, PATCH_PALE_SOYBEAN, configuredFeature.getOrThrow(ModPaleFeatures.PALE_SOYBEAN), List.of(RarityFilter.onAverageOnceEvery(30),
 				InSquarePlacement.spread(),
 				PlacementUtils.HEIGHTMAP,
 				BiomeFilter.biome()));

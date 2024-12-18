@@ -1,7 +1,7 @@
 package baguchi.tofucraft.world.gen.features;
 
 import baguchi.tofucraft.TofuCraftReload;
-import baguchi.tofucraft.block.crop.SoybeanNetherCropsBlock;
+import baguchi.tofucraft.block.crop.SoybeanPaleCropsBlock;
 import baguchi.tofucraft.registry.TofuBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -23,7 +23,7 @@ public class ModPaleFeatures {
 	}
 
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-		FeatureUtils.register(context, PALE_SOYBEAN, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(TofuBlocks.SOYBEAN_PALE.get().defaultBlockState().setValue(SoybeanNetherCropsBlock.AGE, 3)), 32));
+		FeatureUtils.register(context, PALE_SOYBEAN, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(TofuBlocks.SOYBEAN_PALE.get().defaultBlockState().setValue(SoybeanPaleCropsBlock.AGE, 3)), 32));
 	}
 
 	private static RandomPatchConfiguration grassPatch(BlockStateProvider p_195203_, int p_195204_) {

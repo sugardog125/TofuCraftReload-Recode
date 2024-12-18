@@ -193,4 +193,9 @@ public class SoybeanPaleCropsBlock extends CropBlock {
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_52286_) {
 		p_52286_.add(AGE, BLOOM);
 	}
+
+	@Override
+	protected boolean isRandomlyTicking(BlockState p_52288_) {
+		return true;
+	}
 }
