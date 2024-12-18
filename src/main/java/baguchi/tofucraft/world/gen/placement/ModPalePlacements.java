@@ -10,11 +10,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
-import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class ModPalePlacements {
 
 	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeature = context.lookup(Registries.CONFIGURED_FEATURE);
-		PlacementUtils.register(context, PATCH_PALE_SOYBEAN, configuredFeature.getOrThrow(ModPaleFeatures.PALE_SOYBEAN), List.of(RarityFilter.onAverageOnceEvery(3),
+		PlacementUtils.register(context, PATCH_PALE_SOYBEAN, configuredFeature.getOrThrow(ModPaleFeatures.PALE_SOYBEAN), List.of(CountPlacement.of(4),
 				InSquarePlacement.spread(),
 				PlacementUtils.HEIGHTMAP,
 				BiomeFilter.biome()));

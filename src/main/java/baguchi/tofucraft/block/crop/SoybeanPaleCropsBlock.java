@@ -181,7 +181,7 @@ public class SoybeanPaleCropsBlock extends CropBlock {
 
 	@Override
 	protected boolean mayPlaceOn(BlockState p_52302_, BlockGetter p_52303_, BlockPos p_52304_) {
-		return super.mayPlaceOn(p_52302_, p_52303_, p_52304_) || p_52302_.is(Blocks.PALE_MOSS_BLOCK);
+		return p_52302_.is(Blocks.GRASS_BLOCK) || p_52302_.is(Blocks.PALE_MOSS_BLOCK);
 	}
 
 	@Override

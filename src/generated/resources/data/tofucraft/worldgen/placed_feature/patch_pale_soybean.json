@@ -2,8 +2,8 @@
   "feature": "tofucraft:pale_soybean",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 3
+      "type": "minecraft:count",
+      "count": 4
     },
     {
       "type": "minecraft:in_square"
