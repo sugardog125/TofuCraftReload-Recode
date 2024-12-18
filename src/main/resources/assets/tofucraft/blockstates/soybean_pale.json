@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0,bloom=false": {
+      "model": "tofucraft:block/soybeans_pale_0"
+    },
+    "age=1,bloom=false": {
+      "model": "tofucraft:block/soybeans_pale_1"
+    },
+    "age=2,bloom=false": {
+      "model": "tofucraft:block/soybeans_pale_2"
+    },
+    "age=0,bloom=true": {
+      "model": "tofucraft:block/soybeans_pale_0"
+    },
+    "age=1,bloom=true": {
+      "model": "tofucraft:block/soybeans_pale_1"
+    },
+    "age=2,bloom=true": {
+      "model": "tofucraft:block/soybeans_pale_2"
+    },
+    "age=3,bloom=false": {
+      "model": "tofucraft:block/soybeans_pale_3"
+    },
+    "age=3,bloom=true": {
+      "model": "tofucraft:block/soybeans_pale_open"
+    }
+  }
+}

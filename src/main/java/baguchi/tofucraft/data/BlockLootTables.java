@@ -2,6 +2,7 @@ package baguchi.tofucraft.data;
 
 import baguchi.tofucraft.block.crop.RiceCropsBlock;
 import baguchi.tofucraft.block.crop.SoybeanCropsBlock;
+import baguchi.tofucraft.block.crop.SoybeanPaleCropsBlock;
 import baguchi.tofucraft.block.crop.SproutsCropBlock;
 import baguchi.tofucraft.block.utils.MisoBarrelBlock;
 import baguchi.tofucraft.block.utils.WeightBaseBlock;
@@ -76,6 +77,10 @@ public class BlockLootTables extends BlockLootSubProvider {
 		LootItemCondition.Builder lootitemcondition$builder3 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(TofuBlocks.SOYBEAN_SOUL.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SoybeanCropsBlock.AGE, 7));
 
 		add(TofuBlocks.SOYBEAN_SOUL.get(), applyExplosionDecay(TofuBlocks.SOYBEAN_SOUL.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(TofuItems.SEEDS_SOYBEANS_SOUL.get()).when(lootitemcondition$builder3).otherwise(LootItem.lootTableItem(TofuItems.SEEDS_SOYBEANS_SOUL.get())))).withPool(LootPool.lootPool().when(lootitemcondition$builder3).add(LootItem.lootTableItem(TofuItems.SEEDS_SOYBEANS_SOUL.get()).apply(ApplyBonusCount.addBonusBinomialDistributionCount(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.5714286F, 3))))));
+
+		LootItemCondition.Builder pale = LootItemBlockStatePropertyCondition.hasBlockStateProperties(TofuBlocks.SOYBEAN_PALE.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SoybeanPaleCropsBlock.AGE, 3));
+
+		add(TofuBlocks.SOYBEAN_PALE.get(), applyExplosionDecay(TofuBlocks.SOYBEAN_PALE.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(TofuItems.SEEDS_SOYBEANS_PALE.get()).when(pale).otherwise(LootItem.lootTableItem(TofuItems.SEEDS_SOYBEANS_PALE.get())))).withPool(LootPool.lootPool().when(pale).add(LootItem.lootTableItem(TofuItems.SEEDS_SOYBEANS_PALE.get()).apply(ApplyBonusCount.addBonusBinomialDistributionCount(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.5714286F, 3))))));
 
 		LootItemCondition.Builder lootitemcondition$builder4 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(TofuBlocks.LEEK_CROP.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SoybeanCropsBlock.AGE, 3));
 

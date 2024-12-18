@@ -30,6 +30,7 @@ public class TofuDataMapsProvider extends DataMapProvider {
 		compostables.add(TofuItems.SEEDS_SOYBEANS, new Compostable(0.3F), false);
 		compostables.add(TofuItems.SEEDS_SOYBEANS_NETHER, new Compostable(0.3F), false);
 		compostables.add(TofuItems.SEEDS_SOYBEANS_SOUL, new Compostable(0.3F), false);
+		compostables.add(TofuItems.SEEDS_SOYBEANS_PALE, new Compostable(0.3F), false);
 		compostables.add(TofuItems.LEEK, new Compostable(0.5F), false);
 		compostables.add(TofuItems.TOFUKINU, new Compostable(0.3F), false);
 		compostables.add(TofuItems.TOFUMOMEN, new Compostable(0.3F), false);

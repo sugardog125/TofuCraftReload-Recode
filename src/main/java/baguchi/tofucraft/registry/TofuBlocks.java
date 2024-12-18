@@ -36,6 +36,7 @@ import baguchi.tofucraft.block.crop.RiceCropsBlock;
 import baguchi.tofucraft.block.crop.RiceRootBlock;
 import baguchi.tofucraft.block.crop.SoybeanCropsBlock;
 import baguchi.tofucraft.block.crop.SoybeanNetherCropsBlock;
+import baguchi.tofucraft.block.crop.SoybeanPaleCropsBlock;
 import baguchi.tofucraft.block.crop.SoybeanSoulCropsBlock;
 import baguchi.tofucraft.block.crop.SproutsCropBlock;
 import baguchi.tofucraft.block.tfenergy.TFAntennaBlock;
@@ -124,6 +125,7 @@ public class TofuBlocks {
 	public static final DeferredBlock<Block> SOYBEAN = noItemRegisterWithEmpty("soybean", (properties) -> new SoybeanCropsBlock(properties.noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredBlock<Block> SOYBEAN_NETHER = noItemRegisterWithEmpty("soybean_nether", (properties) -> new SoybeanNetherCropsBlock(properties.noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredBlock<Block> SOYBEAN_SOUL = noItemRegisterWithEmpty("soybean_soul", (properties) -> new SoybeanSoulCropsBlock(properties.noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+	public static final DeferredBlock<Block> SOYBEAN_PALE = noItemRegisterWithEmpty("soybean_pale", (properties) -> new SoybeanPaleCropsBlock(properties.noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredBlock<Block> LEEK_CROP = noItemRegisterWithEmpty("leek_crop", (properties) -> new LeekCropsBlock(properties.noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredBlock<Block> RICE_CROP = noItemRegisterWithEmpty("rice", (properties) -> new RiceCropsBlock(properties.noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 	public static final DeferredBlock<Block> RICE_ROOT = noItemRegisterWithEmpty("rice_root", (properties) -> new RiceRootBlock(properties.noCollission().randomTicks().strength(0.1F).sound(SoundType.CROP)));

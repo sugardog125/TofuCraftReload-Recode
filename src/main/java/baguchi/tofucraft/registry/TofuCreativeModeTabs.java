@@ -458,6 +458,7 @@ public class TofuCreativeModeTabs {
 						TofuItems.SEEDS_SOYBEANS,
 						TofuItems.SEEDS_SOYBEANS_NETHER,
 						TofuItems.SEEDS_SOYBEANS_SOUL,
+						TofuItems.SEEDS_SOYBEANS_PALE,
 						TofuItems.SEEDS_RICE,
 						TofuItems.SEEDS_CHILI,
 						TofuItems.CHILI,

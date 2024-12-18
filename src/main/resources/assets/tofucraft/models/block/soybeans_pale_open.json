@@ -1,0 +1,7 @@
+{
+  "parent": "tofucraft:block/crop_emissive",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "tofucraft:block/soybean_pale_open"
+  }
+}
