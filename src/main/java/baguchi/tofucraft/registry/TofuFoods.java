@@ -4,6 +4,8 @@ package baguchi.tofucraft.registry;
 import net.minecraft.world.food.FoodProperties;
 
 public class TofuFoods {
+	public static final FoodProperties DRINK = (new FoodProperties.Builder()).nutrition(0).saturationModifier(0.0F).build();
+
 	public static final FoodProperties TOFU = (new FoodProperties.Builder()).nutrition(2).saturationModifier(0.1F).build();
 
 	public static final FoodProperties ISHITOFU = (new FoodProperties.Builder()).nutrition(2).saturationModifier(0.3F).build();

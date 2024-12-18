@@ -197,21 +197,22 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> MOYASHIOHITASHI = ITEMS.registerItem("moyashiohitashi", (properties) -> new DishItem((properties).food(TofuFoods.MOYASHIOHITASHI).stacksTo(16)));
 	public static final DeferredHolder<Item, Item> SALTYMELON = ITEMS.registerItem("saltymelon", (properties) -> new SaltFoodItem((properties).food(TofuFoods.SALTYMELON, TofuConsumables.SMALL_SALT_FOOD)));
 
-	public static final DeferredHolder<Item, Item> SOYMILK = ITEMS.registerItem("soymilk", (properties) -> new SoymilkBottleItem(MobEffects.REGENERATION, MobEffects.HEALTH_BOOST, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_ANNIN = ITEMS.registerItem("soymilk_annin", (properties) -> new SoymilkBottleItem(MobEffects.HEALTH_BOOST, MobEffects.ABSORPTION, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_APPLE = ITEMS.registerItem("soymilk_apple", (properties) -> new SoymilkBottleItem(MobEffects.DAMAGE_RESISTANCE, MobEffects.ABSORPTION, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_COCOA = ITEMS.registerItem("soymilk_cocoa", (properties) -> new SoymilkBottleItem(MobEffects.JUMP, MobEffects.MOVEMENT_SPEED, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_FRUITS = ITEMS.registerItem("soymilk_fruits", (properties) -> new SoymilkBottleItem(MobEffects.SLOW_FALLING, MobEffects.JUMP, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_HONEY = ITEMS.registerItem("soymilk_honey", (properties) -> new HoneySoymilkBottleItem((properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_KINAKO = ITEMS.registerItem("soymilk_kinako", (properties) -> new SoymilkBottleItem(MobEffects.MOVEMENT_SPEED, MobEffects.DIG_SPEED, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_PUDDING = ITEMS.registerItem("soymilk_pudding", (properties) -> new SoymilkBottleItem(MobEffects.REGENERATION, MobEffects.HEALTH_BOOST, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_PUMPKIN = ITEMS.registerItem("soymilk_pumpkin", (properties) -> new SoymilkBottleItem(MobEffects.DAMAGE_BOOST, MobEffects.DIG_SPEED, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_RAMUNE = ITEMS.registerItem("soymilk_ramune", (properties) -> new RamuneSoymilkBottleItem((properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_SAKURA = ITEMS.registerItem("soymilk_sakura", (properties) -> new SoymilkBottleItem(MobEffects.DAMAGE_RESISTANCE, MobEffects.FIRE_RESISTANCE, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_STRAWBERRY = ITEMS.registerItem("soymilk_strawberry", (properties) -> new SoymilkBottleItem(MobEffects.DIG_SPEED, MobEffects.MOVEMENT_SPEED, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_TEA = ITEMS.registerItem("soymilk_tea", (properties) -> new SoymilkBottleItem(MobEffects.LUCK, MobEffects.WATER_BREATHING, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_HELL_BOTTLE = ITEMS.registerItem("soymilk_hell_bottle", (properties) -> new SoymilkBottleItem(MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_RESISTANCE, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-	public static final DeferredHolder<Item, Item> SOYMILK_SOUL_BOTTLE = ITEMS.registerItem("soymilk_soul_bottle", (properties) -> new SoymilkBottleItem(MobEffects.ABSORPTION, MobEffects.HEALTH_BOOST, (properties).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK = ITEMS.registerItem("soymilk", (properties) -> new SoymilkBottleItem(MobEffects.REGENERATION, MobEffects.HEALTH_BOOST, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_ANNIN = ITEMS.registerItem("soymilk_annin", (properties) -> new SoymilkBottleItem(MobEffects.HEALTH_BOOST, MobEffects.ABSORPTION, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_APPLE = ITEMS.registerItem("soymilk_apple", (properties) -> new SoymilkBottleItem(MobEffects.DAMAGE_RESISTANCE, MobEffects.ABSORPTION, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_COCOA = ITEMS.registerItem("soymilk_cocoa", (properties) -> new SoymilkBottleItem(MobEffects.JUMP, MobEffects.MOVEMENT_SPEED, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_FRUITS = ITEMS.registerItem("soymilk_fruits", (properties) -> new SoymilkBottleItem(MobEffects.SLOW_FALLING, MobEffects.JUMP, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_HONEY = ITEMS.registerItem("soymilk_honey", (properties) -> new HoneySoymilkBottleItem((properties).stacksTo(16).food(TofuFoods.DRINK, TofuConsumables.SOYMILK_HONEY).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_KINAKO = ITEMS.registerItem("soymilk_kinako", (properties) -> new SoymilkBottleItem(MobEffects.MOVEMENT_SPEED, MobEffects.DIG_SPEED, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_PUDDING = ITEMS.registerItem("soymilk_pudding", (properties) -> new SoymilkBottleItem(MobEffects.REGENERATION, MobEffects.HEALTH_BOOST, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_PUMPKIN = ITEMS.registerItem("soymilk_pumpkin", (properties) -> new SoymilkBottleItem(MobEffects.DAMAGE_BOOST, MobEffects.DIG_SPEED, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_RAMUNE = ITEMS.registerItem("soymilk_ramune", (properties) -> new RamuneSoymilkBottleItem(drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_SAKURA = ITEMS.registerItem("soymilk_sakura", (properties) -> new SoymilkBottleItem(MobEffects.DAMAGE_RESISTANCE, MobEffects.FIRE_RESISTANCE, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_STRAWBERRY = ITEMS.registerItem("soymilk_strawberry", (properties) -> new SoymilkBottleItem(MobEffects.DIG_SPEED, MobEffects.MOVEMENT_SPEED, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_TEA = ITEMS.registerItem("soymilk_tea", (properties) -> new SoymilkBottleItem(MobEffects.LUCK, MobEffects.WATER_BREATHING, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_HELL_BOTTLE = ITEMS.registerItem("soymilk_hell_bottle", (properties) -> new SoymilkBottleItem(MobEffects.FIRE_RESISTANCE, MobEffects.DAMAGE_RESISTANCE, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+	public static final DeferredHolder<Item, Item> SOYMILK_SOUL_BOTTLE = ITEMS.registerItem("soymilk_soul_bottle", (properties) -> new SoymilkBottleItem(MobEffects.ABSORPTION, MobEffects.HEALTH_BOOST, drinkItemProperties(properties).craftRemainder(Items.GLASS_BOTTLE)));
+
 
 
 	public static final DeferredHolder<Item, Item> KINAKO_MANJU = ITEMS.registerItem("kinakomanju", (properties) -> new Item((properties).food(TofuFoods.KINAKO_MANJU)));
@@ -471,6 +472,11 @@ public class TofuItems {
 
 	public static SmithingTemplateItem createZundaBowUpgradeTemplate(Item.Properties p_363106_) {
 		return new SmithingTemplateItem(ZUNDA_BOW_UPGRADE_APPLIES_TO, ZUNDA_BOW_UPGRADE_INGREDIENTS, ZUNDA_BOW_UPGRADE, ZUNDA_BOW_UPGRADE_BASE_SLOT_DESCRIPTION, createZundaBowUpgradeIconList(), createZundaBowUpgradeMaterialList(), p_363106_);
+	}
+
+
+	private static Item.Properties drinkItemProperties(Item.Properties properties) {
+		return properties.stacksTo(16).food(TofuFoods.DRINK, TofuConsumables.SOYMILK);
 	}
 
 	public static void registerDispenserItem() {

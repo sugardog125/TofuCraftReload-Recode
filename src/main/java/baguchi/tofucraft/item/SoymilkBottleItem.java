@@ -9,16 +9,12 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -72,21 +68,6 @@ public class SoymilkBottleItem extends Item {
 			}
 		}
 		return stack;
-	}
-
-
-	@Override
-	public int getUseDuration(ItemStack p_41454_, LivingEntity p_344979_) {
-		return 32;
-	}
-
-	@Override
-	public ItemUseAnimation getUseAnimation(ItemStack p_41452_) {
-		return ItemUseAnimation.DRINK;
-	}
-	@Override
-	public InteractionResult use(Level level, Player player, InteractionHand hand) {
-		return ItemUtils.startUsingInstantly(level, player, hand);
 	}
 
 	@Override
