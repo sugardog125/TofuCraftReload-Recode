@@ -118,7 +118,7 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> SEEDS_SOYBEANS = ITEMS.registerItem("seeds_soybeans", (properties) -> new DoubleUsageSeedItem(TofuBlocks.SOYBEAN, TofuBlocks.SPROUTS, (properties)));
 	public static final DeferredHolder<Item, Item> SEEDS_SOYBEANS_NETHER = ITEMS.registerItem("seeds_soybeans_nether", (properties) -> new DeferredBlockItem(TofuBlocks.SOYBEAN_NETHER, (properties)));
 	public static final DeferredHolder<Item, Item> SEEDS_SOYBEANS_SOUL = ITEMS.registerItem("seeds_soybeans_soul", (properties) -> new DeferredBlockItem(TofuBlocks.SOYBEAN_SOUL, (properties).rarity(Rarity.UNCOMMON)));
-	public static final DeferredHolder<Item, Item> SEEDS_SOYBEANS_PALE = ITEMS.registerItem("seeds_soybeans_pale", (properties) -> new DeferredBlockItem(TofuBlocks.SOYBEAN_PALE, (properties).rarity(Rarity.UNCOMMON)));
+	public static final DeferredHolder<Item, Item> SEEDS_SOYBEANS_PALE = ITEMS.registerItem("seeds_soybeans_pale", (properties) -> new DeferredBlockItem(TofuBlocks.SOYBEAN_PALE, (properties).rarity(Rarity.RARE)));
 	public static final DeferredHolder<Item, Item> SOYBEAN_PARCHED = ITEMS.registerItem("soybeans_parched", (properties) -> new Item((properties)));
 	public static final DeferredHolder<Item, Item> KINAKO = ITEMS.registerItem("kinako", (properties) -> new Item((properties)));
 	public static final DeferredHolder<Item, Item> EDAMAME = ITEMS.registerItem("edamame", (properties) -> new Item((properties)));
