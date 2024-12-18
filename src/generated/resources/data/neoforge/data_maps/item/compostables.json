@@ -42,6 +42,9 @@
     "tofucraft:seeds_soybeans_pale": {
       "chance": 0.3
     },
+    "tofucraft:seeds_soybeans_pale_glow": {
+      "chance": 0.3
+    },
     "tofucraft:seeds_soybeans_soul": {
       "chance": 0.3
     },

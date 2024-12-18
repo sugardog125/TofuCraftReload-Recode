@@ -19,11 +19,12 @@
                   "block": "tofucraft:soybean_pale",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "3"
+                    "age": "3",
+                    "bloom": "true"
                   }
                 }
               ],
-              "name": "tofucraft:seeds_soybeans_pale"
+              "name": "tofucraft:seeds_soybeans_pale_glow"
             },
             {
               "type": "minecraft:item",
@@ -36,30 +37,51 @@
     },
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "block": "tofucraft:soybean_pale",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "age": "3"
-          }
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "functions": [
+          "type": "minecraft:alternatives",
+          "children": [
             {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
-              "function": "minecraft:apply_bonus",
-              "parameters": {
-                "extra": 3,
-                "probability": 0.5714286
-              }
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "tofucraft:soybean_pale",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "3",
+                    "bloom": "true"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:binomial_with_bonus_count",
+                  "function": "minecraft:apply_bonus",
+                  "parameters": {
+                    "extra": 3,
+                    "probability": 0.5714286
+                  }
+                }
+              ],
+              "name": "tofucraft:seeds_soybeans_pale_glow"
+            },
+            {
+              "type": "minecraft:item",
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:binomial_with_bonus_count",
+                  "function": "minecraft:apply_bonus",
+                  "parameters": {
+                    "extra": 3,
+                    "probability": 0.5714286
+                  }
+                }
+              ],
+              "name": "tofucraft:seeds_soybeans_pale"
             }
-          ],
-          "name": "tofucraft:seeds_soybeans_pale"
+          ]
         }
       ],
       "rolls": 1.0
