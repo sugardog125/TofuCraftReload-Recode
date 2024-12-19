@@ -443,8 +443,6 @@ public class TofuCreativeModeTabs {
 						TofuItems.BUCKET_SOYMILK,
 						TofuItems.BUCKET_SOYMILK_NETHER,
 						TofuItems.BUCKET_SOYMILK_SOUL,
-						TofuItems.BUCKET_SOYMILK_PALE,
-						TofuItems.BUCKET_SOYMILK_PALE_GLOW,
 						TofuItems.BUCKET_BITTERN,
 						TofuItems.BUCKET_DOUBANJIANG,
 						TofuItems.TOFUFISH_SOYMILK_BUCKET,

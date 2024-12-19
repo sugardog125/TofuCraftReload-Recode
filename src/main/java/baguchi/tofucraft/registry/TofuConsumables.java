@@ -19,10 +19,10 @@ public class TofuConsumables {
 			.build();
 
 	public static final Consumable SOYMILK_PALE = defaultDrink()
-			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(TofuEffects.HEART_RECOVER, 300)))
+			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(TofuEffects.HEART_RECOVER, 1200)))
 			.build();
 	public static final Consumable SOYMILK_PALE_GLOW = defaultDrink()
-			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(TofuEffects.HEART_RECOVER, 600)))
+			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(TofuEffects.HEART_RECOVER, 2400)))
 			.build();
 
 	public static final Consumable COUGH = defaultFood()

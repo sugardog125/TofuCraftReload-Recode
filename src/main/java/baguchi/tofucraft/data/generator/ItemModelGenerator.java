@@ -374,8 +374,6 @@ public class ItemModelGenerator extends ItemModelProvider {
 		singleTex(TofuItems.BUCKET_SOYMILK);
 		singleTex(TofuItems.BUCKET_SOYMILK_NETHER);
 		singleTex(TofuItems.BUCKET_SOYMILK_SOUL);
-		singleTex(TofuItems.BUCKET_SOYMILK_PALE);
-		singleTex(TofuItems.BUCKET_SOYMILK_PALE_GLOW);
 
 		singleTex(TofuItems.BUCKET_BITTERN);
 		singleTex(TofuItems.BUCKET_DOUBANJIANG);
