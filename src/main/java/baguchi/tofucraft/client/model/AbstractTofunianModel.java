@@ -20,7 +20,7 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 	public final ModelPart rightLeg;
 	public final ModelPart rightArm;
 	public final ModelPart leftArm;
-	private final ModelPart roots;
+	public final ModelPart roots;
 
 	public AbstractTofunianModel(ModelPart p_170688_) {
 		super(p_170688_);
@@ -85,7 +85,7 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 		}
 	}
 
-	private ModelPart getArm(HumanoidArm p_102923_) {
+	public ModelPart getArm(HumanoidArm p_102923_) {
 		return p_102923_ == HumanoidArm.LEFT ? this.leftArm : this.rightArm;
 	}
 
@@ -94,41 +94,37 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 	}
 
 	public void translateToHand(HumanoidArm p_102925_, PoseStack p_102926_) {
-		this.root.translateAndRotate(p_102926_);
+		this.roots.translateAndRotate(p_102926_);
 		this.getArm(p_102925_).translateAndRotate(p_102926_);
-		p_102926_.translate(0, (22F / 16F), 0);
+		p_102926_.translate(0, -(2 / 16F), 0);
 		p_102926_.scale(0.85F, 0.85F, 0.85F);
 	}
 
 
 	@Override
 	public void translateToHead(ModelPart modelPart, PoseStack poseStack) {
-		poseStack.translate(0, (24F / 16F), 0);
-		this.root.translateAndRotate(poseStack);
+		this.roots.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
 	}
 
 	@Override
 	public void translateToChest(ModelPart modelPart, PoseStack poseStack) {
-
-		poseStack.translate(0, (24F / 16F), 0);
-		this.root.translateAndRotate(poseStack);
+		this.roots.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
 		poseStack.scale(0.75F, 0.75F, 0.75F);
 	}
 
 	@Override
 	public void translateToLeg(ModelPart modelPart, PoseStack poseStack) {
+		this.roots.translateAndRotate(poseStack);
+		modelPart.translateAndRotate(poseStack);
 		if (this.rightLeg == modelPart) {
 			poseStack.translate(1 / 16F, 0F, 0);
 		}
 		if (this.leftLeg == modelPart) {
 			poseStack.translate(-1 / 16F, 0F, 0);
 		}
-		poseStack.translate(0, (18F / 16F), 0);
-		this.root.translateAndRotate(poseStack);
-		modelPart.translateAndRotate(poseStack);
-
+		poseStack.translate(0, -(6 / 16F), 0);
 		poseStack.scale(0.5F, 0.5F, 0.5F);
 	}
 
@@ -140,8 +136,7 @@ public class AbstractTofunianModel<T extends AbstractTofunianRenderState> extend
 		if (this.leftArm == modelPart) {
 			poseStack.translate(-1 / 16F, 0F, 0);
 		}
-		poseStack.translate(0, (24F / 16F), 0);
-		this.root.translateAndRotate(poseStack);
+		this.roots.translateAndRotate(poseStack);
 		modelPart.translateAndRotate(poseStack);
 
 		poseStack.scale(0.5F, 0.5F, 0.5F);
