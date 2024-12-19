@@ -137,6 +137,14 @@ public class CommonEvents {
 					livingEntity.jumpInFluid(TofuFluidTypes.SOYMILK_SOUL.get());
 				}
 			}
+
+			if (livingEntity.isInFluidType(TofuFluidTypes.DOUBANJIANG.get())) {
+				travelInFluid(livingEntity, livingEntity.getDeltaMovement(), TofuFluids.DOUBANJIANG.get().defaultFluidState());
+
+				if (((LivingEntityAccessor) livingEntity).isJump()) {
+					livingEntity.jumpInFluid(TofuFluidTypes.DOUBANJIANG.get());
+				}
+			}
 		}
 		TofuLivingAttachment tofuLivingAttachment = entity.getData(TofuAttachments.TOFU_LIVING);
 		tofuLivingAttachment.tick(entity);
