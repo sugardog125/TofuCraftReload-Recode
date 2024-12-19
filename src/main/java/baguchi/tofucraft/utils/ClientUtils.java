@@ -50,6 +50,6 @@ public class ClientUtils {
 		buffer.addVertex(pose, -1.0F, 1.0F, -0.5F).setUv(4.0F + uOffset, vOffset);
 		BufferUploader.drawWithShader(buffer.buildOrThrow());
 		RenderSystem.disableBlend();
-
+		RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 	}
 }
