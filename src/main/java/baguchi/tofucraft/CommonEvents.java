@@ -93,6 +93,15 @@ public class CommonEvents {
 	private static final Map<ServerLevel, TravelerTofunianSpawner> TRAVELER_TOFUNIAN_SPAWNER_MAP = new HashMap<>();
 
 	@SubscribeEvent
+	public static void onUpdate(LivingDamageEvent.Post event) {
+		TofuLivingAttachment attachment = event.getEntity().getData(TofuAttachments.TOFU_LIVING.get());
+
+		if (event.getEntity().hasEffect(TofuEffects.HEART_RECOVER)) {
+			attachment.setRecoverHealth(event.getNewDamage());
+		}
+	}
+
+	@SubscribeEvent
 	public static void onUpdate(EntityTickEvent.Pre event) {
 		Entity entity = event.getEntity();
 		SoyHealthAttachment soyHealth = entity.getData(TofuAttachments.SOY_HEALTH);

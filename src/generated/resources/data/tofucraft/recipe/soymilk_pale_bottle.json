@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "tofucraft:bucket_soymilk_pale",
+    "minecraft:glass_bottle",
+    "minecraft:glass_bottle",
+    "minecraft:glass_bottle"
+  ],
+  "result": {
+    "count": 3,
+    "id": "tofucraft:soymilk_pale_bottle"
+  }
+}

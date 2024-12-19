@@ -331,6 +331,8 @@ public class ItemModelGenerator extends ItemModelProvider {
 		singleTex(TofuItems.SOYMILK_TEA);
 		singleTex(TofuItems.SOYMILK_HELL_BOTTLE);
 		singleTex(TofuItems.SOYMILK_SOUL_BOTTLE);
+		singleTex(TofuItems.SOYMILK_PALE_BOTTLE);
+		singleTex(TofuItems.SOYMILK_PALE_GLOW_BOTTLE);
 		singleTex(TofuItems.KINAKO_MANJU);
 		singleTex(TofuItems.ZUNDA_MANJU);
 		singleTex(TofuItems.NETHER_MANJU);
@@ -372,6 +374,9 @@ public class ItemModelGenerator extends ItemModelProvider {
 		singleTex(TofuItems.BUCKET_SOYMILK);
 		singleTex(TofuItems.BUCKET_SOYMILK_NETHER);
 		singleTex(TofuItems.BUCKET_SOYMILK_SOUL);
+		singleTex(TofuItems.BUCKET_SOYMILK_PALE);
+		singleTex(TofuItems.BUCKET_SOYMILK_PALE_GLOW);
+
 		singleTex(TofuItems.BUCKET_BITTERN);
 		singleTex(TofuItems.BUCKET_DOUBANJIANG);
 

@@ -686,6 +686,18 @@ public class CraftingGenerator extends CraftingDataHelper {
 				.unlockedBy("has_item", has(TofuItems.SEEDS_SOYBEANS_SOUL.get()))
 				.save(this.output);
 
+		ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.MISC, TofuItems.BUCKET_SOYMILK_PALE.get())
+				.requires(TofuItems.SEEDS_SOYBEANS_PALE.get())
+				.requires(Items.BUCKET)
+				.unlockedBy("has_item", has(TofuItems.SEEDS_SOYBEANS_PALE.get()))
+				.save(this.output);
+		ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.MISC, TofuItems.BUCKET_SOYMILK_PALE_GLOW.get())
+				.requires(TofuItems.SEEDS_SOYBEANS_PALE_GLOW.get())
+				.requires(Items.BUCKET)
+				.unlockedBy("has_item", has(TofuItems.SEEDS_SOYBEANS_PALE_GLOW.get()))
+				.save(this.output);
+
+
 		//food
 		foodCooking(TofuItems.SEEDS_SOYBEANS, TofuItems.SOYBEAN_PARCHED, 0.1F, this.output);
 		ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.FOOD, TofuItems.KINAKO.get())
@@ -1580,6 +1592,17 @@ public class CraftingGenerator extends CraftingDataHelper {
 				.requires(TofuItems.BUCKET_SOYMILK_NETHER.get())
 				.requires(Items.GLASS_BOTTLE, 3)
 				.unlockedBy("has_item", has(TofuItems.BUCKET_SOYMILK_NETHER.get()))
+				.save(this.output);
+
+		ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.FOOD, TofuItems.SOYMILK_PALE_BOTTLE.get(), 3)
+				.requires(TofuItems.BUCKET_SOYMILK_PALE.get())
+				.requires(Items.GLASS_BOTTLE, 3)
+				.unlockedBy("has_item", has(TofuItems.BUCKET_SOYMILK_PALE.get()))
+				.save(this.output);
+		ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.FOOD, TofuItems.SOYMILK_PALE_GLOW_BOTTLE.get(), 3)
+				.requires(TofuItems.BUCKET_SOYMILK_PALE_GLOW.get())
+				.requires(Items.GLASS_BOTTLE, 3)
+				.unlockedBy("has_item", has(TofuItems.BUCKET_SOYMILK_PALE_GLOW.get()))
 				.save(this.output);
 
 		makeSign(TofuBlocks.TOFU_STEM_SIGN, TofuBlocks.TOFU_STEM_PLANKS).save(this.output);

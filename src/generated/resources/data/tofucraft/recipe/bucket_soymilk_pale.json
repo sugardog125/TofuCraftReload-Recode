@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "tofucraft:seeds_soybeans_pale",
+    "minecraft:bucket"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tofucraft:bucket_soymilk_pale"
+  }
+}

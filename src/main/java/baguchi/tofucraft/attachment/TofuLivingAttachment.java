@@ -1,6 +1,5 @@
 package baguchi.tofucraft.attachment;
 
-import baguchi.tofucraft.TofuCraftReload;
 import baguchi.tofucraft.utils.ClientUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.DeathScreen;
@@ -8,24 +7,29 @@ import net.minecraft.client.gui.screens.WinScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import org.jetbrains.annotations.UnknownNullability;
 
 public class TofuLivingAttachment implements INBTSerializable<CompoundTag> {
-	private static final ResourceLocation MODIFIER_SPEED_BOOST = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "salt_speed_boost");
-	private static final ResourceLocation MODIFIER_HORSE_JUMP_BOOST = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "salt_horse_jump_boost");
 	public boolean isInsidePortal = false;
 	public int portalTimer = 0;
 	public float portalAnimTime = 0;
 	public float prevPortalAnimTime = 0;
-
+	public float recoverHealth = 0;
 	public void tick(Entity entity) {
 		if (entity instanceof Player player) {
 			this.handlePortal(player);
 		}
+	}
+
+	public void setRecoverHealth(float recoverHealth) {
+		this.recoverHealth = recoverHealth;
+	}
+
+	public float getRecoverHealth() {
+		return recoverHealth;
 	}
 
 	public void setInPortal(boolean inPortal) {
@@ -103,10 +107,12 @@ public class TofuLivingAttachment implements INBTSerializable<CompoundTag> {
 	@Override
 	public @UnknownNullability CompoundTag serializeNBT(HolderLookup.Provider provider) {
 		CompoundTag nbt = new CompoundTag();
+		nbt.putFloat("recover_health", this.recoverHealth);
 		return nbt;
 	}
 
 	@Override
 	public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
+		this.recoverHealth = nbt.getFloat("recover_health");
 	}
 }
