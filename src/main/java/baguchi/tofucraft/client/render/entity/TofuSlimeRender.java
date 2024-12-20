@@ -52,6 +52,7 @@ public class TofuSlimeRender extends MobRenderer<TofuSlime, TofuSlimeRenderState
 		super.extractRenderState(p_362664_, p_365237_, p_361099_);
 		p_365237_.squish = Mth.lerp(p_361099_, p_362664_.oSquish, p_362664_.squish);
 		p_365237_.size = p_362664_.getSize();
+		p_365237_.convert = p_362664_.isZundaConverting();
 	}
 
 	@Override

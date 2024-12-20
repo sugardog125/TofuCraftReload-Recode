@@ -25,6 +25,9 @@ public class TofuConsumables {
 			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(TofuEffects.HEART_RECOVER, 2400)))
 			.build();
 
+	public static final Consumable FAST_FOOD = defaultFastFood()
+			.build();
+
 	public static final Consumable COUGH = defaultFood()
 			.onConsume(new ApplyStatusEffectsConsumeEffect(
 					List.of(new MobEffectInstance(TofuEffects.COUGH, 600, 0))
@@ -86,6 +89,10 @@ public class TofuConsumables {
 
 	public static Consumable.Builder defaultFood() {
 		return Consumable.builder().consumeSeconds(1.6F).animation(ItemUseAnimation.EAT).sound(SoundEvents.GENERIC_EAT).hasConsumeParticles(true);
+	}
+
+	public static Consumable.Builder defaultFastFood() {
+		return Consumable.builder().consumeSeconds(0.8F).animation(ItemUseAnimation.EAT).sound(SoundEvents.GENERIC_EAT).hasConsumeParticles(true);
 	}
 
 	public static Consumable.Builder defaultDrink() {

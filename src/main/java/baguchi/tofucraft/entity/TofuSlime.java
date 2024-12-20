@@ -15,7 +15,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -58,15 +57,6 @@ public class TofuSlime extends Slime {
 		this.setXRot((float) (Mth.atan2(vec3.y, d0) * 180.0F / (float) Math.PI));
 		this.yRotO = this.getYRot();
 		this.xRotO = this.getXRot();
-	}
-
-	public void shootFromRotation(Entity p_37252_, float p_37253_, float p_37254_, float p_37255_, float p_37256_, float p_37257_) {
-		float f = -Mth.sin(p_37254_ * (float) (Math.PI / 180.0)) * Mth.cos(p_37253_ * (float) (Math.PI / 180.0));
-		float f1 = -Mth.sin((p_37253_ + p_37255_) * (float) (Math.PI / 180.0));
-		float f2 = Mth.cos(p_37254_ * (float) (Math.PI / 180.0)) * Mth.cos(p_37253_ * (float) (Math.PI / 180.0));
-		this.shoot((double) f, (double) f1, (double) f2, p_37256_, p_37257_);
-		Vec3 vec3 = p_37252_.getDeltaMovement();
-		this.setDeltaMovement(this.getDeltaMovement().add(vec3.x, p_37252_.onGround() ? 0.0 : vec3.y, vec3.z));
 	}
 
 	@Override
