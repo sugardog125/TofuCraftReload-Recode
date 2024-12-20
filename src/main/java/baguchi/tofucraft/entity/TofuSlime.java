@@ -33,7 +33,7 @@ public class TofuSlime extends Slime {
 	private int conversionTime;
 
 
-	public TofuSlime(EntityType<? extends Slime> p_33588_, Level p_33589_) {
+	public TofuSlime(EntityType<? extends TofuSlime> p_33588_, Level p_33589_) {
 		super(p_33588_, p_33589_);
 	}
 

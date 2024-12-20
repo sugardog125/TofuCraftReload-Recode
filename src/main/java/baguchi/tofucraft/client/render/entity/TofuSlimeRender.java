@@ -40,19 +40,30 @@ public class TofuSlimeRender extends MobRenderer<TofuSlime, TofuSlimeRenderState
 		p_115964_.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
 	}
 
+	@Override
 	public ResourceLocation getTextureLocation(TofuSlimeRenderState p_365351_) {
 		return LOCATION;
 	}
 
+	@Override
 	public TofuSlimeRenderState createRenderState() {
 		return new TofuSlimeRenderState();
 	}
 
+	@Override
 	public void extractRenderState(TofuSlime p_362664_, TofuSlimeRenderState p_365237_, float p_361099_) {
 		super.extractRenderState(p_362664_, p_365237_, p_361099_);
 		p_365237_.squish = Mth.lerp(p_361099_, p_362664_.oSquish, p_362664_.squish);
 		p_365237_.size = p_362664_.getSize();
 		p_365237_.convert = p_362664_.isZundaConverting();
+	}
+
+	@Override
+	protected void scale(TofuSlimeRenderState p_362807_, PoseStack p_115390_) {
+		int i = p_362807_.size;
+		float f = p_362807_.squish / ((float) i * 0.5F + 1.0F);
+		float f1 = 1.0F / (f + 1.0F);
+		p_115390_.scale(f1 * (float) i, 1.0F / f1 * (float) i, f1 * (float) i);
 	}
 
 	@Override
