@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "tofucraft:block/tofu_terrain",
+    "top": "tofucraft:block/tofu_farmland_moist"
+  }
+}

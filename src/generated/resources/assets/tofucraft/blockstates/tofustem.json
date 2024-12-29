@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "tofucraft:block/tofustem",
+      "model": "tofucraft:block/tofustem_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "tofucraft:block/tofustem"
     },
     "axis=z": {
-      "model": "tofucraft:block/tofustem",
+      "model": "tofucraft:block/tofustem_horizontal",
       "x": 90
     }
   }

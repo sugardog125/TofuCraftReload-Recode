@@ -22,7 +22,7 @@
       "model": "tofucraft:block/tofu_farmland"
     },
     "moisture=7": {
-      "model": "tofucraft:block/tofu_farmland_wet"
+      "model": "tofucraft:block/tofu_farmland_moist"
     }
   }
 }

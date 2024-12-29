@@ -10,6 +10,7 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.blockstates.Variant;
 import net.minecraft.client.data.models.blockstates.VariantProperties;
+import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
@@ -30,13 +31,14 @@ import java.util.stream.Stream;
 
 import static net.minecraft.client.data.models.BlockModelGenerators.createBooleanModelDispatch;
 import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
+import static net.minecraft.client.data.models.model.TexturedModel.createDefault;
 
 public abstract class TofuBlockstateModelProvider extends ModelProvider {
 	public static final ModelTemplate GLOW_CUBE = TofuModelTemplate.GLOW_CUBE.extend().renderType("cutout").build();
 	public static final ModelTemplate TRANSLUCENT_CUBE = ModelTemplates.CUBE_ALL.extend().renderType("translucent").build();
 	public static final ModelTemplate CUTOUT_CUBE = ModelTemplates.CUBE_ALL.extend().renderType("cutout").build();
-	public static final ModelTemplate LEAVES = ModelTemplates.LEAVES.extend().renderType("cutout").build();
 	public static final ModelTemplate CROP = ModelTemplates.CROP.extend().renderType("cutout").build();
+	public static final TexturedModel.Provider LEAVES_PROVIDER = createDefault(TextureMapping::cube, ModelTemplates.LEAVES.extend().renderType("cutout").build());
 
 	public TofuBlockstateModelProvider(PackOutput p_388260_, String modId) {
 		super(p_388260_, modId);
@@ -57,6 +59,11 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 		blockModels.createDoubleBlock(p_388543_, resourcelocation, resourcelocation1);
 	}
 
+	public void createTrivialCube(BlockModelGenerators blockModels, Block p_386512_) {
+		blockModels.itemModelOutput.accept(p_386512_.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(p_386512_)));
+		blockModels.createTrivialBlock(p_386512_, TexturedModel.CUBE);
+	}
+
 	public void createCrossBlock(BlockModelGenerators blockModels, Block p_388178_, BlockModelGenerators.PlantType p_387157_) {
 		TextureMapping texturemapping = p_387157_.getTextureMapping(p_388178_);
 		this.createCrossBlock(blockModels, p_388178_, p_387157_, texturemapping);
@@ -75,10 +82,6 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 		blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, CROP.create(block, TextureMapping.crop(getBlockTexture(block)), blockModels.modelOutput)));
 	}
 
-	public void createLeaves(BlockModelGenerators blockModels, Block block) {
-		blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, LEAVES.create(block, TextureMapping.cube(block), blockModels.modelOutput)));
-	}
-
 	public void createTranslucentCube(BlockModelGenerators blockModels, Block block) {
 		blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, TRANSLUCENT_CUBE.create(block, TextureMapping.cube(block), blockModels.modelOutput)));
 	}
@@ -90,6 +93,8 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 
 	public TofuBlockFamilyProvider family(BlockModelGenerators generators, Block p_388779_) {
 		TexturedModel texturedmodel = generators.texturedModels.getOrDefault(p_388779_, TexturedModel.CUBE.get(p_388779_));
+		generators.itemModelOutput.accept(p_388779_.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(p_388779_)));
+
 		return new TofuBlockFamilyProvider(generators, texturedmodel.getMapping()).fullBlock(p_388779_, texturedmodel.getTemplate());
 	}
 

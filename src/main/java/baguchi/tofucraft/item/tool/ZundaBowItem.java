@@ -47,7 +47,7 @@ public class ZundaBowItem extends BowItem implements IEnergyInsertable {
 	}
 	@Override
 	public int getUseDuration(ItemStack p_41454_, LivingEntity p_344979_) {
-		return 70000;
+		return (int) (72000 * 0.75F);
 	}
 
 	@Override

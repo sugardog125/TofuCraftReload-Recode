@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tofucraft:block/leek_green_door"
+    "layer0": "tofucraft:item/leek_green_door"
   }
 }

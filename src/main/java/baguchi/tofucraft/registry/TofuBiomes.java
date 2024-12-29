@@ -1,7 +1,7 @@
 package baguchi.tofucraft.registry;
 
 import baguchi.tofucraft.TofuCraftReload;
-import baguchi.tofucraft.data.resources.TofuBiomeBuilders;
+import baguchi.tofucraft.data.resources.builder.TofuBiomeBuilders;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;

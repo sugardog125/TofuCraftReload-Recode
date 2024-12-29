@@ -3,7 +3,7 @@ package baguchi.tofucraft.data.generator;
 import baguchi.tofucraft.TofuCraftReload;
 import baguchi.tofucraft.data.resources.ModConfiguredFeatures;
 import baguchi.tofucraft.data.resources.TofuConfiguredWorldCarvers;
-import baguchi.tofucraft.data.resources.TofuNoiseBuilder;
+import baguchi.tofucraft.data.resources.builder.TofuNoiseBuilder;
 import baguchi.tofucraft.registry.TofuBannerPatterns;
 import baguchi.tofucraft.registry.TofuBiomeSources;
 import baguchi.tofucraft.registry.TofuBiomes;

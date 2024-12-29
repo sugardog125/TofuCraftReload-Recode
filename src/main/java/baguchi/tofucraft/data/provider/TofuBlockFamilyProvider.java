@@ -3,11 +3,7 @@ package baguchi.tofucraft.data.provider;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -18,15 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
-import static net.minecraft.client.data.models.BlockModelGenerators.createButton;
-import static net.minecraft.client.data.models.BlockModelGenerators.createCustomFence;
-import static net.minecraft.client.data.models.BlockModelGenerators.createFence;
-import static net.minecraft.client.data.models.BlockModelGenerators.createFenceGate;
-import static net.minecraft.client.data.models.BlockModelGenerators.createPressurePlate;
-import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
-import static net.minecraft.client.data.models.BlockModelGenerators.createSlab;
-import static net.minecraft.client.data.models.BlockModelGenerators.createStairs;
-import static net.minecraft.client.data.models.BlockModelGenerators.createWall;
+import static net.minecraft.client.data.models.BlockModelGenerators.*;
 
 public class TofuBlockFamilyProvider {
 	public static final Map<BlockFamily.Variant, BiConsumer<TofuBlockFamilyProvider, Block>> SHAPE_CONSUMERS = ImmutableMap.<BlockFamily.Variant, BiConsumer<TofuBlockFamilyProvider, Block>>builder()
@@ -239,7 +227,7 @@ public class TofuBlockFamilyProvider {
 								resourcelocation7
 						)
 				);
-		this.generators.registerSimpleItemModel(p_386982_.asItem(), this.generators.createFlatItemModelWithBlockTexture(p_386982_.asItem(), p_386982_));
+		this.generators.registerSimpleFlatItemModel(p_386982_.asItem());
 	}
 
 	public void trapdoor(Block p_388553_) {

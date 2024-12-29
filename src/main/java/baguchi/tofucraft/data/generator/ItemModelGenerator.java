@@ -2,7 +2,6 @@ package baguchi.tofucraft.data.generator;
 
 import baguchi.tofucraft.TofuCraftReload;
 import baguchi.tofucraft.client.render.special.TofuShieldSpecialRenderer;
-import baguchi.tofucraft.registry.TofuBlocks;
 import baguchi.tofucraft.registry.TofuItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -346,7 +345,6 @@ public class ItemModelGenerator extends ModelProvider {
 		itemModels.generateFlatItem(TofuItems.LEEK_GREEN_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
 
 		itemModels.generateFlatItem(TofuItems.MUSIC_DISC_GREEN_BRANCH.get(), ModelTemplates.FLAT_ITEM);
-		itemModels.generateFlatItem(TofuBlocks.FOODPLATE.asItem(), ModelTemplates.FLAT_HANDHELD_ITEM);
 	}
 
 	public void generateTofuShield(ItemModelGenerators generators, Item p_386530_) {
@@ -358,11 +356,11 @@ public class ItemModelGenerator extends ModelProvider {
 	}
 
 	public void generateZundaBow(ItemModelGenerators generators, Item p_387215_) {
-		ItemModel.Unbaked itemmodel$unbaked = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(p_387215_));
+		ItemModel.Unbaked itemmodel$unbaked = ItemModelUtils.plainModel(generators.createFlatItemModel(p_387215_, ModelTemplates.BOW));
 		ItemModel.Unbaked itemmodel$unbaked1 = ItemModelUtils.plainModel(generators.createFlatItemModel(p_387215_, "_pulling_0", ModelTemplates.BOW));
 		ItemModel.Unbaked itemmodel$unbaked2 = ItemModelUtils.plainModel(generators.createFlatItemModel(p_387215_, "_pulling_1", ModelTemplates.BOW));
 		ItemModel.Unbaked itemmodel$unbaked3 = ItemModelUtils.plainModel(generators.createFlatItemModel(p_387215_, "_pulling_2", ModelTemplates.BOW));
-		generators.itemModelOutput.accept(p_387215_, ItemModelUtils.conditional(ItemModelUtils.isUsingItem(), ItemModelUtils.rangeSelect(new UseDuration(false), 0.1F, itemmodel$unbaked1, new RangeSelectItemModel.Entry[]{ItemModelUtils.override(itemmodel$unbaked2, 0.65F), ItemModelUtils.override(itemmodel$unbaked3, 0.9F)}), itemmodel$unbaked));
+		generators.itemModelOutput.accept(p_387215_, ItemModelUtils.conditional(ItemModelUtils.isUsingItem(), ItemModelUtils.rangeSelect(new UseDuration(false), 0.05F, itemmodel$unbaked1, new RangeSelectItemModel.Entry[]{ItemModelUtils.override(itemmodel$unbaked2, 0.65F), ItemModelUtils.override(itemmodel$unbaked3, 0.9F)}), itemmodel$unbaked));
 	}
 
 	@Override

@@ -1,6 +1,7 @@
-package baguchi.tofucraft.data.resources;
+package baguchi.tofucraft.data.resources.builder;
 
 import baguchi.tofucraft.TofuCraftReload;
+import baguchi.tofucraft.data.resources.TofuTerrainProvider;
 import baguchi.tofucraft.registry.TofuBlocks;
 import baguchi.tofucraft.registry.TofuNoiseSettings;
 import baguchi.tofucraft.world.gen.TofuSurfaceRuleData;

@@ -1,4 +1,4 @@
-package baguchi.tofucraft.data.resources;
+package baguchi.tofucraft.data.resources.builder;
 
 import baguchi.tofucraft.registry.TofuSounds;
 import baguchi.tofucraft.world.biome.TofuBiomeDefaultFeatures;

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tofucraft:block/tofuportal_ns"
+    },
+    "axis=z": {
+      "model": "tofucraft:block/tofuportal_ew"
+    }
+  }
+}
