@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "tofucraft:block/blocktofugrilled_top"
+    "wall": "tofucraft:block/blocktofugrilled"
   }
 }

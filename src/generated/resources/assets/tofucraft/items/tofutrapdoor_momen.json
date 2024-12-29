@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:item/tofutrapdoor_momen"
+    "model": "tofucraft:block/tofutrapdoor_momen_bottom"
   }
 }

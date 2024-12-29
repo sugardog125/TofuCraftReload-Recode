@@ -1,9 +1,6 @@
 {
   "variants": {
-    "stage=0": {
-      "model": "tofucraft:block/zundatofu_mushroom"
-    },
-    "stage=1": {
+    "": {
       "model": "tofucraft:block/zundatofu_mushroom"
     }
   }

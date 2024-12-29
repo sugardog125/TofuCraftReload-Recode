@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:item/tofuslab_zundabrick"
+    "model": "tofucraft:block/tofuslab_zundabrick"
   }
 }

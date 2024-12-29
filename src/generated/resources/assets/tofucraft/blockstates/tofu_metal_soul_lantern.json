@@ -1,15 +1,9 @@
 {
   "variants": {
-    "hanging=false,waterlogged=false": {
+    "hanging=false": {
       "model": "tofucraft:block/tofu_metal_soul_lantern"
     },
-    "hanging=false,waterlogged=true": {
-      "model": "tofucraft:block/tofu_metal_soul_lantern"
-    },
-    "hanging=true,waterlogged=false": {
-      "model": "tofucraft:block/tofu_metal_soul_lantern_hanging"
-    },
-    "hanging=true,waterlogged=true": {
+    "hanging=true": {
       "model": "tofucraft:block/tofu_metal_soul_lantern_hanging"
     }
   }

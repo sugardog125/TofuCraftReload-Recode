@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:item/tofufence_zunda"
+    "model": "tofucraft:block/tofufence_zunda_inventory"
   }
 }

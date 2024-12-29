@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "tofucraft:block/sculked_tofu_soul_1",
-    "particle": "tofucraft:block/sculked_tofu_soul_1"
-  }
-}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tofucraft:item/tofudoor_soul"
+    "layer0": "tofucraft:block/tofudoor_soul"
   }
 }

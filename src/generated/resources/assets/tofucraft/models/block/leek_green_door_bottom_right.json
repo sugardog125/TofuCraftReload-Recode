@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_right",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "tofucraft:block/leek_green_door_bottom",
     "top": "tofucraft:block/leek_green_door_top"

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld_rod",
+  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "tofucraft:item/zundamushroom_on_a_stick"
   }

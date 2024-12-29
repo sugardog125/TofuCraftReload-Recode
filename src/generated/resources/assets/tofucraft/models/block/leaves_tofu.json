@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:cutout_mipped",
+  "parent": "minecraft:block/leaves",
+  "render_type": "minecraft:cutout",
   "textures": {
     "all": "tofucraft:block/leaves_tofu"
   }

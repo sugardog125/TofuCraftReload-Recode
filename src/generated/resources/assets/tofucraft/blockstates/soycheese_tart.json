@@ -1,7 +1,7 @@
 {
   "variants": {
     "bites=0": {
-      "model": "tofucraft:block/soycheese_tart_uneaten"
+      "model": "tofucraft:block/soycheese_tart"
     },
     "bites=1": {
       "model": "tofucraft:block/soycheese_tart_slice1"

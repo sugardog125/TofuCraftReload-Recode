@@ -11,7 +11,6 @@ import baguchi.tofucraft.data.generator.ItemModelGenerator;
 import baguchi.tofucraft.data.generator.ItemTagGenerator;
 import baguchi.tofucraft.data.generator.RegistryDataGenerator;
 import baguchi.tofucraft.data.generator.TofuAdvancementGenerator;
-import baguchi.tofucraft.data.generator.TofuClientItemsProvider;
 import baguchi.tofucraft.data.generator.TofuDataMapsProvider;
 import baguchi.tofucraft.data.generator.TofuEquipmentModelProvider;
 import baguchi.tofucraft.data.generator.recipe.CraftingGenerator;
@@ -40,10 +39,9 @@ public class DataGenerators {
 
 		CompletableFuture<HolderLookup.Provider> lookupProvider = datapackProvider.getRegistryProvider();
 		generator.addProvider(true, datapackProvider);
-		generator.addProvider(true, new BlockstateGenerator(packOutput, existingFileHelper));
-		generator.addProvider(true, new ItemModelGenerator(packOutput, existingFileHelper));
+		generator.addProvider(true, new BlockstateGenerator(packOutput));
+		generator.addProvider(true, new ItemModelGenerator(packOutput));
 		generator.addProvider(true, new TofuEquipmentModelProvider(packOutput));
-		generator.addProvider(true, new TofuClientItemsProvider(packOutput));
 
 		BlockTagsProvider blocktags = new BlockTagGenerator(packOutput, lookupProvider, existingFileHelper);
 		generator.addProvider(true, blocktags);

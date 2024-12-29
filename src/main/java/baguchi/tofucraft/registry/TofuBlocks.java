@@ -210,38 +210,38 @@ public class TofuBlocks {
 	public static final DeferredBlock<SlabBlock> TOFUSLAB_SESAME = register("tofuslab_sesame", (properties) -> new SlabBlock(properties.strength(0.35F, 0.5F)));
 
 
-	public static final DeferredBlock<Block> TOFUTORCH_KINU = register("tofutorch_kinu", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_KINU = register("tofutorch_kinu", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> TOFUTORCH_MOMEN = register("tofutorch_momen", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_MOMEN = register("tofutorch_momen", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> TOFUTORCH_ISHI = register("tofutorch_ishi", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 6.0F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_ISHI = register("tofutorch_ishi", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 6.0F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.STONE)));
-	public static final DeferredBlock<Block> TOFUTORCH_METAL = register("tofutorch_metal", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 7.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_METAL = register("tofutorch_metal", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 7.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.METAL)));
-	public static final DeferredBlock<Block> TOFUTORCH_GRILLED = register("tofutorch_grilled", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_GRILLED = register("tofutorch_grilled", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noOcclusion().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> TOFUTORCH_ZUNDA = register("tofutorch_zunda", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_ZUNDA = register("tofutorch_zunda", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noOcclusion().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> TOFUTORCH_HELL = register("tofutorch_hell", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_HELL = register("tofutorch_hell", (properties) -> new TorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noOcclusion().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> TOFUTORCH_SOUL = register("tofutorch_soul", (properties) -> new TorchBlock(ParticleTypes.SOUL_FIRE_FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 10)
+	public static final DeferredBlock<TorchBlock> TOFUTORCH_SOUL = register("tofutorch_soul", (properties) -> new TorchBlock(ParticleTypes.SOUL_FIRE_FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 10)
 			.noOcclusion().sound(SoundType.SNOW)));
 
-	public static final DeferredBlock<Block> WALLTOFUTORCH_KINU = noItemRegisterWithEmpty("walltofutorch_kinu", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_KINU = noItemRegisterWithEmpty("walltofutorch_kinu", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_MOMEN = noItemRegisterWithEmpty("walltofutorch_momen", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_MOMEN = noItemRegisterWithEmpty("walltofutorch_momen", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_ISHI = noItemRegisterWithEmpty("walltofutorch_ishi", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 6.0F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_ISHI = noItemRegisterWithEmpty("walltofutorch_ishi", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 6.0F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.STONE)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_METAL = noItemRegisterWithEmpty("walltofutorch_metal", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 7.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_METAL = noItemRegisterWithEmpty("walltofutorch_metal", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 7.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.METAL)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_GRILLED = noItemRegisterWithEmpty("walltofutorch_grilled", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_GRILLED = noItemRegisterWithEmpty("walltofutorch_grilled", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_ZUNDA = noItemRegisterWithEmpty("walltofutorch_zunda", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_ZUNDA = noItemRegisterWithEmpty("walltofutorch_zunda", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_HELL = noItemRegisterWithEmpty("walltofutorch_hell", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_HELL = noItemRegisterWithEmpty("walltofutorch_hell", (properties) -> new WallTorchBlock(ParticleTypes.FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
-	public static final DeferredBlock<Block> WALLTOFUTORCH_SOUL = noItemRegisterWithEmpty("walltofutorch_soul", (properties) -> new WallTorchBlock(ParticleTypes.SOUL_FIRE_FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
+	public static final DeferredBlock<WallTorchBlock> WALLTOFUTORCH_SOUL = noItemRegisterWithEmpty("walltofutorch_soul", (properties) -> new WallTorchBlock(ParticleTypes.SOUL_FIRE_FLAME, properties.strength(0.0F, 0.5F).noCollission().lightLevel(state -> 14)
 			.noCollission().sound(SoundType.SNOW)));
 
 	public static final DeferredBlock<Block> TOFU_METAL_CHAIN = register("tofu_metal_chain", (properties) -> new ChainBlock(properties.strength(5.0F, 6.0F).noOcclusion().sound(SoundType.CHAIN)));

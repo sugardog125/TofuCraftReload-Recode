@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:item/tofuslab_soulbrick"
+    "model": "tofucraft:block/tofuslab_soulbrick"
   }
 }

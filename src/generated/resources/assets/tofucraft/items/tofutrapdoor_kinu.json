@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:item/tofutrapdoor_kinu"
+    "model": "tofucraft:block/tofutrapdoor_kinu_bottom"
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "bites=0": {
-      "model": "tofucraft:block/zundatofucake_uneaten"
+      "model": "tofucraft:block/zundatofucake"
     },
     "bites=1": {
       "model": "tofucraft:block/zundatofucake_slice1"
