@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tofucraft:block/tofuladder_grilled",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tofucraft:block/tofuladder_grilled"
+    },
+    "facing=south": {
+      "model": "tofucraft:block/tofuladder_grilled",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tofucraft:block/tofuladder_grilled",
+      "y": 270
+    }
+  }
+}

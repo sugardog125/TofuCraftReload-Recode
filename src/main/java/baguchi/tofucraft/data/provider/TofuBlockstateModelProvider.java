@@ -64,6 +64,22 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 		blockModels.createTrivialBlock(p_386512_, TexturedModel.CUBE);
 	}
 
+	public void createTrivialBlock(BlockModelGenerators blockModels, Block p_387678_, TexturedModel.Provider p_386545_) {
+		blockModels.itemModelOutput.accept(p_387678_.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(p_387678_)));
+
+		blockModels.blockStateOutput.accept(createSimpleBlock(p_387678_, p_386545_.create(p_387678_, blockModels.modelOutput)));
+	}
+
+	public void logWithHorizontal(BlockModelGenerators blockModels, Block p_387121_) {
+		ResourceLocation resourcelocation = ModelTemplates.CUBE_COLUMN.create(p_387121_, TextureMapping.logColumn(p_387121_), blockModels.modelOutput);
+		ResourceLocation resourcelocation1 = ModelTemplates.CUBE_COLUMN_HORIZONTAL
+				.create(p_387121_, TextureMapping.logColumn(p_387121_), blockModels.modelOutput);
+		blockModels.itemModelOutput.accept(p_387121_.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(p_387121_)));
+
+		blockModels.blockStateOutput
+				.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(p_387121_, resourcelocation, resourcelocation1));
+	}
+
 	public void createCrossBlock(BlockModelGenerators blockModels, Block p_388178_, BlockModelGenerators.PlantType p_387157_) {
 		TextureMapping texturemapping = p_387157_.getTextureMapping(p_388178_);
 		this.createCrossBlock(blockModels, p_388178_, p_387157_, texturemapping);
@@ -83,10 +99,14 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 	}
 
 	public void createTranslucentCube(BlockModelGenerators blockModels, Block block) {
+		blockModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(block)));
+
 		blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, TRANSLUCENT_CUBE.create(block, TextureMapping.cube(block), blockModels.modelOutput)));
 	}
 
 	public void createGlowCube(BlockModelGenerators blockModels, Block block) {
+		blockModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(block)));
+
 		blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, GLOW_CUBE.create(block, TofuTextureMapping.glowCube(block), blockModels.modelOutput)));
 	}
 
