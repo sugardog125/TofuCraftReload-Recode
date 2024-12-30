@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:block/tofu_work_station"
+    "model": "tofucraft:block/tofu_metal_grate"
   }
 }

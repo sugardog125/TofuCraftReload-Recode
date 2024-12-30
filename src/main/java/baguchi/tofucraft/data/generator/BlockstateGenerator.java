@@ -144,24 +144,15 @@ public class BlockstateGenerator extends TofuBlockstateModelProvider {
 		blockModels.createNormalTorch(TofuBlocks.TOFUTORCH_SOUL.get(), TofuBlocks.WALLTOFUTORCH_SOUL.get());
 
 
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_KINU.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_KINU.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_MOMEN.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_MOMEN.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_ISHI.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_ISHI.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_ISHIBRICK.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_ISHIBRICK.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_METAL.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_METAL.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_GRILLED.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_GRILLED.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_ZUNDA.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_ZUNDA.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_HELL.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_HELL.get());
-		blockModels.createNonTemplateHorizontalBlock(TofuBlocks.TOFULADDER_SOUL.get());
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFULADDER_SOUL.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_KINU.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_MOMEN.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_ISHI.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_ISHIBRICK.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_METAL.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_GRILLED.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_ZUNDA.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_HELL.get());
+		createLadder(blockModels, TofuBlocks.TOFULADDER_SOUL.get());
 		/*blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFUTORCH_KINU.get());
 		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFUTORCH_MOMEN.get());
 		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFUTORCH_ISHI.get());
@@ -271,10 +262,10 @@ public class BlockstateGenerator extends TofuBlockstateModelProvider {
 		//createSingleCarpetBlocks(blockModels, TofuBlocks.YUBA.get());
 		createTrivialCube(blockModels, TofuBlocks.SUSPICIOUS_TOFU_TERRAIN.get());
 
-		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFU_METAL_CHAIN.asItem());
-		blockModels.createAxisAlignedPillarBlockCustomModel(TofuBlocks.TOFU_METAL_CHAIN.get(), ModelLocationUtils.getModelLocation(TofuBlocks.TOFU_METAL_CHAIN.get()));
-		blockModels.createLantern(TofuBlocks.TOFU_METAL_LANTERN.get());
-		blockModels.createLantern(TofuBlocks.TOFU_METAL_SOUL_LANTERN.get());
+		blockModels.registerSimpleFlatItemModel(TofuBlocks.TOFU_METAL_CHAIN.get());
+		blockModels.createAxisAlignedPillarBlock(TofuBlocks.TOFU_METAL_CHAIN.get(), CHAIN);
+		createLantern(blockModels, TofuBlocks.TOFU_METAL_LANTERN.get());
+		createLantern(blockModels, TofuBlocks.TOFU_METAL_SOUL_LANTERN.get());
 		createTranslucentCube(blockModels, TofuBlocks.ZUNDAMA_BLOCK.get());
 		blockModels.createCrossBlockWithDefaultItem(TofuBlocks.ANTENNA_BASIC.get(), BlockModelGenerators.PlantType.NOT_TINTED);
 		createTrivialCube(blockModels, TofuBlocks.TF_COLLECTOR.get());

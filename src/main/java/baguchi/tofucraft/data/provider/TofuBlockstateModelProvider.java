@@ -1,8 +1,6 @@
 package baguchi.tofucraft.data.provider;
 
 import baguchi.tofucraft.registry.TofuBlocks;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.client.color.item.GrassColorSource;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
@@ -25,11 +23,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.Property;
 
 import java.util.stream.Stream;
 
 import static net.minecraft.client.data.models.BlockModelGenerators.createBooleanModelDispatch;
+import static net.minecraft.client.data.models.BlockModelGenerators.createHorizontalFacingDispatch;
 import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
 import static net.minecraft.client.data.models.model.TexturedModel.createDefault;
 
@@ -39,9 +37,37 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 	public static final ModelTemplate CUTOUT_CUBE = ModelTemplates.CUBE_ALL.extend().renderType("cutout").build();
 	public static final ModelTemplate CROP = ModelTemplates.CROP.extend().renderType("cutout").build();
 	public static final TexturedModel.Provider LEAVES_PROVIDER = createDefault(TextureMapping::cube, ModelTemplates.LEAVES.extend().renderType("cutout").build());
+	public static final TexturedModel.Provider COLUMN_CUTOUT = createDefault(TextureMapping::column, ModelTemplates.CUBE_COLUMN.extend().renderType("cutout").build());
+	public static final TexturedModel.Provider CHAIN = createDefault(TextureMapping::cube, TofuModelTemplate.CHAIN.extend().renderType("cutout").build());
+	public static final TexturedModel.Provider LANTERN = createDefault(TextureMapping::lantern, ModelTemplates.LANTERN.extend().renderType("cutout").build());
+	public static final TexturedModel.Provider HANGING_LANTERN = createDefault(TextureMapping::lantern, ModelTemplates.HANGING_LANTERN.extend().renderType("cutout").build());
 
 	public TofuBlockstateModelProvider(PackOutput p_388260_, String modId) {
 		super(p_388260_, modId);
+	}
+
+	public void createLadder(BlockModelGenerators blockModels, Block p_387133_) {
+		TextureMapping texturemapping = TextureMapping.cube(p_387133_);
+		blockModels.blockStateOutput
+				.accept(
+						MultiVariantGenerator.multiVariant(
+										p_387133_,
+										Variant.variant().with(VariantProperties.MODEL, TofuModelTemplate.LADDER.create(p_387133_, texturemapping, blockModels.modelOutput))
+								)
+								.with(createHorizontalFacingDispatch())
+				);
+		blockModels.registerSimpleFlatItemModel(p_387133_);
+	}
+
+	public void createLantern(BlockModelGenerators blockModels, Block p_386669_) {
+		ResourceLocation resourcelocation = LANTERN.create(p_386669_, blockModels.modelOutput);
+		ResourceLocation resourcelocation1 = HANGING_LANTERN.create(p_386669_, blockModels.modelOutput);
+		blockModels.registerSimpleFlatItemModel(p_386669_.asItem());
+		blockModels.blockStateOutput
+				.accept(
+						MultiVariantGenerator.multiVariant(p_386669_)
+								.with(createBooleanModelDispatch(BlockStateProperties.HANGING, resourcelocation1, resourcelocation))
+				);
 	}
 
 	public void createItemWithDoubleGrassTint(BlockModelGenerators blockModels, Block p_388714_) {
@@ -91,6 +117,7 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 	}
 
 	public void createCutoutCube(BlockModelGenerators blockModels, Block block) {
+		blockModels.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(block)));
 		blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, CUTOUT_CUBE.create(block, TextureMapping.cube(block), blockModels.modelOutput)));
 	}
 
@@ -182,25 +209,6 @@ public abstract class TofuBlockstateModelProvider extends ModelProvider {
 		generators.blockStateOutput.accept(createSimpleBlock(p_387946_, resourcelocation));
 	}
 
-	public void createPaleCropBlock(BlockModelGenerators generators, Block p_387553_, Property<Integer> p_386757_, int... p_388514_) {
-		if (p_386757_.getPossibleValues().size() != p_388514_.length) {
-			throw new IllegalArgumentException();
-		} else {
-			Int2ObjectMap<ResourceLocation> int2objectmap = new Int2ObjectOpenHashMap<>();
-			PropertyDispatch propertydispatch = PropertyDispatch.property(p_386757_)
-					.generate(
-							p_388091_ -> {
-								int i = p_388514_[p_388091_];
-								ResourceLocation resourcelocation = int2objectmap.computeIfAbsent(
-										i, p_387534_ -> generators.createSuffixedVariant(p_387553_, "_stage" + i, ModelTemplates.CROP, TextureMapping::crop)
-								);
-								return Variant.variant().with(VariantProperties.MODEL, resourcelocation);
-							}
-					);
-			generators.registerSimpleFlatItemModel(p_387553_.asItem());
-			generators.blockStateOutput.accept(MultiVariantGenerator.multiVariant(p_387553_).with(propertydispatch));
-		}
-	}
 
 	@Override
 	public final Stream<? extends Holder<Item>> getKnownItems() {

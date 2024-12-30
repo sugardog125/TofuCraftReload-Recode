@@ -1,0 +1,7 @@
+{
+  "parent": "tofucraft:block/chain",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "tofucraft:block/tofu_metal_chain"
+  }
+}

@@ -11,8 +11,8 @@ import static net.minecraft.client.data.models.model.ModelTemplates.createItem;
 
 public class TofuModelTemplate {
 	public static final ModelTemplate GLOW_CUBE = create("glow_cube", TextureSlot.ALL, TofuTextureMapping.GLOW_ALL);
-
-
+	public static final ModelTemplate CHAIN = create("chain", TextureSlot.ALL);
+	public static final ModelTemplate LADDER = create("ladder", TextureSlot.ALL);
 	public static final ModelTemplate TRANSLUCENT_CUBE = create("translucent_cube", TextureSlot.ALL);
 	public static final ModelTemplate BIG_HANDHELD = createItem("handheld", TextureSlot.LAYER0);
 
