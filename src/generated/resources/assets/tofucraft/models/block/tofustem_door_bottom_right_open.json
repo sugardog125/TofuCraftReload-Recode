@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "tofucraft:block/tofustem_door_bottom",
-    "top": "tofucraft:block/tofustem_door_top"
+    "top": "tofucraft:block/tofustem_door"
   }
 }

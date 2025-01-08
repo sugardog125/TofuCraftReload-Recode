@@ -2,7 +2,7 @@
   "parent": "minecraft:block/door_top_right_open",
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "tofucraft:block/tofudoor_kinu_bottom",
+    "bottom": "tofucraft:block/tofudoor_kinu",
     "top": "tofucraft:block/tofudoor_kinu_top"
   }
 }

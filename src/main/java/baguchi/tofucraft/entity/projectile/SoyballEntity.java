@@ -1,6 +1,6 @@
 package baguchi.tofucraft.entity.projectile;
 
-import baguchi.tofucraft.registry.TofuDamageSource;
+import baguchi.tofucraft.registry.TofuDamageTypes;
 import baguchi.tofucraft.registry.TofuEntityTypes;
 import baguchi.tofucraft.registry.TofuParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -73,7 +73,7 @@ public class SoyballEntity extends ThrowableProjectile {
 	protected void onHitEntity(EntityHitResult p_37404_) {
 		super.onHitEntity(p_37404_);
 		Entity entity = p_37404_.getEntity();
-		DamageSource damagesource = this.damageSources().source(TofuDamageSource.SOY_SPLASH, this, this.getOwner());
+		DamageSource damagesource = this.damageSources().source(TofuDamageTypes.SOY_SPLASH, this, this.getOwner());
 		double d0 = this.damage;
 		if (this.getWeaponItem() != null && this.level() instanceof ServerLevel serverlevel) {
 			d0 = (double) EnchantmentHelper.modifyDamage(serverlevel, this.getWeaponItem(), entity, damagesource, (float) d0);

@@ -12,8 +12,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import java.util.concurrent.CompletableFuture;
 
 public class EnchantTagGenerator extends EnchantmentTagsProvider {
-	public EnchantTagGenerator(PackOutput p_341093_, CompletableFuture<HolderLookup.Provider> p_341136_, @org.jetbrains.annotations.Nullable net.neoforged.neoforge.common.data.ExistingFileHelper existingFileHelper) {
-		super(p_341093_, p_341136_, TofuCraftReload.MODID, existingFileHelper);
+	public EnchantTagGenerator(PackOutput p_341093_, CompletableFuture<HolderLookup.Provider> p_341136_) {
+		super(p_341093_, p_341136_, TofuCraftReload.MODID);
 	}
 
 	@Override

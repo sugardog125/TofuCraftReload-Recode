@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "tofucraft:block/tofudoor_ishi_bottom",
-    "top": "tofucraft:block/tofudoor_ishi_top"
+    "top": "tofucraft:block/tofudoor_ishi"
   }
 }

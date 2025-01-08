@@ -1,9 +1,0 @@
-{
-  "model": {
-    "type": "minecraft:special",
-    "base": "minecraft:block/block",
-    "model": {
-      "type": "tofucraft:tofu_statue"
-    }
-  }
-}

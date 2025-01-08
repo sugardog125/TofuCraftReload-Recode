@@ -25,14 +25,14 @@ import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.advancements.AdvancementProvider;
+import net.minecraft.data.advancements.AdvancementSubProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.neoforged.neoforge.common.data.AdvancementProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -45,19 +45,18 @@ public class TofuAdvancementGenerator extends AdvancementProvider {
 	 *
 	 * @param output             the target directory of the data generator
 	 * @param registries         a future of a lookup for registries and their objects
-	 * @param existingFileHelper a helper used to find whether a file exists
 	 * @param subProviders       the generators used to create the advancements
 	 */
-	public TofuAdvancementGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-		super(output, registries, existingFileHelper, List.of(new TofuAdvancements()));
+	public TofuAdvancementGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+		super(output, registries, List.of(new TofuAdvancements()));
 	}
 
 
-	public static class TofuAdvancements implements AdvancementGenerator {
+	public static class TofuAdvancements implements AdvancementSubProvider {
 
 		@SuppressWarnings("unused")
 		@Override
-		public void generate(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer, ExistingFileHelper existingFileHelper) {
+		public void generate(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
 			HolderLookup.RegistryLookup<Item> items = provider.lookupOrThrow(Registries.ITEM);
 			HolderLookup.RegistryLookup<Block> blocks = provider.lookupOrThrow(Registries.BLOCK);
 

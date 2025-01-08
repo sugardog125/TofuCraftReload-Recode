@@ -7,6 +7,7 @@ import baguchi.tofucraft.data.resources.builder.TofuNoiseBuilder;
 import baguchi.tofucraft.registry.TofuBannerPatterns;
 import baguchi.tofucraft.registry.TofuBiomeSources;
 import baguchi.tofucraft.registry.TofuBiomes;
+import baguchi.tofucraft.registry.TofuDamageTypes;
 import baguchi.tofucraft.registry.TofuDimensionTypes;
 import baguchi.tofucraft.registry.TofuEnchantments;
 import baguchi.tofucraft.registry.TofuLevelStems;
@@ -40,6 +41,7 @@ public class RegistryDataGenerator extends DatapackBuiltinEntriesProvider {
 			.add(Registries.BIOME, TofuBiomes::bootstrap)
 			.add(Registries.LEVEL_STEM, TofuLevelStems::bootstrapLevelStem)
 			.add(Registries.TRIM_MATERIAL, TofuTrimMaterials::bootstrap)
+			.add(Registries.DAMAGE_TYPE, TofuDamageTypes::bootstrap)
 			.add(Registries.ENCHANTMENT, TofuEnchantments::bootstrap)
 			.add(Registries.BANNER_PATTERN, TofuBannerPatterns::bootstrap);
 

@@ -12,6 +12,14 @@ public class TofuTextureMapping {
 
 	public static final TextureSlot OVERLAY = TextureSlot.create("overlay");
 
+	public static TextureMapping doorTop(Block block) {
+		return new TextureMapping().put(TextureSlot.ALL, TextureMapping.getBlockTexture(block)).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_top")).copySlot(TextureSlot.TOP, TextureSlot.PARTICLE);
+	}
+
+	public static TextureMapping doorBottom(Block block) {
+		return new TextureMapping().put(TextureSlot.ALL, TextureMapping.getBlockTexture(block)).put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(block, "_bottom")).copySlot(TextureSlot.BOTTOM, TextureSlot.PARTICLE);
+	}
+
 	public static TextureMapping grassBlock(Block block, Block dirt) {
 		ResourceLocation resourcelocation = getBlockTexture(block).withSuffix("_top");
 		ResourceLocation resourcelocation2 = getBlockTexture(block).withSuffix("_side");

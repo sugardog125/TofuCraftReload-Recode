@@ -1,6 +1,6 @@
 package baguchi.tofucraft.entity.projectile;
 
-import baguchi.tofucraft.registry.TofuDamageSource;
+import baguchi.tofucraft.registry.TofuDamageTypes;
 import baguchi.tofucraft.registry.TofuEntityTypes;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
@@ -81,7 +81,7 @@ public class FallingTofuEntity extends ThrowableProjectile {
 	}
 
 	public DamageSource tofuAttack(@Nullable Entity p_270857_) {
-		return this.damageSources().source(TofuDamageSource.FALLING_TOFU, this, p_270857_);
+		return this.damageSources().source(TofuDamageTypes.FALLING_TOFU, this, p_270857_);
 	}
 
 	@Override

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/door_top_left_open",
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "tofucraft:block/leek_green_door_bottom",
+    "bottom": "tofucraft:block/leek_green_door",
     "top": "tofucraft:block/leek_green_door_top"
   }
 }

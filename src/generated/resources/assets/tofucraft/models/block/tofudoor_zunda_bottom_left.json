@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "tofucraft:block/tofudoor_zunda_bottom",
-    "top": "tofucraft:block/tofudoor_zunda_top"
+    "top": "tofucraft:block/tofudoor_zunda"
   }
 }

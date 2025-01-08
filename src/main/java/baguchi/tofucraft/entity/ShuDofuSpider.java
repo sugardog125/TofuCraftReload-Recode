@@ -9,7 +9,7 @@ import baguchi.tofucraft.entity.projectile.FukumameEntity;
 import baguchi.tofucraft.entity.projectile.NattoBallEntity;
 import baguchi.tofucraft.entity.projectile.NattoStringEntity;
 import baguchi.tofucraft.network.BossInfoPacket;
-import baguchi.tofucraft.registry.TofuDamageSource;
+import baguchi.tofucraft.registry.TofuDamageTypes;
 import baguchi.tofucraft.registry.TofuEffects;
 import baguchi.tofucraft.registry.TofuParticleTypes;
 import baguchi.tofucraft.registry.TofuSounds;
@@ -352,7 +352,7 @@ public class ShuDofuSpider extends Monster {
 								double d14 = ServerExplosion.getSeenPercent(new Vec3(this.getX(), this.getY(), this.getZ()), entity);
 								double d10 = (1.0D - d12) * d14;
 								entity.addEffect(new MobEffectInstance(TofuEffects.COUGH, (int) (400 * d10), 0));
-								entity.hurt(this.damageSources().source(TofuDamageSource.SOY_SPORE, ShuDofuSpider.this), (float) (((d10 * d10 + d10) / 2.0D) * 26.0D));
+								entity.hurt(this.damageSources().source(TofuDamageTypes.SOY_SPORE, ShuDofuSpider.this), (float) (((d10 * d10 + d10) / 2.0D) * 26.0D));
 							}
 						}
 					}

@@ -1,7 +1,7 @@
 package baguchi.tofucraft.entity.projectile;
 
 import baguchi.tofucraft.entity.TofuSlime;
-import baguchi.tofucraft.registry.TofuDamageSource;
+import baguchi.tofucraft.registry.TofuDamageTypes;
 import baguchi.tofucraft.registry.TofuEntityTypes;
 import baguchi.tofucraft.registry.TofuItems;
 import baguchi.tofucraft.registry.TofuParticleTypes;
@@ -66,7 +66,7 @@ public class ZundaArrow extends AbstractArrow {
 	}
 
 	public DamageSource zundaAttack(@Nullable Entity p_270857_) {
-		return this.damageSources().source(TofuDamageSource.ZUNDA, this, p_270857_);
+		return this.damageSources().source(TofuDamageTypes.ZUNDA, this, p_270857_);
 	}
 
 	@Override
