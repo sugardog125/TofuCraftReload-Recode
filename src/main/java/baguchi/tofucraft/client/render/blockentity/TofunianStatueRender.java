@@ -29,10 +29,8 @@ public class TofunianStatueRender implements BlockEntityRenderer<TofunianStatueB
 	public void renderInHand(PoseStack poseStack, MultiBufferSource p_112310_, int p_112311_, int p_112312_) {
 		float f = 90.0F;
 		poseStack.pushPose();
-		poseStack.scale(-1.0F, -1.0F, 1.0F);
-		poseStack.translate(0.0F, -1.501F, 0.0F);
-		poseStack.translate(-0.5F, 0.0F, 0.5F);
-		poseStack.mulPose(Axis.YP.rotationDegrees(f));
+		poseStack.scale(-1.5F, -1.5F, 1.5F);
+		poseStack.translate(-0.4, -1F, 0);
 		this.tofunianModel.renderToBuffer(poseStack, p_112310_.getBuffer(RenderType.entityCutoutNoCull(TEXTURES)), p_112311_, p_112312_);
 		poseStack.popPose();
 	}

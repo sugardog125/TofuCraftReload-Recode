@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:block/blocksaltpan"
+    "model": "tofucraft:blocks/saltpan_inventory"
   }
 }
