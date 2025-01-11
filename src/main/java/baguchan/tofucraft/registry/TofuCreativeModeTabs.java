@@ -439,6 +439,7 @@ public class TofuCreativeModeTabs {
 			.icon(() -> TofuItems.ZUNDARUBY.get().getDefaultInstance())
 			.displayItems((parameters, output) -> {
 				output.acceptAll(Stream.of(
+						TofuItems.GLASSBOWL,
 						TofuItems.BUCKET_SOYMILK,
 						TofuItems.BUCKET_SOYMILK_NETHER,
 						TofuItems.BUCKET_SOYMILK_SOUL,
