@@ -15,7 +15,7 @@ public class TofuEquipmentModelProvider implements DataProvider {
 	private final PackOutput.PathProvider pathProvider;
 
 	public TofuEquipmentModelProvider(PackOutput p_371200_) {
-		this.pathProvider = p_371200_.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/equipment");
+		this.pathProvider = p_371200_.createPathProvider(PackOutput.Target.RESOURCE_PACK, "equipment");
 	}
 
 	@Override
