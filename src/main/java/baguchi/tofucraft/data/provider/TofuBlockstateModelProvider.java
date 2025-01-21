@@ -2,6 +2,8 @@ package baguchi.tofucraft.data.provider;
 
 import baguchi.tofucraft.client.render.special.TofunianStatueSpecialRenderer;
 import baguchi.tofucraft.registry.TofuBlocks;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.client.color.item.GrassColorSource;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
@@ -25,6 +27,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Property;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -55,6 +58,27 @@ public abstract class TofuBlockstateModelProvider extends BlockModelGenerators {
 		ResourceLocation resourcelocation2 = ModelTemplates.TRAPDOOR_OPEN.extend().renderType("cutout").build().create(p_387551_, texturemapping, this.modelOutput);
 		this.blockStateOutput.accept(createTrapdoor(p_387551_, resourcelocation, resourcelocation1, resourcelocation2));
 		this.registerSimpleItemModel(p_387551_, resourcelocation1.withSuffix(""));
+	}
+
+	@Override
+	public void createCropBlock(Block p_387553_, Property<Integer> p_386757_, int... p_388514_) {
+		if (p_386757_.getPossibleValues().size() != p_388514_.length) {
+			throw new IllegalArgumentException();
+		} else {
+			Int2ObjectMap<ResourceLocation> int2objectmap = new Int2ObjectOpenHashMap<>();
+			PropertyDispatch propertydispatch = PropertyDispatch.property(p_386757_)
+					.generate(
+							p_388091_ -> {
+								int i = p_388514_[p_388091_];
+								ResourceLocation resourcelocation = int2objectmap.computeIfAbsent(
+										i, p_387534_ -> this.createSuffixedVariant(p_387553_, "_" + i, ModelTemplates.CROP.extend().renderType("cutout").build(), TextureMapping::crop)
+								);
+								return Variant.variant().with(VariantProperties.MODEL, resourcelocation);
+							}
+					);
+			this.registerSimpleFlatItemModel(p_387553_.asItem());
+			this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(p_387553_).with(propertydispatch));
+		}
 	}
 
 	@Override

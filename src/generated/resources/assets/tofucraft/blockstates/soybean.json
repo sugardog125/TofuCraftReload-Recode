@@ -1,28 +1,28 @@
 {
   "variants": {
     "age=0": {
-      "model": "tofucraft:block/soybean_stage0"
+      "model": "tofucraft:block/soybean_0"
     },
     "age=1": {
-      "model": "tofucraft:block/soybean_stage1"
+      "model": "tofucraft:block/soybean_1"
     },
     "age=2": {
-      "model": "tofucraft:block/soybean_stage1"
+      "model": "tofucraft:block/soybean_1"
     },
     "age=3": {
-      "model": "tofucraft:block/soybean_stage2"
+      "model": "tofucraft:block/soybean_2"
     },
     "age=4": {
-      "model": "tofucraft:block/soybean_stage2"
+      "model": "tofucraft:block/soybean_2"
     },
     "age=5": {
-      "model": "tofucraft:block/soybean_stage3"
+      "model": "tofucraft:block/soybean_3"
     },
     "age=6": {
-      "model": "tofucraft:block/soybean_stage3"
+      "model": "tofucraft:block/soybean_3"
     },
     "age=7": {
-      "model": "tofucraft:block/soybean_stage4"
+      "model": "tofucraft:block/soybean_4"
     }
   }
 }

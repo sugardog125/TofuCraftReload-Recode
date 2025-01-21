@@ -181,8 +181,9 @@ public class SaltFurnaceBlockEntity extends BaseContainerBlockEntity implements 
 					} else if (!itemstack.isEmpty()) {
 						Item item = itemstack.getItem();
 						itemstack.shrink(1);
-						if (itemstack.isEmpty())
-							saltFurnaceBlock.items.set(0, itemstack.get(DataComponents.CONTAINER).copyOne());
+						if (itemstack.isEmpty()) {
+							saltFurnaceBlock.items.set(0, ItemStack.EMPTY);
+						}
 					}
 				}
 			}

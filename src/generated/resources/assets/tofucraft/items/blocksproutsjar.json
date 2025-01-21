@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tofucraft:sprouts_jar_inventory"
+    "model": "tofucraft:block/sprouts_jar_inventory"
   }
 }

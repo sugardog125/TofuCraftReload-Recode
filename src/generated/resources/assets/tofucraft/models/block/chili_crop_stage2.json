@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/crop",
-  "textures": {
-    "crop": "tofucraft:block/chili_crop_stage2"
-  }
-}

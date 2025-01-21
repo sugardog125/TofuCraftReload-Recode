@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/crop",
-  "textures": {
-    "crop": "tofucraft:block/sprouts_crop_stage3"
-  }
-}

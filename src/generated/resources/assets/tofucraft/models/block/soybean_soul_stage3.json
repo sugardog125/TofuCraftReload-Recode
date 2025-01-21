@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/crop",
-  "textures": {
-    "crop": "tofucraft:block/soybean_soul_stage3"
-  }
-}
