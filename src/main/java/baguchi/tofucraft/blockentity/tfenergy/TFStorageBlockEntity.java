@@ -6,7 +6,6 @@ import baguchi.tofucraft.api.tfenergy.TofuEnergyMap;
 import baguchi.tofucraft.block.tfenergy.TFStorageBlock;
 import baguchi.tofucraft.blockentity.tfenergy.base.SenderBaseBlockEntity;
 import baguchi.tofucraft.inventory.TFStorageMenu;
-import baguchi.tofucraft.network.TFStorageSoymilkPacket;
 import baguchi.tofucraft.registry.TofuBlockEntitys;
 import baguchi.tofucraft.registry.TofuFluids;
 import net.minecraft.core.BlockPos;
@@ -16,7 +15,6 @@ import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
@@ -31,13 +29,11 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.LevelChunk;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
-import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.Map;
 
@@ -148,22 +144,22 @@ public class TFStorageBlockEntity extends SenderBaseBlockEntity implements Stack
 			tfStorageBlockEntity.current_workload = tfStorageBlockEntity.workload;
 		}
 
-		if (tfStorageBlockEntity.prevFluid != tfStorageBlockEntity.tank.getFluidAmount()) {
+		/*if (tfStorageBlockEntity.prevFluid != tfStorageBlockEntity.tank.getFluidAmount()) {
 			LevelChunk chunk = level.getChunkAt(blockPos);
 			if (level instanceof ServerLevel serverLevel) {
 				PacketDistributor.sendToPlayersTrackingChunk(serverLevel, chunk.getPos(), new TFStorageSoymilkPacket(blockPos, tfStorageBlockEntity.tank.getFluid()));
 				tfStorageBlockEntity.prevFluid = tfStorageBlockEntity.tank.getFluidAmount();
 			}
-		}
+		}*/
 	}
 
 	@Override
 	public void startOpen(Player p_18955_) {
-		if (!this.level.isClientSide() && this.level instanceof ServerLevel serverLevel) {
+		/*if (!this.level.isClientSide() && this.level instanceof ServerLevel serverLevel) {
 			LevelChunk chunk = this.level.getChunkAt(this.getBlockPos());
 			PacketDistributor.sendToPlayersTrackingChunk(serverLevel, chunk.getPos(), new TFStorageSoymilkPacket(this.getBlockPos(), this.tank.getFluid()));
 			this.prevFluid = this.tank.getFluidAmount();
-		}
+		}*/
 	}
 
 	public FluidTank getTank() {
@@ -250,6 +246,11 @@ public class TFStorageBlockEntity extends SenderBaseBlockEntity implements Stack
 	}
 
 	@Override
+	public CompoundTag getUpdateTag(HolderLookup.Provider p_324313_) {
+		return this.saveCustomOnly(p_324313_);
+	}
+
+	@Override
 	protected void applyImplicitComponents(BlockEntity.DataComponentInput p_338855_) {
 		super.applyImplicitComponents(p_338855_);
 		p_338855_.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).copyInto(this.getInventory());
@@ -302,6 +303,7 @@ public class TFStorageBlockEntity extends SenderBaseBlockEntity implements Stack
 
 		@Override
 		protected void onContentsChanged() {
+			setChanged();
 		}
 
 		public boolean isFluidValid(FluidStack stack) {
