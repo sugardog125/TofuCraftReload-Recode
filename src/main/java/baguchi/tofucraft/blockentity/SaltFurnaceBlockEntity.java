@@ -12,6 +12,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -162,6 +165,12 @@ public class SaltFurnaceBlockEntity extends BaseContainerBlockEntity implements 
 		p_189515_1_.putInt("lit_total_time", this.litDuration);
 		ContainerHelper.saveAllItems(p_189515_1_, this.items, provider);
 	}
+
+	@Nullable
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider p_324313_) {

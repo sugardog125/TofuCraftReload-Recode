@@ -287,7 +287,7 @@
   "item.tofucraft.smithing_template.zunda_bow_upgrade.applies_to" : "Bow",
   "item.tofucraft.smithing_template.zunda_bow_upgrade.base_slot_description" : "Put a piece of Bow here",
   "item.tofucraft.smithing_template.zunda_bow_upgrade.ingredients" : "Zundama",
-  "item.tofucraft.tofunian_banner_pattern" : "Banner Pattern",
+  "item.tofucraft.tofunian_banner_pattern": "Tofunian Banner Pattern",
   "item.tofucraft.tofunian_banner_pattern.desc" : "Tofunian",
   "item.tofucraft.tofu_stem_boat" : "Tofu Stem Boat",
   "item.tofucraft.leek_boat" : "Leek Boat",
