@@ -2,6 +2,8 @@ package baguchi.tofucraft.blockentity;
 
 import baguchi.tofucraft.block.utils.SaltFurnaceBlock;
 import baguchi.tofucraft.inventory.SaltFurnaceMenu;
+import baguchi.tofucraft.network.SaltFurnaceBitternPacket;
+import baguchi.tofucraft.network.SaltFurnaceWaterPacket;
 import baguchi.tofucraft.registry.TofuBlockEntitys;
 import baguchi.tofucraft.registry.TofuFluids;
 import baguchi.tofucraft.registry.TofuItems;
@@ -35,11 +37,13 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import javax.annotation.Nullable;
 
@@ -224,7 +228,7 @@ public class SaltFurnaceBlockEntity extends BaseContainerBlockEntity implements 
 
 
 		if (!level.isClientSide) {
-			/*if (saltFurnaceBlock.prevFluid != saltFurnaceBlock.waterTank.getFluidAmount()) {
+			if (saltFurnaceBlock.prevFluid != saltFurnaceBlock.waterTank.getFluidAmount()) {
 				LevelChunk chunk = level.getChunkAt(blockPos);
 				if (level instanceof ServerLevel serverLevel) {
 					PacketDistributor.sendToPlayersTrackingChunk(serverLevel, chunk.getPos(), new SaltFurnaceWaterPacket(blockPos, saltFurnaceBlock.waterTank.getFluid()));
@@ -238,7 +242,7 @@ public class SaltFurnaceBlockEntity extends BaseContainerBlockEntity implements 
 					PacketDistributor.sendToPlayersTrackingChunk(serverLevel, chunk.getPos(), new SaltFurnaceBitternPacket(blockPos, saltFurnaceBlock.bitternTank.getFluid()));
 					saltFurnaceBlock.prevBitternFluid = saltFurnaceBlock.bitternTank.getFluidAmount();
 				}
-			}*/
+			}
 		}
 		if (flag1) {
 			saltFurnaceBlock.setChanged();
@@ -248,13 +252,13 @@ public class SaltFurnaceBlockEntity extends BaseContainerBlockEntity implements 
 	@Override
 	public void startOpen(Player p_18955_) {
 		super.startOpen(p_18955_);
-		/*if (!this.level.isClientSide() && this.level instanceof ServerLevel serverLevel) {
+		if (!this.level.isClientSide() && this.level instanceof ServerLevel serverLevel) {
 			LevelChunk chunk = this.level.getChunkAt(this.getBlockPos());
 			PacketDistributor.sendToPlayersTrackingChunk(serverLevel, chunk.getPos(), new SaltFurnaceBitternPacket(this.getBlockPos(), this.bitternTank.getFluid()));
 			this.prevBitternFluid = this.bitternTank.getFluidAmount();
 			PacketDistributor.sendToPlayersTrackingChunk(serverLevel, chunk.getPos(), new SaltFurnaceWaterPacket(this.getBlockPos(), this.waterTank.getFluid()));
 			this.prevFluid = this.waterTank.getFluidAmount();
-		}*/
+		}
 	}
 
 	protected boolean hasWater() {

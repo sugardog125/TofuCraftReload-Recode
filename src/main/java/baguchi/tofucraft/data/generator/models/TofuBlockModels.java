@@ -274,8 +274,8 @@ public class TofuBlockModels extends TofuBlockstateModelProvider {
 		createTrivialCube(TofuBlocks.SALT_BLOCK.get());
 
 		this.createCropBlock(TofuBlocks.SOYBEAN.get(), BlockStateProperties.AGE_7, 0, 1, 1, 2, 2, 3, 3, 4);
-		this.createCropBlock(TofuBlocks.SOYBEAN_NETHER.get(), BlockStateProperties.AGE_7, 0, 1, 1, 2, 2, 3, 3, 4);
-		this.createCropBlock(TofuBlocks.SOYBEAN_SOUL.get(), BlockStateProperties.AGE_7, 0, 1, 1, 2, 2, 3, 3, 4);
+		this.createCropBlock(TofuBlocks.SOYBEAN_NETHER.get(), BlockStateProperties.AGE_7, 0, 1, 1, 1, 2, 2, 2, 3);
+		this.createCropBlock(TofuBlocks.SOYBEAN_SOUL.get(), BlockStateProperties.AGE_7, 0, 1, 1, 1, 2, 2, 2, 3);
 
 		this.createCropBlock(TofuBlocks.CHILI_CROP.get(), BlockStateProperties.AGE_7, 0, 1, 1, 2, 2, 3, 3, 4);
 		this.createCropBlock(TofuBlocks.RICE_CROP.get(), BlockStateProperties.AGE_7, 0, 1, 1, 2, 2, 3, 3, 4);
