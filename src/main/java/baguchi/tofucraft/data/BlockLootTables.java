@@ -396,7 +396,7 @@ public class BlockLootTables extends BlockLootSubProvider {
 	}
 
 	protected LootTable.Builder createZundaMushroomDrop(Block p_124264_, Block p_124265_, float... p_124266_) {
-		return createTofuLeavesDrops(p_124264_, p_124265_, p_124266_).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(applyExplosionCondition(p_124264_, LootItem.lootTableItem(TofuItems.TOFUZUNDA.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.1F, 0.05F, 0.0625F, 0.12F, 0.2F))).add(applyExplosionCondition(p_124264_, LootItem.lootTableItem(TofuItems.ZUNDA.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.1F, 0.05F, 0.15F, 0.125F, 0.105F))));
+		return createTofuLeavesDrops(p_124264_, p_124265_, p_124266_).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(applyExplosionCondition(p_124264_, LootItem.lootTableItem(TofuItems.TOFUZUNDA.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.1F, 0.05F, 0.0625F, 0.12F, 0.2F))).add(applyExplosionCondition(p_124264_, LootItem.lootTableItem(TofuItems.ZUNDAMA.get())).when(BonusLevelTableCondition.bonusLevelFlatChance(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.1F, 0.05F, 0.15F, 0.125F, 0.105F))));
 	}
 
 	private void registerTofuDrop(Block tofu, Item dropItem) {
