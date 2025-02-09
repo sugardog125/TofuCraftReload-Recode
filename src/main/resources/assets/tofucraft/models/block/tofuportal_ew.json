@@ -1,4 +1,5 @@
 {
+  "render_type": "translucent",
   "textures": {
     "particle": "tofucraft:block/tofuportal",
     "portal": "tofucraft:block/tofuportal"
