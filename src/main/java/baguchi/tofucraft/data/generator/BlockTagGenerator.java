@@ -66,7 +66,7 @@ public class BlockTagGenerator extends BlockTagsProvider {
 				.add(TofuBlocks.TOFU_STEM_PRESSURE_PLATE.get(), TofuBlocks.TOFU_STEM_BUTTON.get())
 				.add(TofuBlocks.LEEK_PRESSURE_PLATE.get(), TofuBlocks.LEEK_BUTTON.get())
 				.add(TofuBlocks.LEEK_GREEN_PRESSURE_PLATE.get(), TofuBlocks.LEEK_GREEN_BUTTON.get());
-		tag(BlockTags.MINEABLE_WITH_HOE).add(TofuBlocks.RICE_ROOT.get(), TofuBlocks.LEAVES_APRICOT.get(), TofuBlocks.LEAVES_TOFU.get(), TofuBlocks.RICE_BLOCK.get(), TofuBlocks.SOYBEANS_SEEDS_BLOCK.get(), TofuBlocks.NETHER_SOYBEANS_SEEDS_BLOCK.get(), TofuBlocks.SOUL_SOYBEANS_SEEDS_BLOCK.get());
+		tag(BlockTags.MINEABLE_WITH_HOE).add(TofuBlocks.ZUNDA_MUSHROOM_BLOCK.get()).add(TofuBlocks.RICE_ROOT.get(), TofuBlocks.LEAVES_APRICOT.get(), TofuBlocks.LEAVES_TOFU.get(), TofuBlocks.RICE_BLOCK.get(), TofuBlocks.SOYBEANS_SEEDS_BLOCK.get(), TofuBlocks.NETHER_SOYBEANS_SEEDS_BLOCK.get(), TofuBlocks.SOUL_SOYBEANS_SEEDS_BLOCK.get());
 
 		tag(BlockTags.NEEDS_STONE_TOOL)
 				.add(TofuBlocks.METALTOFU.get(), TofuBlocks.TOFUSTAIR_METAL.get(), TofuBlocks.TOFUSLAB_METAL.get(), TofuBlocks.TOFULADDER_METAL.get(), TofuBlocks.TOFUFENCE_METAL.get(), TofuBlocks.TOFUDOOR_METAL.get(), TofuBlocks.TOFUTRAPDOOR_METAL.get())

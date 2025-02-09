@@ -77,6 +77,12 @@
     },
     "tofucraft:tofuzunda": {
       "chance": 0.5
+    },
+    "tofucraft:zunda_mushroom_block": {
+      "chance": 0.5
+    },
+    "tofucraft:zundatofu_mushroom": {
+      "chance": 0.3
     }
   }
 }

@@ -51,6 +51,8 @@ public class TofuDataMapsProvider extends DataMapProvider {
 		compostables.add(TofuItems.SALTYMELON, new Compostable(0.3F), false);
 		compostables.add(TofuBlocks.SAPLING_APRICOT.get().asItem().builtInRegistryHolder(), new Compostable(0.3F), false);
 		compostables.add(TofuBlocks.SAPLING_TOFU.get().asItem().builtInRegistryHolder(), new Compostable(0.3F), false);
+		compostables.add(TofuBlocks.ZUNDA_MUSHROOM_BLOCK.get().asItem().builtInRegistryHolder(), new Compostable(0.5F), false);
+		compostables.add(TofuBlocks.ZUNDATOFU_MUSHROOM.get().asItem().builtInRegistryHolder(), new Compostable(0.3F), false);
 		/*final var fuels = builder(NeoForgeDataMaps.FURNACE_FUELS);
 		fuels.add()*/
 
