@@ -200,9 +200,9 @@ public abstract class TofuBlockstateModelProvider extends BlockModelGenerators {
 
 	public void createCandleCake(Block candle, Block cake) {
 
-		ResourceLocation resourcelocation8 = ModelTemplates.CANDLE_CAKE.create(cake, TofuTextureMapping.candleCake(cake, candle, false), this.modelOutput);
+		ResourceLocation resourcelocation8 = ModelTemplates.CANDLE_CAKE.create(cake, TofuTextureMapping.candleCake(candle, cake, false), this.modelOutput);
 		ResourceLocation resourcelocation9 = ModelTemplates.CANDLE_CAKE
-				.createWithSuffix(cake, "_lit", TofuTextureMapping.candleCake(cake, candle, true), this.modelOutput);
+				.createWithSuffix(cake, "_lit", TofuTextureMapping.candleCake(candle, cake, true), this.modelOutput);
 		this.blockStateOutput
 				.accept(
 						MultiVariantGenerator.multiVariant(cake).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation9, resourcelocation8))

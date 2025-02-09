@@ -1,10 +1,10 @@
 {
   "parent": "minecraft:block/template_cake_with_candle",
   "textures": {
-    "bottom": "minecraft:block/gray_candle_bottom",
-    "candle": "tofucraft:block/gray_candle_tofu_cake_lit",
-    "particle": "minecraft:block/gray_candle_side",
-    "side": "minecraft:block/gray_candle_side",
-    "top": "minecraft:block/gray_candle_top"
+    "bottom": "tofucraft:block/gray_candle_tofu_cake_bottom",
+    "candle": "minecraft:block/gray_candle_lit",
+    "particle": "tofucraft:block/gray_candle_tofu_cake_side",
+    "side": "tofucraft:block/gray_candle_tofu_cake_side",
+    "top": "tofucraft:block/gray_candle_tofu_cake_top"
   }
 }
