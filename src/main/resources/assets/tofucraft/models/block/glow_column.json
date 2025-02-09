@@ -33,7 +33,6 @@
         0,
         0
       ],
-      "shade": false,
       "to": [
         16,
         16,
@@ -89,18 +88,18 @@
   ],
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "#all",
-    "bottom2": "#glow_all",
-    "east": "#all",
-    "east2": "#glow_all",
-    "north": "#all",
-    "north2": "#glow_all",
-    "particle": "#bottom",
-    "south": "#all",
-    "south2": "#glow_all",
-    "top": "#all",
-    "top2": "#glow_all",
-    "west": "#all",
-    "west2": "#glow_all"
+    "particle": "#side",
+    "bottom": "#end",
+    "top": "#end",
+    "north": "#side",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
+    "bottom2": "#glow_end",
+    "top2": "#glow_end",
+    "north2": "#glow_side",
+    "east2": "#glow_side",
+    "south2": "#glow_side",
+    "west2": "#glow_side"
   }
 }

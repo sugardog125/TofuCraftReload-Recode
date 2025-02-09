@@ -236,7 +236,7 @@ public class TofuBlockModels extends TofuBlockstateModelProvider {
 		createTrivialCube(TofuBlocks.ORE_TOFUGEM.get());
 		createTrivialCube(TofuBlocks.TOFU_BEDROCK.get());
 
-		logWithHorizontal(TofuBlocks.TOFU_STEM.get());
+		logWithHorizontalGlow(TofuBlocks.TOFU_STEM.get());
 
 		logWithHorizontal(TofuBlocks.LEEK_STEM.get());
 
@@ -247,6 +247,7 @@ public class TofuBlockModels extends TofuBlockstateModelProvider {
 		this.createHangingSign(TofuBlocks.TOFU_STEM_HANGING_SIGN.get(), TofuBlocks.TOFU_STEM_HANGING_SIGN.get(), TofuBlocks.TOFU_STEM_WALL_HANGING_SIGN.get());
 
 		this.createCrossBlockWithDefaultItem(TofuBlocks.ZUNDATOFU_MUSHROOM.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+		this.createTrivialCube(TofuBlocks.ZUNDA_MUSHROOM_BLOCK.get());
 		this.createCrossBlockWithDefaultItem(TofuBlocks.SAPLING_TOFU.get(), BlockModelGenerators.PlantType.NOT_TINTED);
 		createTrivialBlock(TofuBlocks.LEAVES_TOFU.get(), LEAVES_PROVIDER);
 

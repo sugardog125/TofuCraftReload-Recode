@@ -1,0 +1,101 @@
+{
+  "parent": "block/block",
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#down",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#up",
+          "rotation": 180,
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#north",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#south",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#west",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#east",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "light_emission": 15,
+      "shade": false,
+      "faces": {
+        "down": {
+          "texture": "#down2",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#up2",
+          "rotation": 180,
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#north2",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#south2",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#west2",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#east2",
+          "cullface": "east"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "#side",
+    "down": "#end",
+    "up": "#end",
+    "north": "#side",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side",
+    "down2": "#glow_end",
+    "up2": "#glow_end",
+    "north2": "#glow_side",
+    "east2": "#glow_side",
+    "south2": "#glow_side",
+    "west2": "#glow_side"
+  }
+}

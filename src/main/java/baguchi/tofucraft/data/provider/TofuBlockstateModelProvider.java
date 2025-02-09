@@ -41,7 +41,6 @@ public abstract class TofuBlockstateModelProvider extends BlockModelGenerators {
 	public static final ModelTemplate CUTOUT_CUBE = ModelTemplates.CUBE_ALL.extend().renderType("cutout").build();
 	public static final ModelTemplate CROP = ModelTemplates.CROP.extend().renderType("cutout").build();
 	public static final TexturedModel.Provider LEAVES_PROVIDER = createDefault(TextureMapping::cube, ModelTemplates.LEAVES.extend().renderType("cutout").build());
-	public static final TexturedModel.Provider COLUMN_CUTOUT = createDefault(TextureMapping::column, ModelTemplates.CUBE_COLUMN.extend().renderType("cutout").build());
 	public static final TexturedModel.Provider CHAIN = createDefault(TextureMapping::cube, TofuModelTemplate.CHAIN.extend().renderType("cutout").build());
 	public static final TexturedModel.Provider LANTERN = createDefault(TextureMapping::lantern, ModelTemplates.LANTERN.extend().renderType("cutout").build());
 	public static final TexturedModel.Provider HANGING_LANTERN = createDefault(TextureMapping::lantern, ModelTemplates.HANGING_LANTERN.extend().renderType("cutout").build());
@@ -158,6 +157,15 @@ public abstract class TofuBlockstateModelProvider extends BlockModelGenerators {
 		ResourceLocation resourcelocation = ModelTemplates.CUBE_COLUMN.create(p_387121_, TextureMapping.logColumn(p_387121_), this.modelOutput);
 		ResourceLocation resourcelocation1 = ModelTemplates.CUBE_COLUMN_HORIZONTAL
 				.create(p_387121_, TextureMapping.logColumn(p_387121_), this.modelOutput);
+
+		this.blockStateOutput
+				.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(p_387121_, resourcelocation, resourcelocation1));
+	}
+
+	public void logWithHorizontalGlow(Block p_387121_) {
+		ResourceLocation resourcelocation = TofuModelTemplate.CUBE_COLUMN.create(p_387121_, TofuTextureMapping.logGlowColumn(p_387121_), this.modelOutput);
+		ResourceLocation resourcelocation1 = TofuModelTemplate.CUBE_COLUMN_HORIZONTAL
+				.create(p_387121_, TofuTextureMapping.logGlowColumn(p_387121_), this.modelOutput);
 
 		this.blockStateOutput
 				.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(p_387121_, resourcelocation, resourcelocation1));

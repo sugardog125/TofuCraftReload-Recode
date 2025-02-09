@@ -230,6 +230,7 @@ public class TofuCreativeModeTabs {
 						TofuBlocks.TOFU_STEM_PRESSURE_PLATE,
 						TofuBlocks.TOFU_STEM_BUTTON,
 						TofuBlocks.ZUNDATOFU_MUSHROOM,
+						TofuBlocks.ZUNDA_MUSHROOM_BLOCK,
 						TofuBlocks.SAPLING_TOFU,
 						TofuBlocks.LEAVES_TOFU,
 						TofuBlocks.SAPLING_APRICOT,

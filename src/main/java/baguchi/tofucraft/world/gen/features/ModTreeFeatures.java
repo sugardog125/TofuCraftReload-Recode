@@ -39,11 +39,11 @@ public class ModTreeFeatures {
 
 
 	private static TreeConfiguration.TreeConfigurationBuilder createZunda() {
-		return createMushroom(TofuBlocks.TOFU_STEM.get(), TofuBlocks.ZUNDATOFU.get(), 2, 1).ignoreVines().dirt(BlockStateProvider.simple(TofuBlocks.TOFU_TERRAIN.get()));
+		return createMushroom(TofuBlocks.TOFU_STEM.get(), TofuBlocks.ZUNDA_MUSHROOM_BLOCK.get(), 3, 2).ignoreVines().dirt(BlockStateProvider.simple(TofuBlocks.TOFU_TERRAIN.get()));
 	}
 
 	private static TreeConfiguration.TreeConfigurationBuilder createZundaBig() {
-		return createBigTrunkMushroom(TofuBlocks.TOFU_STEM.get(), TofuBlocks.ZUNDATOFU.get(), 8, 2).ignoreVines().dirt(BlockStateProvider.simple(TofuBlocks.TOFU_TERRAIN.get()));
+		return createBigTrunkMushroom(TofuBlocks.TOFU_STEM.get(), TofuBlocks.ZUNDA_MUSHROOM_BLOCK.get(), 8, 2).ignoreVines().dirt(BlockStateProvider.simple(TofuBlocks.TOFU_TERRAIN.get()));
 	}
 
 	private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree(Block trunk, Block leaves, int trunkSize, int foliageSize) {
@@ -55,7 +55,7 @@ public class ModTreeFeatures {
 	}
 
 	private static TreeConfiguration.TreeConfigurationBuilder createMushroom(Block trunk, Block leaves, int trunkSize, int foliageSize) {
-		return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(trunk), new StraightTrunkPlacer(trunkSize, 2, 0), BlockStateProvider.simple(leaves), new MushroomFoliagePlacer(ConstantInt.of(foliageSize), ConstantInt.of(1), foliageSize + 1), new TwoLayersFeatureSize(1, 0, 1));
+		return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(trunk), new StraightTrunkPlacer(trunkSize, 2, 0), BlockStateProvider.simple(leaves), new MushroomFoliagePlacer(ConstantInt.of(foliageSize), ConstantInt.of(0), foliageSize + 1), new TwoLayersFeatureSize(1, 0, 1));
 	}
 
 	private static TreeConfiguration.TreeConfigurationBuilder createBigTree(Block trunk, Block leaves, int trunkSize, int foliageSize) {

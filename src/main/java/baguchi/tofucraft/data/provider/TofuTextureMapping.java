@@ -9,6 +9,8 @@ import static net.minecraft.client.data.models.model.TextureMapping.getBlockText
 
 public class TofuTextureMapping {
 	public static final TextureSlot GLOW_ALL = TextureSlot.create("glow_all");
+	public static final TextureSlot GLOW_END = TextureSlot.create("glow_end");
+	public static final TextureSlot GLOW_SIDE = TextureSlot.create("glow_side");
 
 	public static final TextureSlot OVERLAY = TextureSlot.create("overlay");
 
@@ -18,6 +20,15 @@ public class TofuTextureMapping {
 
 	public static TextureMapping doorBottom(Block block) {
 		return new TextureMapping().put(TextureSlot.ALL, TextureMapping.getBlockTexture(block)).put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(block, "_bottom")).copySlot(TextureSlot.BOTTOM, TextureSlot.PARTICLE);
+	}
+
+	public static TextureMapping logGlowColumn(Block p_388105_) {
+		return new TextureMapping()
+				.put(TextureSlot.SIDE, getBlockTexture(p_388105_))
+				.put(TextureSlot.END, getBlockTexture(p_388105_, "_top"))
+				.put(GLOW_SIDE, getBlockTexture(p_388105_, "_glow"))
+				.put(GLOW_END, getBlockTexture(p_388105_, "_top_glow"))
+				.put(TextureSlot.PARTICLE, getBlockTexture(p_388105_));
 	}
 
 	public static TextureMapping grassBlock(Block block, Block dirt) {
