@@ -1,7 +1,9 @@
 package baguchi.tofucraft;
 
+import baguchi.tofucraft.api.entity.TofunianVariant;
 import baguchi.tofucraft.api.tfenergy.TofuEnergyMap;
 import baguchi.tofucraft.client.ClientRegistrar;
+import baguchi.tofucraft.data.resources.registries.TofunianVariants;
 import baguchi.tofucraft.event.CraftingEvents;
 import baguchi.tofucraft.network.BossInfoPacket;
 import baguchi.tofucraft.network.SaltFurnaceBitternPacket;
@@ -59,6 +61,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -86,6 +89,8 @@ public class TofuCraftReload {
 
 		Reflection.initialize(TofuTags.Items.class);
 
+
+		modBus.addListener(DataPackRegistryEvent.NewRegistry.class, event -> event.dataPackRegistry(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY, TofunianVariant.DIRECT_CODEC, TofunianVariant.DIRECT_CODEC));
 
 		TofuBlocks.BLOCKS.register(modBus);
 		TofuItems.ITEMS.register(modBus);

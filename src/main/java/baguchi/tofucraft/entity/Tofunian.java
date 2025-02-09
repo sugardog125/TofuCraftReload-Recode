@@ -1,5 +1,7 @@
 package baguchi.tofucraft.entity;
 
+import baguchi.tofucraft.api.entity.TofunianVariant;
+import baguchi.tofucraft.data.resources.registries.TofunianVariants;
 import baguchi.tofucraft.entity.goal.CropHarvestGoal;
 import baguchi.tofucraft.entity.goal.DoSleepingGoal;
 import baguchi.tofucraft.entity.goal.EatItemGoal;
@@ -17,7 +19,7 @@ import baguchi.tofucraft.entity.goal.TofunianSleepOnBedGoal;
 import baguchi.tofucraft.entity.goal.TofunianTradeWithPlayerGoal;
 import baguchi.tofucraft.entity.goal.WakeUpGoal;
 import baguchi.tofucraft.registry.TofuAdvancements;
-import baguchi.tofucraft.registry.TofuBiomes;
+import baguchi.tofucraft.registry.TofuEntityDatas;
 import baguchi.tofucraft.registry.TofuEntityTypes;
 import baguchi.tofucraft.registry.TofuItems;
 import baguchi.tofucraft.registry.TofuParticleTypes;
@@ -29,6 +31,9 @@ import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Dynamic;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -40,6 +45,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -66,6 +73,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ReputationEventHandler;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.VariantHolder;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -100,6 +108,7 @@ import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -114,15 +123,16 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class Tofunian extends AbstractTofunian implements ReputationEventHandler {
+public class Tofunian extends AbstractTofunian implements ReputationEventHandler, VariantHolder<Holder<TofunianVariant>> {
 
 	private static final EntityDataAccessor<String> ACTION = SynchedEntityData.defineId(Tofunian.class, EntityDataSerializers.STRING);
 	private static final EntityDataAccessor<String> ROLE = SynchedEntityData.defineId(Tofunian.class, EntityDataSerializers.STRING);
-	private static final EntityDataAccessor<String> TOFUNIAN_TYPE = SynchedEntityData.defineId(Tofunian.class, EntityDataSerializers.STRING);
+	private static final EntityDataAccessor<Holder<TofunianVariant>> DATA_VARIANT_ID = SynchedEntityData.defineId(Tofunian.class, TofuEntityDatas.TOFUNIAN_VARIANT.get());
 
 	public static final Map<Item, Integer> FOOD_POINTS = ImmutableMap.of(TofuItems.SOYMILK.get(), 3, TofuItems.TOFUCOOKIE.get(), 3, TofuItems.TOFUGRILLED.get(), 1);
 
@@ -239,9 +249,12 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel p_241840_1_, AgeableMob p_241840_2_) {
 		Tofunian tofunian = TofuEntityTypes.TOFUNIAN.get().create(p_241840_1_, EntitySpawnReason.BREEDING);
-		if (tofunian != null) {
-			TofunianType variant = this.random.nextBoolean() ? this.getTofunianType() : ((Tofunian) p_241840_2_).getTofunianType();
-			tofunian.setTofunianType(variant);
+		if (tofunian != null && p_241840_2_ instanceof Tofunian tofunian1) {
+			if (this.random.nextBoolean()) {
+				tofunian.setVariant(this.getVariant());
+			} else {
+				tofunian.setVariant(tofunian1.getVariant());
+			}
 		}
 		return tofunian;
 	}
@@ -256,7 +269,27 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		super.defineSynchedData(builder);
 		builder.define(ROLE, Roles.TOFUNIAN.name());
 		builder.define(ACTION, Actions.NORMAL.name());
-		builder.define(TOFUNIAN_TYPE, TofunianType.NORMAL.name());
+		RegistryAccess registryaccess = this.registryAccess();
+		Registry<TofunianVariant> registry = registryaccess.lookupOrThrow(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY);
+		builder.define(DATA_VARIANT_ID, registry.get(TofunianVariants.DEFAULT).or(registry::getAny).orElseThrow());
+
+	}
+
+	public Holder<TofunianVariant> getVariant() {
+		return this.entityData.get(DATA_VARIANT_ID);
+	}
+
+	public void setVariant(Holder<TofunianVariant> p_332777_) {
+		this.entityData.set(DATA_VARIANT_ID, p_332777_);
+	}
+
+	@Nullable
+	public ResourceLocation getTexture() {
+		TofunianVariant tofunianVariant = this.getVariant().value();
+		if (this.getVariant().is(TofunianVariants.NORMAL)) {
+			return null;
+		}
+		return tofunianVariant.texture();
 	}
 
 	@Override
@@ -284,15 +317,6 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 	public Roles getRole() {
 		return Roles.get(this.entityData.get(ROLE));
 	}
-
-	public void setTofunianType(TofunianType type) {
-		this.entityData.set(TOFUNIAN_TYPE, type.name());
-	}
-
-	public TofunianType getTofunianType() {
-		return TofunianType.get(this.entityData.get(TOFUNIAN_TYPE));
-	}
-
 	public void setTofunianHome(@Nullable BlockPos pos) {
 		this.tofunianHome = pos;
 	}
@@ -494,10 +518,8 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_35282_, DifficultyInstance p_35283_, EntitySpawnReason p_35284_, @org.jetbrains.annotations.Nullable SpawnGroupData p_35285_) {
-		if (p_35282_.getBiome(this.blockPosition()).is(TofuBiomes.ZUNDA_FOREST)) {
-			this.setTofunianType(TofunianType.ZUNDA);
-		}
-
+		Holder<Biome> holder = p_35282_.getBiome(this.blockPosition());
+		this.setVariant(TofunianVariants.getSpawnVariant(this.registryAccess(), holder));
 		return super.finalizeSpawn(p_35282_, p_35283_, p_35284_, p_35285_);
 	}
 
@@ -706,7 +728,8 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 			compound.put("VillageCenter", NbtUtils.writeBlockPos(this.villageCenter));
 		}
 		compound.putString("Roles", getRole().name());
-		compound.putString("TofunianType", getTofunianType().name());
+		this.getVariant().unwrapKey().ifPresent(p_344339_ -> compound.putString("variant", p_344339_.location().toString()));
+
 	}
 
 	public void readAdditionalSaveData(CompoundTag compound) {
@@ -737,9 +760,10 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		if (compound.contains("Roles")) {
 			setRole(Roles.get(compound.getString("Roles")));
 		}
-		if (compound.contains("TofunianType")) {
-			setTofunianType(TofunianType.get(compound.getString("TofunianType")));
-		}
+		Optional.ofNullable(ResourceLocation.tryParse(compound.getString("variant")))
+				.map(p_332608_ -> ResourceKey.create(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY, p_332608_))
+				.flatMap(p_352803_ -> this.registryAccess().lookupOrThrow(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY).get((ResourceKey<TofunianVariant>) p_352803_))
+				.ifPresent(this::setVariant);
 		setCanPickUpLoot(true);
 	}
 
@@ -1018,27 +1042,6 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 	@Override
 	protected Component getTypeName() {
 		return Component.translatable("entity.tofucraft.tofunian." + this.getRole().name().toLowerCase(Locale.ROOT));
-	}
-
-	public enum TofunianType {
-		NORMAL,
-		ZUNDA;
-
-		private TofunianType() {
-
-		}
-
-		public static TofunianType get(String nameIn) {
-			for (TofunianType role : values()) {
-				if (role.name().equals(nameIn))
-					return role;
-			}
-			return NORMAL;
-		}
-
-		public static TofunianType create(String name) {
-			throw new IllegalStateException("Enum not extended");
-		}
 	}
 
 	public enum Actions {

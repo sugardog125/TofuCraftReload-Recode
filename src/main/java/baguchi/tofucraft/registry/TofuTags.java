@@ -21,6 +21,7 @@ public class TofuTags {
 		public static final TagKey<Biome> TOFU_RUINS = tag("has_structure/tofu_ruins");
 		public static final TagKey<Biome> TOFU_VILLAGE = tag("has_structure/tofu_village");
 		public static final TagKey<Biome> ZUNDA_TOFU_VILLAGE = tag("has_structure/zunda_tofu_village");
+		public static final TagKey<Biome> HOT_VARIANT_TOFUNIAN = tag("hot_variant_tofunian");
 
 		private static TagKey<Biome> tag(String name) {
 			return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, name));

@@ -1,6 +1,7 @@
 package baguchi.tofucraft.data;
 
 import baguchi.tofucraft.TofuCraftReload;
+import baguchi.tofucraft.data.generator.BiomeTagGenerator;
 import baguchi.tofucraft.data.generator.BlockTagGenerator;
 import baguchi.tofucraft.data.generator.CustomTagGenerator;
 import baguchi.tofucraft.data.generator.EnchantTagGenerator;
@@ -48,6 +49,7 @@ public class DataGenerators {
 		generator.addProvider(true, new CustomTagGenerator.BannerPatternTagGenerator(packOutput, lookupProvider));
 		generator.addProvider(true, new CustomTagGenerator.PoiTypeTagGenerator(packOutput, lookupProvider));
 		generator.addProvider(true, new CustomTagGenerator.SoundEventTagGenerator(packOutput, lookupProvider));
+		generator.addProvider(true, new BiomeTagGenerator(packOutput, lookupProvider));
 		generator.addProvider(true, new FluidTagGenerator(packOutput, lookupProvider));
 		generator.addProvider(true, TofuLootTableProvider.create(packOutput, lookupProvider));
 		generator.addProvider(true, new Runner(packOutput, lookupProvider));

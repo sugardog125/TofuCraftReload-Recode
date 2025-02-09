@@ -3,7 +3,6 @@ package baguchi.tofucraft.client.render.layer;
 import baguchi.tofucraft.TofuCraftReload;
 import baguchi.tofucraft.client.model.TofunianModel;
 import baguchi.tofucraft.client.render.state.TofunianRenderState;
-import baguchi.tofucraft.entity.Tofunian;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -19,8 +18,6 @@ import java.time.temporal.ChronoField;
 @OnlyIn(Dist.CLIENT)
 public class TofunianClothLayer extends RenderLayer<TofunianRenderState, TofunianModel<TofunianRenderState>> {
 	public static final ResourceLocation BAGU_LOCATION = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "textures/entity/tofunian/secret/bagu_chan.png");
-	public static final ResourceLocation ZUNDAMON_LOCATION = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "textures/entity/tofunian/secret/zundamon.png");
-
 
 	public TofunianClothLayer(RenderLayerParent<TofunianRenderState, TofunianModel<TofunianRenderState>> tofunianRender) {
 		super(tofunianRender);
@@ -35,7 +32,7 @@ public class TofunianClothLayer extends RenderLayer<TofunianRenderState, Tofunia
 			float p_117156_,
 			float p_117157_
 	) {
-		if (!p_117151_.isInvisible && p_117151_.type != Tofunian.TofunianType.NORMAL) {
+		if (!p_117151_.isInvisible && p_117151_.texture != null) {
 			renderColoredCutoutModel(this.getParentModel(), this.getTextureLocation(p_117151_), p_117148_, p_117149_, p_117150_, p_117151_, -1);
 		}
 	}
@@ -51,15 +48,8 @@ public class TofunianClothLayer extends RenderLayer<TofunianRenderState, Tofunia
 					return BAGU_LOCATION;
 				}
 			}
-
-			if (s != null && ("zundamon".equals(s))) {
-				return ZUNDAMON_LOCATION;
-			}
 		}
 
-		String cloth = "";
-		if (entity.type != Tofunian.TofunianType.NORMAL)
-			cloth = entity.type.name().toLowerCase();
-		return ResourceLocation.parse("tofucraft:textures/entity/tofunian/" + cloth + "_cloth.png");
+		return entity.texture;
 	}
 }

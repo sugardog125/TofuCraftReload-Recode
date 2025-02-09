@@ -71,18 +71,18 @@ public class TofunianRender extends MobRenderer<Tofunian, TofunianRenderState, T
 	}
 
 	@Override
-	public void extractRenderState(Tofunian p_362733_, TofunianRenderState p_360515_, float p_361157_) {
-		super.extractRenderState(p_362733_, p_360515_, p_361157_);
-		HumanoidMobRenderer.extractHumanoidRenderState(p_362733_, p_360515_, p_361157_, this.itemModelResolver);
+	public void extractRenderState(Tofunian tofunian, TofunianRenderState renderState, float partialTick) {
+		super.extractRenderState(tofunian, renderState, partialTick);
+		HumanoidMobRenderer.extractHumanoidRenderState(tofunian, renderState, partialTick, this.itemModelResolver);
 
-		p_360515_.id = p_362733_.getId();
-		p_360515_.riding = !p_362733_.getPassengers().isEmpty();
-		p_360515_.unhappyCounter = p_362733_.getUnhappyCounter();
-		p_360515_.attackTime = p_362733_.attackAnim;
-		p_360515_.eatFoodAnimationState.copyFrom(p_362733_.eatFoodAnimationState);
-		p_360515_.happyAnimationState.copyFrom(p_362733_.happyAnimationState);
-		p_360515_.actions = p_362733_.getAction();
-		p_360515_.roles = p_362733_.getRole();
-		p_360515_.type = p_362733_.getTofunianType();
+		renderState.id = tofunian.getId();
+		renderState.riding = !tofunian.getPassengers().isEmpty();
+		renderState.unhappyCounter = tofunian.getUnhappyCounter();
+		renderState.attackTime = tofunian.attackAnim;
+		renderState.eatFoodAnimationState.copyFrom(tofunian.eatFoodAnimationState);
+		renderState.happyAnimationState.copyFrom(tofunian.happyAnimationState);
+		renderState.actions = tofunian.getAction();
+		renderState.roles = tofunian.getRole();
+		renderState.texture = tofunian.getTexture();
 	}
 }
