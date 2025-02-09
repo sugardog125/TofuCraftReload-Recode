@@ -198,14 +198,14 @@ public abstract class TofuBlockstateModelProvider extends BlockModelGenerators {
 		this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, GLOW_CUBE.create(block, TofuTextureMapping.glowCube(block), this.modelOutput)));
 	}
 
-	public void createCandleCake(Block p_388274_, Block p_387301_) {
+	public void createCandleCake(Block candle, Block cake) {
 
-		ResourceLocation resourcelocation8 = ModelTemplates.CANDLE_CAKE.create(p_387301_, TextureMapping.candleCake(p_388274_, false), this.modelOutput);
+		ResourceLocation resourcelocation8 = ModelTemplates.CANDLE_CAKE.create(cake, TofuTextureMapping.candleCake(cake, candle, false), this.modelOutput);
 		ResourceLocation resourcelocation9 = ModelTemplates.CANDLE_CAKE
-				.createWithSuffix(p_387301_, "_lit", TextureMapping.candleCake(p_388274_, true), this.modelOutput);
+				.createWithSuffix(cake, "_lit", TofuTextureMapping.candleCake(cake, candle, true), this.modelOutput);
 		this.blockStateOutput
 				.accept(
-						MultiVariantGenerator.multiVariant(p_387301_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation9, resourcelocation8))
+						MultiVariantGenerator.multiVariant(cake).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation9, resourcelocation8))
 				);
 	}
 

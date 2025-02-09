@@ -31,6 +31,15 @@ public class TofuTextureMapping {
 				.put(TextureSlot.PARTICLE, getBlockTexture(p_388105_));
 	}
 
+	public static TextureMapping candleCake(Block candle, Block cake, boolean p_387959_) {
+		return new TextureMapping()
+				.put(TextureSlot.PARTICLE, getBlockTexture(cake, "_side"))
+				.put(TextureSlot.BOTTOM, getBlockTexture(cake, "_bottom"))
+				.put(TextureSlot.TOP, getBlockTexture(cake, "_top"))
+				.put(TextureSlot.SIDE, getBlockTexture(cake, "_side"))
+				.put(TextureSlot.CANDLE, getBlockTexture(candle, p_387959_ ? "_lit" : ""));
+	}
+
 	public static TextureMapping grassBlock(Block block, Block dirt) {
 		ResourceLocation resourcelocation = getBlockTexture(block).withSuffix("_top");
 		ResourceLocation resourcelocation2 = getBlockTexture(block).withSuffix("_side");

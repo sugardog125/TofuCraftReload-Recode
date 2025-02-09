@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cake",
+  "textures": {
+    "bottom": "tofucraft:block/soycheese_tart_bottom",
+    "particle": "tofucraft:block/soycheese_tart_top",
+    "side": "tofucraft:block/soycheese_tart_side",
+    "top": "tofucraft:block/soycheese_tart_top"
+  }
+}

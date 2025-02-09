@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/cake_slice1",
+  "textures": {
+    "bottom": "tofucraft:block/soycheese_tart_bottom",
+    "inside": "tofucraft:block/soycheese_tart_inner",
+    "particle": "tofucraft:block/soycheese_tart_top",
+    "side": "tofucraft:block/soycheese_tart_side",
+    "top": "tofucraft:block/soycheese_tart_top"
+  }
+}
