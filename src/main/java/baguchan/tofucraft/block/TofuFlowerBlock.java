@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.function.Supplier;
 
 public class TofuFlowerBlock extends FlowerBlock {
-	public TofuFlowerBlock(Supplier<MobEffect> p_316154_, float p_332744_, Properties p_53514_) {
+	public TofuFlowerBlock(Supplier<MobEffect> p_316154_, int p_332744_, Properties p_53514_) {
 		super(p_316154_, p_332744_, p_53514_);
 	}
 
