@@ -16,6 +16,7 @@ import baguchan.tofucraft.block.TofuCakeBlock;
 import baguchan.tofucraft.block.TofuCeilingHangingSignBlock;
 import baguchan.tofucraft.block.TofuDetectorBlock;
 import baguchan.tofucraft.block.TofuFarmlandBlock;
+import baguchan.tofucraft.block.TofuFlowerBlock;
 import baguchan.tofucraft.block.TofuGemBlock;
 import baguchan.tofucraft.block.TofuLeavesBlock;
 import baguchan.tofucraft.block.TofuMushroomBlock;
@@ -284,7 +285,7 @@ public class TofuBlocks {
 	public static final RegistryObject<Block> TOFU_BEDROCK = register("tofu_bedrock", () -> new Block(BlockBehaviour.Properties.of().strength(-1.0F, 3600000.0F).sound(SoundType.STONE).isValidSpawn((state, blockGetter, blockPos, entityType) -> false)));
 
 	public static final RegistryObject<Block> SAPLING_TOFU = register("sapling_tofu", () -> new TofuSaplingBlock(new TofuTreeGrower(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
-	public static final RegistryObject<Block> TOFU_FLOWER = register("tofu_flower", () -> new TofuSaplingBlock(new TofuTreeGrower(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> TOFU_FLOWER = register("tofu_flower", () -> new TofuFlowerBlock(TofuEffects.SOY_HEALTHY, 200, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS)));
 	public static final RegistryObject<Block> LEAVES_TOFU = register("leaves_tofu", () -> new TofuLeavesBlock(BlockBehaviour.Properties.of().strength(0.2F).noOcclusion().randomTicks().isSuffocating((state, getter, pos) -> false).sound(SoundType.GRASS)));
 
 	public static final RegistryObject<Block> LEEK = register("blockleek", () -> new LeekBlock(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission().sound(SoundType.GRASS)));
