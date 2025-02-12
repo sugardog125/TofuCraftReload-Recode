@@ -37,6 +37,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -121,9 +122,13 @@ public class CommonEvents {
 		if (Minecraft.getInstance().level != null && Minecraft.getInstance().player != null) {
 			Holder<Biome> biome = Minecraft.getInstance().player.level().getBiome(Minecraft.getInstance().player.blockPosition());
 			if (Minecraft.getInstance().level.dimension() == TofuDimensions.tofu_world) {
-				Optional<Music> musicInfo = biome.value().getBackgroundMusic().get().getRandomValue(Minecraft.getInstance().level.random);
+				Optional<SimpleWeightedRandomList<Music>> musicInfo = biome.value().getBackgroundMusic();
+
 				if (!musicInfo.isEmpty()) {
-					event.setMusic(new MusicInfo(musicInfo.get()));
+					Optional<Music> musicInfo1 = musicInfo.get().getRandomValue(Minecraft.getInstance().level.random);
+					if (!musicInfo1.isEmpty()) {
+						event.setMusic(new MusicInfo(musicInfo1.get()));
+					}
 				}
 			}
 		}

@@ -27,14 +27,6 @@ public class DoubanjiangFluidType extends FluidType {
 			entity.setDeltaMovement(entity.getDeltaMovement().scale(0.8D));
 		}
 
-		if (!entity.isNoGravity()) {
-			entity.setDeltaMovement(entity.getDeltaMovement().add(0.0D, -gravity / 4.0D, 0.0D));
-		}
-
-		Vec3 vec34 = entity.getDeltaMovement();
-		if (entity.horizontalCollision && entity.isFree(vec34.x, vec34.y + (double) 0.6F - entity.getY() + d8, vec34.z)) {
-			entity.setDeltaMovement(vec34.x, (double) 0.3F, vec34.z);
-		}
 
 		return true;
 	}
