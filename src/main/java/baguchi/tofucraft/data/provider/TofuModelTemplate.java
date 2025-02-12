@@ -28,6 +28,6 @@ public class TofuModelTemplate {
 	}
 
 	public static ModelTemplate create(String p_386833_, String p_386662_, TextureSlot... p_387086_) {
-		return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, p_386833_)), Optional.of(p_386662_), p_387086_);
+		return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, p_386833_).withPrefix("block/")), Optional.of(p_386662_), p_387086_);
 	}
 }

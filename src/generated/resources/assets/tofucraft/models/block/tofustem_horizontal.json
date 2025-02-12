@@ -1,5 +1,5 @@
 {
-  "parent": "tofucraft:glow_column_horizontal",
+  "parent": "tofucraft:block/glow_column_horizontal",
   "textures": {
     "end": "tofucraft:block/tofustem_top",
     "glow_end": "tofucraft:block/tofustem_top_glow",
