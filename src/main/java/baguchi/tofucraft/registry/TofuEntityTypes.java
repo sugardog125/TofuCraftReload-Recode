@@ -114,7 +114,7 @@ public class TofuEntityTypes {
 	public static final Supplier<EntityType<ShuDofuSpider>> SHUDOFUSPIDER = ENTITIES.register("shudofuspider", () -> EntityType.Builder.of(ShuDofuSpider::new, MobCategory.CREATURE)
 			.sized(3.5F, 2.9F).eyeHeight(2.0F).clientTrackingRange(10).requiredFeatures(TofuCraftReload.EXPERIMENTAL).fireImmune().build(prefix("shudofuspider")));
 
-	public static final Supplier<EntityType<FukumameThrower>> FUKUMAME_THROWER = ENTITIES.register("fukumame_thrower", () -> EntityType.Builder.of(FukumameThrower::new, MobCategory.MONSTER).sized(0.6F, 1.85F).clientTrackingRange(8).build(prefix("fukumame_thower")));
+	public static final Supplier<EntityType<FukumameThrower>> FUKUMAME_THROWER = ENTITIES.register("fukumame_thrower", () -> EntityType.Builder.of(FukumameThrower::new, MobCategory.MONSTER).sized(0.6F, 1.85F).clientTrackingRange(8).build(prefix("fukumame_thrower")));
 
 	public static final Supplier<EntityType<Boat>> LEEK_BOAT = ENTITIES.register(
 			"leek_boat",

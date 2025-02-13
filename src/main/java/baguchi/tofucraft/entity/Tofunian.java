@@ -118,7 +118,6 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
@@ -265,10 +264,11 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		return day % 5 == 0;
 	}
 
+	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
-		builder.define(ROLE, Roles.TOFUNIAN.name());
-		builder.define(ACTION, Actions.NORMAL.name());
+		builder.define(ROLE, "NORMAL");
+		builder.define(ACTION, "NORMAL");
 		RegistryAccess registryaccess = this.registryAccess();
 		Registry<TofunianVariant> registry = registryaccess.lookupOrThrow(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY);
 		builder.define(DATA_VARIANT_ID, registry.get(TofunianVariants.DEFAULT).or(registry::getAny).orElseThrow());
@@ -762,7 +762,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		}
 		Optional.ofNullable(ResourceLocation.tryParse(compound.getString("variant")))
 				.map(p_332608_ -> ResourceKey.create(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY, p_332608_))
-				.flatMap(p_352803_ -> this.registryAccess().lookupOrThrow(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY).get((ResourceKey<TofunianVariant>) p_352803_))
+				.flatMap(p_352803_ -> this.registryAccess().lookupOrThrow(TofunianVariants.TOFUNIAN_VARIANT_REGISTRY_KEY).get(p_352803_))
 				.ifPresent(this::setVariant);
 		setCanPickUpLoot(true);
 	}
@@ -1009,11 +1009,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		AABB aabb = this.getBoundingBox().inflate(14.0D, 14.0D, 14.0D);
 		List<TofuGolem> list = p_35398_.getEntitiesOfClass(TofuGolem.class, aabb);
 
-		if (list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
+		return list.isEmpty();
 	}
 
 	private void maybeDecayGossip() {
@@ -1072,19 +1068,13 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 	}
 
 	public enum Roles {
-		TOFUCOOK(getBlockStates(Blocks.COMPOSTER)), TOFUSMITH(getBlockStates(Blocks.BLAST_FURNACE)), SOYWORKER((Set) ImmutableList.of(Blocks.CAULDRON, Blocks.LAVA_CAULDRON, Blocks.WATER_CAULDRON, Blocks.POWDER_SNOW_CAULDRON).stream().flatMap((p_218093_) -> {
+		TOFUCOOK(getBlockStates(Blocks.COMPOSTER)), TOFUSMITH(getBlockStates(Blocks.BLAST_FURNACE)), SOYWORKER(ImmutableList.of(Blocks.CAULDRON, Blocks.LAVA_CAULDRON, Blocks.WATER_CAULDRON, Blocks.POWDER_SNOW_CAULDRON).stream().flatMap((p_218093_) -> {
 			return p_218093_.getStateDefinition().getPossibleStates().stream();
 		}).collect(ImmutableSet.toImmutableSet())), TOFUNIAN(Set.of());
 
-		private static final Map<String, Roles> lookup;
-
-		static {
-			lookup = Arrays.stream(values()).collect(Collectors.toMap(Enum::name, p_220362_0_ -> p_220362_0_));
-		}
-
 		private final Set<BlockState> matchingStates;
 
-		private Roles(Set<BlockState> matchingStates) {
+		Roles(Set<BlockState> matchingStates) {
 			matchingStates = Set.copyOf(matchingStates);
 			this.matchingStates = matchingStates;
 		}
@@ -1148,7 +1138,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 					Vec3 vector3d1 = vector3d.scale(10.0D).add(this.tofunian.getX(), this.tofunian.getY(), this.tofunian.getZ());
 					Tofunian.this.navigation.moveTo(vector3d1.x, vector3d1.y, vector3d1.z, this.speedModifier);
 				} else {
-					Tofunian.this.navigation.moveTo((double) blockpos.getX(), (double) blockpos.getY(), (double) blockpos.getZ(), this.speedModifier);
+					Tofunian.this.navigation.moveTo(blockpos.getX(), blockpos.getY(), blockpos.getZ(), this.speedModifier);
 				}
 			}
 
@@ -1171,7 +1161,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 
 			List<ItemEntity> list = this.mob.level().getEntitiesOfClass(ItemEntity.class, this.mob.getBoundingBox().inflate(4.0D, 4.0D, 4.0D), Tofunian.ALLOWED_ITEMS);
 			if (!list.isEmpty() && this.mob.hasLineOfSight(list.get(0))) {
-				return this.mob.getNavigation().moveTo(list.get(0), (double) 1.0F);
+				return this.mob.getNavigation().moveTo(list.get(0), 1.0F);
 			}
 
 			return false;

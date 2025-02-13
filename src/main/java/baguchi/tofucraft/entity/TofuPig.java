@@ -58,7 +58,7 @@ public class TofuPig extends Pig implements ItemInteractable {
 
 	private static final EntityDataAccessor<String> TOFUPIG_TYPE = SynchedEntityData.defineId(TofuPig.class, EntityDataSerializers.STRING);
 
-	public TofuPig(EntityType<? extends Pig> p_29462_, Level p_29463_) {
+	public TofuPig(EntityType<? extends TofuPig> p_29462_, Level p_29463_) {
 		super(p_29462_, p_29463_);
 	}
 
@@ -172,25 +172,6 @@ public class TofuPig extends Pig implements ItemInteractable {
 		return this.healilng.active(this.getRandom());
 	}
 
-	public enum TofuPigType {
-		NORMAL,
-		METAL,
-		GRILLED,
-		ZUNDA;
-
-		TofuPigType() {
-
-		}
-
-		public static TofuPig.TofuPigType get(String nameIn) {
-			for (TofuPig.TofuPigType role : values()) {
-				if (role.name().equals(nameIn))
-					return role;
-			}
-			return NORMAL;
-		}
-	}
-
 	private void healEffect() {
 		float radius = 5;
 		AABB box = new AABB(this.getX() - radius, this.getY() - 1, this.getZ() - radius, this.getX() + radius, this.getY() + 3, this.getZ() + radius);
@@ -249,7 +230,7 @@ public class TofuPig extends Pig implements ItemInteractable {
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
-		builder.define(TOFUPIG_TYPE, TofuPig.TofuPigType.NORMAL.name());
+		builder.define(TOFUPIG_TYPE, "NORMAL");
 		builder.define(DATA_HEALING_TIME, 0);
 	}
 
@@ -261,4 +242,18 @@ public class TofuPig extends Pig implements ItemInteractable {
 		return p_27600_.is(TofuTags.Items.TOFU_PIG_FOOD);
 	}
 
+	public enum TofuPigType {
+		NORMAL,
+		METAL,
+		GRILLED,
+		ZUNDA;
+
+		public static TofuPig.TofuPigType get(String nameIn) {
+			for (TofuPig.TofuPigType role : values()) {
+				if (role.name().equals(nameIn))
+					return role;
+			}
+			return NORMAL;
+		}
+	}
 }

@@ -56,7 +56,7 @@ public class TofuCow extends Cow {
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
-		builder.define(TOFUCOW_TYPE, TofuCowType.NORMAL.name());
+		builder.define(TOFUCOW_TYPE, "NORMAL");
 	}
 
 	protected void registerGoals() {

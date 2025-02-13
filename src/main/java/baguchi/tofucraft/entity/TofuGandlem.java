@@ -383,19 +383,18 @@ public class TofuGandlem extends Monster implements RangedAttackMob, TofuBossMob
 
 		} else
 		if (p_36347_.isAttackable()) {
-			p_36347_.hurt(source, 16.0F);
-			float i = (float) this.getAttributeValue(Attributes.ATTACK_KNOCKBACK); // Forge: Initialize this value to the attack knockback attribute of the player, which is by default 0
-			i += 0.65F;
+			if (p_36347_.hurtOrSimulate(source, 16.0F)) {
+				float i = (float) this.getAttributeValue(Attributes.ATTACK_KNOCKBACK); // Forge: Initialize this value to the attack knockback attribute of the player, which is by default 0
+				i += 5.0F;
 
-			if (i > 0) {
-				if (p_36347_ instanceof LivingEntity) {
-					((LivingEntity) p_36347_).knockback((double) ((float) i * 0.5F), (double) Mth.sin(this.getYRot() * ((float) Math.PI / 180F)), (double) (-Mth.cos(this.getYRot() * ((float) Math.PI / 180F))));
-				} else {
-					p_36347_.push((double) (-Mth.sin(this.getYRot() * ((float) Math.PI / 180F)) * (float) i * 0.5F), 0.1D, (double) (Mth.cos(this.getYRot() * ((float) Math.PI / 180F)) * (float) i * 0.5F));
+				if (i > 0) {
+					if (p_36347_ instanceof LivingEntity) {
+						((LivingEntity) p_36347_).knockback((double) ((float) i * 0.5F), (double) Mth.sin(this.getYRot() * ((float) Math.PI / 180F)), (double) (-Mth.cos(this.getYRot() * ((float) Math.PI / 180F))));
+					} else {
+						p_36347_.push((double) (-Mth.sin(this.getYRot() * ((float) Math.PI / 180F)) * (float) i * 0.5F), 0.1D, (double) (Mth.cos(this.getYRot() * ((float) Math.PI / 180F)) * (float) i * 0.5F));
+					}
+					this.playSound(SoundEvents.PLAYER_ATTACK_KNOCKBACK, 2.0F, 1.0F);
 				}
-
-				this.setDeltaMovement(this.getDeltaMovement().multiply(0.6D, 1.0D, 0.6D));
-				this.setSprinting(false);
 			}
 		}
 	}
