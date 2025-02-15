@@ -95,7 +95,7 @@ public class TofuPortalBlock extends Block implements Portal {
 				portal.setInPortal(true);
 				int waitTime = portal.getPortalTimer();
 				if (waitTime >= this.getLevelPortalTransitionTime(level, player)) {
-					portal.handlePortal(player);
+					//portal.handlePortal(player);
 					portal.setPortalTimer(0);
 				}
 			}
