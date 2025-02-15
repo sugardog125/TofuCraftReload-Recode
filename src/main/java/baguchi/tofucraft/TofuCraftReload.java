@@ -1,5 +1,6 @@
 package baguchi.tofucraft;
 
+import baguchi.tofucraft.api.TofunianTradeManager;
 import baguchi.tofucraft.api.entity.TofunianVariant;
 import baguchi.tofucraft.api.tfenergy.TofuEnergyMap;
 import baguchi.tofucraft.client.ClientRegistrar;
@@ -130,6 +131,7 @@ public class TofuCraftReload {
 		if (FMLEnvironment.dist == Dist.CLIENT) {
 			modBus.addListener(ClientRegistrar::setup);
 		}
+		NeoForge.EVENT_BUS.addListener(TofunianTradeManager::loadTrades);
 		NeoForge.EVENT_BUS.register(new CraftingEvents());
 		modContainer.registerConfig(ModConfig.Type.COMMON, TofuConfig.COMMON_SPEC);
 		modBus.addListener(TofuCraftReload::registerBETypes);

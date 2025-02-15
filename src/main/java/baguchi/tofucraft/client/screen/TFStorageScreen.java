@@ -126,12 +126,13 @@ public class TFStorageScreen extends AbstractContainerScreen<TFStorageMenu> {
 
 		if (this.hoveredSlot != null) {
 			ItemStack itemstack = this.menu.getSlot(0).getItem();
+			ItemStack itemstack2 = this.menu.getSlot(1).getItem();
 			if (itemstack.isEmpty()) {
 				if (this.hoveredSlot.index == 0) {
 					optional = Optional.of(MISSING_ITEM_TOOLTIP);
 				}
 			}
-			if (itemstack.isEmpty()) {
+			if (itemstack2.isEmpty()) {
 				if (this.hoveredSlot.index == 1) {
 					optional = Optional.of(MISSING_ITEM_TOOLTIP_2);
 				}

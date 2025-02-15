@@ -26,6 +26,14 @@ import java.util.List;
 
 @EventBusSubscriber(modid = TofuCraftReload.MODID)
 public class TofuVillagerTradeEvent {
+	/*@SubscribeEvent
+	public static void tofunianTradeTest(TofunianTradeEvent event) {
+		List<VillagerTrades.ItemListing> trades = event.getTrades().get(1);
+		if (event.getType() == Tofunian.Roles.TOFUCOOK) {
+			trades.add(new ItemsForEmeralds(TofuItems.BOILED_EDAMAME.get(), 1, 12, 8, 6));
+		}
+	}*/
+
 	@SubscribeEvent
 	public static void wanderTradeEvent(VillagerTradesEvent event) {
 		List<VillagerTrades.ItemListing> trades = event.getTrades().get(1);
