@@ -42,6 +42,7 @@ import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -446,13 +447,14 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		}
 
 		if (this.getVillageCenter() != null) {
-			if (this.level() instanceof ServerLevel) {
+			if (this.level() instanceof ServerLevel serverLevel) {
 				//don't forget release poi
-				PoiManager poimanager = ((ServerLevel) this.level()).getPoiManager();
+				PoiManager poimanager = serverLevel.getPoiManager();
 				if (poimanager.exists(this.getVillageCenter(), (p_217230_) -> {
 					return true;
 				}) && (this.getVillageCenter().distManhattan(this.blockPosition()) > 16 * 8)) {
 					poimanager.release(this.getVillageCenter());
+					DebugPackets.sendPoiTicketCountPacket(serverLevel, this.getVillageCenter());
 					this.setVillageCenter(null);
 				} else if (!poimanager.exists(this.getVillageCenter(), (p_217230_) -> {
 					return true;
