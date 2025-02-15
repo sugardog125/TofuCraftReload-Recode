@@ -439,18 +439,18 @@ public class TofuItems {
 	private static final Component ZUNDA_BOW_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "smithing_template.zunda_bow_upgrade.base_slot_description")));
 
 
-	private static final ResourceLocation EMPTY_SLOT_HELMET = ResourceLocation.parse("item/empty_armor_slot_helmet");
-	private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.parse("item/empty_armor_slot_chestplate");
-	private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.parse("item/empty_armor_slot_leggings");
-	private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.parse("item/empty_armor_slot_boots");
-	private static final ResourceLocation EMPTY_SLOT_HOE = ResourceLocation.parse("item/empty_slot_hoe");
-	private static final ResourceLocation EMPTY_SLOT_AXE = ResourceLocation.parse("item/empty_slot_axe");
-	private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.parse("item/empty_slot_sword");
-	private static final ResourceLocation EMPTY_SLOT_SHOVEL = ResourceLocation.parse("item/empty_slot_shovel");
-	private static final ResourceLocation EMPTY_SLOT_PICKAXE = ResourceLocation.parse("item/empty_slot_pickaxe");
-	private static final ResourceLocation EMPTY_SLOT_INGOT = ResourceLocation.parse("item/empty_slot_ingot");
-	private static final ResourceLocation EMPTY_SLOT_BOW = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "item/empty_slot_bow");
-	private static final ResourceLocation EMPTY_SLOT_ZUNDAMA = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "item/empty_slot_zundama");
+	private static final ResourceLocation EMPTY_SLOT_HELMET = ResourceLocation.withDefaultNamespace("container/slot/helmet");
+	private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.withDefaultNamespace("container/slot/chestplate");
+	private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.withDefaultNamespace("container/slot/leggings");
+	private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.withDefaultNamespace("container/slot/boots");
+	private static final ResourceLocation EMPTY_SLOT_HOE = ResourceLocation.withDefaultNamespace("container/slot/hoe");
+	private static final ResourceLocation EMPTY_SLOT_AXE = ResourceLocation.withDefaultNamespace("container/slot/axe");
+	private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.withDefaultNamespace("container/slot/sword");
+	private static final ResourceLocation EMPTY_SLOT_SHOVEL = ResourceLocation.withDefaultNamespace("container/slot/shovel");
+	private static final ResourceLocation EMPTY_SLOT_PICKAXE = ResourceLocation.withDefaultNamespace("container/slot/pickaxe");
+	private static final ResourceLocation EMPTY_SLOT_INGOT = ResourceLocation.withDefaultNamespace("container/slot/ingot");
+	private static final ResourceLocation EMPTY_SLOT_BOW = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "container/slot/empty_slot_bow");
+	private static final ResourceLocation EMPTY_SLOT_ZUNDAMA = ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "container/slot/empty_slot_zundama");
 
 
 	private static List<ResourceLocation> createTofuUpgradeIconList() {
@@ -463,7 +463,7 @@ public class TofuItems {
 
 
 	public static SmithingTemplateItem createTofuUpgradeTemplate(Item.Properties p_363106_) {
-		return new SmithingTemplateItem(TOFU_UPGRADE_APPLIES_TO, TOFU_UPGRADE_INGREDIENTS, TOFU_UPGRADE, TOFU_UPGRADE_BASE_SLOT_DESCRIPTION, createTofuUpgradeMaterialList(), createTofuUpgradeIconList(), p_363106_.requiredFeatures(TofuCraftReload.EXPERIMENTAL));
+		return new SmithingTemplateItem(TOFU_UPGRADE_APPLIES_TO, TOFU_UPGRADE_INGREDIENTS, TOFU_UPGRADE_BASE_SLOT_DESCRIPTION, TOFU_UPGRADE, createTofuUpgradeMaterialList(), createTofuUpgradeIconList(), p_363106_.requiredFeatures(TofuCraftReload.EXPERIMENTAL));
 	}
 
 	private static List<ResourceLocation> createZundaBowUpgradeIconList() {
@@ -476,7 +476,7 @@ public class TofuItems {
 
 
 	public static SmithingTemplateItem createZundaBowUpgradeTemplate(Item.Properties p_363106_) {
-		return new SmithingTemplateItem(ZUNDA_BOW_UPGRADE_APPLIES_TO, ZUNDA_BOW_UPGRADE_INGREDIENTS, ZUNDA_BOW_UPGRADE, ZUNDA_BOW_UPGRADE_BASE_SLOT_DESCRIPTION, createZundaBowUpgradeIconList(), createZundaBowUpgradeMaterialList(), p_363106_);
+		return new SmithingTemplateItem(ZUNDA_BOW_UPGRADE_APPLIES_TO, ZUNDA_BOW_UPGRADE_INGREDIENTS, ZUNDA_BOW_UPGRADE_BASE_SLOT_DESCRIPTION, ZUNDA_BOW_UPGRADE, createZundaBowUpgradeIconList(), createZundaBowUpgradeMaterialList(), p_363106_);
 	}
 
 
