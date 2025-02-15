@@ -22,7 +22,7 @@ import baguchan.tofucraft.registry.TofuEntityTypes;
 import baguchan.tofucraft.registry.TofuItems;
 import baguchan.tofucraft.registry.TofuParticleTypes;
 import baguchan.tofucraft.registry.TofuSounds;
-import baguchan.tofucraft.registry.TofuTrades;
+import baguchan.tofucraft.registry.TofunianTrades;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -877,7 +877,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 
 	@Override
 	public void updateTrades() {
-		Int2ObjectMap<VillagerTrades.ItemListing[]> int2objectmap = TofuTrades.TOFUNIAN_TRADE.get(getRole());
+		Int2ObjectMap<VillagerTrades.ItemListing[]> int2objectmap = TofunianTrades.TOFUNIAN_TRADE.get(getRole());
 		if (int2objectmap != null && !int2objectmap.isEmpty()) {
 			VillagerTrades.ItemListing[] avillagertrades$ItemListing = int2objectmap.get(this.tofunianLevel);
 			if (avillagertrades$ItemListing != null) {

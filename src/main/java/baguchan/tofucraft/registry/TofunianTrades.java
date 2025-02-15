@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Optional;
 
 
-public class TofuTrades {
+public class TofunianTrades {
 	public static final Int2ObjectMap<VillagerTrades.ItemListing[]> TRAVELER_TOFUNIAN_TRADE = getAsIntMap(ImmutableMap.of(1, new VillagerTrades.ItemListing[]{new ZundaRubyForItemsTrade(Blocks.WHITE_WOOL, 8, 4, 5), new ZundaRubyForItemsTrade(Blocks.GLASS, 9, 4, 5), new ZundaRubyForItemsTrade(Items.WHEAT, 16, 3, 5), new ZundaRubyForItemsTrade(TofuItems.SEEDS_SOYBEANS.get(), 16, 4, 5)
 					, new ZundaRubyForItemsTrade(Items.REDSTONE, 9, 2, 5), new ZundaRubyForItemsTrade(Items.SUGAR, 14, 3, 5), new ZundaRubyForItemsTrade(Items.POTATO, 12, 4, 5), new ZundaRubyForItemsTrade(Items.PUMPKIN, 4, 4, 5), new ZundaRubyForItemsTrade(Items.CARROT, 18, 3, 5)}
 			, 2, new VillagerTrades.ItemListing[]{new ItemsForZundaRubyTrade(TofuItems.TOFUNIAN_SOY_CHOCOLATE.get(), 1, 9, 5, 5), new ItemsForZundaRubyTrade(TofuItems.SOYMILK_HONEY.get(), 1, 3, 6, 5), new ItemsForZundaRubyTrade(TofuItems.SOYMILK_PUMPKIN.get(), 1, 3, 6, 5), new ItemsForZundaRubyTrade(TofuItems.SOYMILK_PUDDING.get(), 1, 3, 6, 5), new ItemsForZundaRubyTrade(TofuItems.SOYMILK_APPLE.get(), 1, 3, 6, 5), new ItemsForZundaRubyTrade(TofuItems.SOYMILK.get(), 1, 3, 6, 5)

@@ -4,7 +4,7 @@ import baguchan.tofucraft.entity.goal.LookAtTofunianTradingPlayerGoal;
 import baguchan.tofucraft.entity.goal.TofunianTradeWithPlayerGoal;
 import baguchan.tofucraft.registry.TofuItems;
 import baguchan.tofucraft.registry.TofuSounds;
-import baguchan.tofucraft.registry.TofuTrades;
+import baguchan.tofucraft.registry.TofunianTrades;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -121,8 +121,8 @@ public class TravelerTofunian extends AbstractTofunian {
 	}
 
 	protected void updateTrades() {
-		VillagerTrades.ItemListing[] avillagertrades$itemlisting = TofuTrades.TRAVELER_TOFUNIAN_TRADE.get(1);
-		VillagerTrades.ItemListing[] avillagertrades$itemlisting1 = TofuTrades.TRAVELER_TOFUNIAN_TRADE.get(2);
+		VillagerTrades.ItemListing[] avillagertrades$itemlisting = TofunianTrades.TRAVELER_TOFUNIAN_TRADE.get(1);
+		VillagerTrades.ItemListing[] avillagertrades$itemlisting1 = TofunianTrades.TRAVELER_TOFUNIAN_TRADE.get(2);
 		if (avillagertrades$itemlisting != null && avillagertrades$itemlisting1 != null) {
 			MerchantOffers merchantoffers = this.getOffers();
 			this.addOffersFromItemListings(merchantoffers, avillagertrades$itemlisting, 3);
