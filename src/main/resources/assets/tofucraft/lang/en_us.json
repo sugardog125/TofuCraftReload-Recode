@@ -282,7 +282,7 @@
   "item.tofucraft.smithing_template.tofu_upgrade.additions_slot_description" : "Put a Tofu Diamond Block here",
   "item.tofucraft.smithing_template.tofu_upgrade.applies_to" : "Tofu Metal Equipment",
   "item.tofucraft.smithing_template.tofu_upgrade.base_slot_description" : "Put a piece of Tofu Metal armor, weapon or tool here",
-  "item.tofucraft.smithing_template.tofu_upgrade.ingredients" : "Tofu Diamond Block",
+  "item.tofucraft.smithing_template.tofu_upgrade.ingredients": "put a Tofu Diamond Block here",
   "item.tofucraft.smithing_template.zunda_bow_upgrade.additions_slot_description" : "Put a Zundama here",
   "item.tofucraft.smithing_template.zunda_bow_upgrade.applies_to" : "Bow",
   "item.tofucraft.smithing_template.zunda_bow_upgrade.base_slot_description" : "Put a piece of Bow here",
