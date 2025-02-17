@@ -3,8 +3,8 @@ package baguchi.tofucraft.client.render.entity;
 import baguchi.tofucraft.TofuCraftReload;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.CreeperRenderState;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.monster.Creeper;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
@@ -16,7 +16,8 @@ public class TofuCreeperRender extends CreeperRenderer {
 		super(p_173956_);
 	}
 
-	public ResourceLocation getTextureLocation(Creeper p_114029_) {
+	@Override
+	public ResourceLocation getTextureLocation(CreeperRenderState p_114029_) {
 		return LOCATION;
 	}
 }
