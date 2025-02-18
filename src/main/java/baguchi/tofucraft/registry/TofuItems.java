@@ -142,6 +142,7 @@ public class TofuItems {
 	public static final DeferredHolder<Item, Item> NANBAN = ITEMS.registerItem("nanban", (properties) -> new DishItem((properties).food(TofuFoods.NANBAN, TofuConsumables.CHILI_FOOD).usingConvertsTo(Items.BOWL).stacksTo(16)));
 	public static final DeferredHolder<Item, Item> NANBANTOFU = ITEMS.registerItem("nanbantofu", (properties) -> new DishItem((properties).food(TofuFoods.NANBANTOFU, TofuConsumables.CHILI_FOOD).usingConvertsTo(Items.BOWL).stacksTo(16)));
 
+	public static final DeferredHolder<Item, Item> SOY_PIZZA = ITEMS.registerItem("soy_pizza", (properties) -> new Item((properties).food(TofuFoods.SOY_CHEESE)));
 	public static final DeferredHolder<Item, Item> SOY_CHEESE = ITEMS.registerItem("soy_cheese", (properties) -> new Item((properties).food(TofuFoods.SOY_CHEESE)));
 	public static final DeferredHolder<Item, Item> SOY_NETHER_CHEESE = ITEMS.registerItem("soy_nether_cheese", (properties) -> new Item((properties).food(TofuFoods.SOY_NETHER_CHEESE, TofuConsumables.HELL_FOOD)));
 	public static final DeferredHolder<Item, Item> SOY_SOUL_CHEESE = ITEMS.registerItem("soy_soul_cheese", (properties) -> new Item((properties).food(TofuFoods.SOY_SOUL_CHEESE, TofuConsumables.SOUL_FOOD)));
