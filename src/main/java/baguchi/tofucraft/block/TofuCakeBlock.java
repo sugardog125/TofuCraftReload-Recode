@@ -26,7 +26,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -47,52 +46,55 @@ public class TofuCakeBlock extends CakeBlock {
 		this.registerDefaultState(this.stateDefinition.any().setValue(BITES, Integer.valueOf(0)));
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState p_51222_, BlockGetter p_51223_, BlockPos p_51224_, CollisionContext p_51225_) {
 		return SHAPE_BY_BITE[p_51222_.getValue(BITES)];
 	}
 
-	public InteractionResult use(BlockState p_51202_, Level p_51203_, BlockPos p_51204_, Player p_51205_, InteractionHand p_51206_, BlockHitResult p_51207_) {
-		ItemStack itemstack = p_51205_.getItemInHand(p_51206_);
-		Item item = itemstack.getItem();
-
-		if (itemstack.is(ItemTags.CANDLES) && p_51202_.getValue(BITES) == 0) {
-			Block block = Block.byItem(item);
-			if (block instanceof CandleBlock && CandleTofuCakeBlock.hasEntry(block, this)) {
-				if (!p_51205_.isCreative()) {
-					itemstack.shrink(1);
-				}
-
-				p_51203_.playSound(null, p_51204_, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
-				p_51203_.setBlockAndUpdate(p_51204_, CandleTofuCakeBlock.byCandle(block, this));
-				p_51203_.gameEvent(p_51205_, GameEvent.BLOCK_CHANGE, p_51204_);
-				p_51205_.awardStat(Stats.ITEM_USED.get(item));
+	@Override
+	protected InteractionResult useItemOn(ItemStack p_316238_, BlockState p_316837_, Level p_316766_, BlockPos p_316227_, Player p_316853_, InteractionHand p_316422_, BlockHitResult p_316869_) {
+		Item item = p_316238_.getItem();
+		if (p_316238_.is(ItemTags.CANDLES) && (Integer) p_316837_.getValue(BITES) == 0) {
+			Block var10 = Block.byItem(item);
+			if (var10 instanceof CandleBlock) {
+				CandleBlock candleblock = (CandleBlock) var10;
+				p_316238_.consume(1, p_316853_);
+				p_316766_.playSound((Player) null, p_316227_, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
+				p_316766_.setBlockAndUpdate(p_316227_, CandleTofuCakeBlock.byCandle(candleblock, this));
+				p_316766_.gameEvent(p_316853_, GameEvent.BLOCK_CHANGE, p_316227_);
+				p_316853_.awardStat(Stats.ITEM_USED.get(item));
 				return InteractionResult.SUCCESS;
 			}
 		}
 
-		if (p_51203_.isClientSide) {
-			if (eatSlice(p_51203_, p_51204_, p_51202_, p_51205_).consumesAction()) {
+		return InteractionResult.TRY_WITH_EMPTY_HAND;
+	}
+
+	@Override
+	protected InteractionResult useWithoutItem(BlockState p_316481_, Level p_316406_, BlockPos p_316218_, Player p_316212_, BlockHitResult p_316525_) {
+		if (p_316406_.isClientSide) {
+			if (eat(p_316406_, p_316218_, p_316481_, p_316212_).consumesAction()) {
 				return InteractionResult.SUCCESS;
 			}
 
-			if (itemstack.isEmpty()) {
+			if (p_316212_.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
 				return InteractionResult.CONSUME;
 			}
 		}
 
-		return eatSlice(p_51203_, p_51204_, p_51202_, p_51205_);
+		return eat(p_316406_, p_316218_, p_316481_, p_316212_);
 	}
 
-	public InteractionResult eatSlice(LevelAccessor p_51186_, BlockPos p_51187_, BlockState p_51188_, Player p_51189_) {
+	protected static InteractionResult eat(LevelAccessor p_51186_, BlockPos p_51187_, BlockState p_51188_, Player p_51189_) {
 		if (!p_51189_.canEat(false)) {
 			return InteractionResult.PASS;
 		} else {
 			p_51189_.awardStat(Stats.EAT_CAKE_SLICE);
-			p_51189_.getFoodData().eat(this.foodHeal, this.foodSaturation);
-			int i = p_51188_.getValue(BITES);
+			p_51189_.getFoodData().eat(2, 0.1F);
+			int i = (Integer) p_51188_.getValue(BITES);
 			p_51186_.gameEvent(p_51189_, GameEvent.EAT, p_51187_);
 			if (i < 6) {
-				p_51186_.setBlock(p_51187_, p_51188_.setValue(BITES, Integer.valueOf(i + 1)), 3);
+				p_51186_.setBlock(p_51187_, (BlockState) p_51188_.setValue(BITES, i + 1), 3);
 			} else {
 				p_51186_.removeBlock(p_51187_, false);
 				p_51186_.gameEvent(p_51189_, GameEvent.BLOCK_DESTROY, p_51187_);
@@ -108,28 +110,7 @@ public class TofuCakeBlock extends CakeBlock {
 	}
 
 	@Override
-	public boolean canSurvive(BlockState p_51209_, LevelReader p_51210_, BlockPos p_51211_) {
-		return p_51210_.getBlockState(p_51211_.below()).isSolid();
-	}
-
-	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_51220_) {
 		p_51220_.add(BITES);
-	}
-
-	public int getAnalogOutputSignal(BlockState p_51198_, Level p_51199_, BlockPos p_51200_) {
-		return getOutputSignal(p_51198_.getValue(BITES));
-	}
-
-	public static int getOutputSignal(int p_152747_) {
-		return (7 - p_152747_) * 2;
-	}
-
-	public boolean hasAnalogOutputSignal(BlockState p_51191_) {
-		return true;
-	}
-
-	public boolean isPathfindable(BlockState p_51193_, BlockGetter p_51194_, BlockPos p_51195_, PathComputationType p_51196_) {
-		return false;
 	}
 }

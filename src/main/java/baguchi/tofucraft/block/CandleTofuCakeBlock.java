@@ -1,6 +1,5 @@
 package baguchi.tofucraft.block;
 
-import baguchi.tofucraft.TofuCraftReload;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
@@ -15,6 +14,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -32,9 +32,11 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * <p>Cake-based blocks with candles and related utils.</p>
@@ -89,13 +91,28 @@ public class CandleTofuCakeBlock extends AbstractCandleBlock {
 			ItemStack p_316571_, BlockState p_316514_, Level p_316171_, BlockPos p_316112_, Player p_316172_, InteractionHand p_316257_, BlockHitResult p_316286_
 	) {
 		if (p_316571_.is(Items.FLINT_AND_STEEL) || p_316571_.is(Items.FIRE_CHARGE)) {
-			return InteractionResult.SUCCESS;
+			return InteractionResult.PASS;
 		} else if (candleHit(p_316286_) && p_316571_.isEmpty() && p_316514_.getValue(LIT)) {
 			extinguish(p_316172_, p_316514_, p_316171_, p_316112_);
 			return InteractionResult.SUCCESS;
 		} else {
 			return super.useItemOn(p_316571_, p_316514_, p_316171_, p_316112_, p_316172_, p_316257_, p_316286_);
 		}
+	}
+
+	@Override
+	protected InteractionResult useWithoutItem(BlockState p_316519_, Level p_316226_, BlockPos p_316122_, Player p_316438_, BlockHitResult p_316849_) {
+		InteractionResult interactionresult = TofuCakeBlock.eat(p_316226_, p_316122_, getCake().defaultBlockState(), p_316438_);
+		if (interactionresult.consumesAction()) {
+			dropResources(p_316519_, p_316226_, p_316122_);
+		}
+
+		return interactionresult;
+	}
+
+	@Override
+	public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
+		return itemAbility == ItemAbilities.FIRESTARTER_LIGHT && canBeLit(state) ? state.setValue(LIT, true) : super.getToolModifiedState(state, context, itemAbility, simulate);
 	}
 
 	@Override
@@ -151,9 +168,5 @@ public class CandleTofuCakeBlock extends AbstractCandleBlock {
 
 	public Block getCake() {
 		return baseCake;
-	}
-
-	public static Iterable<Block> getCandleCakes() {
-		return BuiltInRegistries.BLOCK.stream().filter(block -> BuiltInRegistries.BLOCK.getKey(block) != null && TofuCraftReload.MODID.equals(BuiltInRegistries.BLOCK.getKey(block).getNamespace()) && block instanceof CandleTofuCakeBlock).collect(Collectors.toList());
 	}
 }
