@@ -13,6 +13,7 @@ import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.function.BiConsumer;
@@ -261,7 +262,60 @@ public class TofuBlockModels extends TofuBlockstateModelProvider {
 		createTofuCakeBlock(TofuBlocks.ZUNDATOFUCAKE.get());
 		createTofuCakeBlock(TofuBlocks.SOYCHEESE_TART.get());
 
-		CandleTofuCakeBlock.getCandleCakes().forEach((block -> createCandleCake(((CandleTofuCakeBlock) block).getCandle(), (CandleTofuCakeBlock) block)));
+		this.createTofuCandleCake(Blocks.WHITE_CANDLE, TofuBlocks.WHITE_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.ORANGE_CANDLE, TofuBlocks.ORANGE_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.MAGENTA_CANDLE, TofuBlocks.MAGENTA_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.LIGHT_BLUE_CANDLE, TofuBlocks.LIGHT_BLUE_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.YELLOW_CANDLE, TofuBlocks.YELLOW_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.LIME_CANDLE, TofuBlocks.LIME_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.PINK_CANDLE, TofuBlocks.PINK_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.GRAY_CANDLE, TofuBlocks.GRAY_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.LIGHT_GRAY_CANDLE, TofuBlocks.LIGHT_GRAY_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.CYAN_CANDLE, TofuBlocks.CYAN_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.PURPLE_CANDLE, TofuBlocks.PURPLE_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.BLUE_CANDLE, TofuBlocks.BLUE_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.BROWN_CANDLE, TofuBlocks.BROWN_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.GREEN_CANDLE, TofuBlocks.GREEN_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.RED_CANDLE, TofuBlocks.RED_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.BLACK_CANDLE, TofuBlocks.BLACK_TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.CANDLE, TofuBlocks.TOFU_CANDLE_CAKE.get(), TofuBlocks.TOFUCAKE.get());
+
+		this.createTofuCandleCake(Blocks.WHITE_CANDLE, TofuBlocks.WHITE_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.ORANGE_CANDLE, TofuBlocks.ORANGE_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.MAGENTA_CANDLE, TofuBlocks.MAGENTA_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.LIGHT_BLUE_CANDLE, TofuBlocks.LIGHT_BLUE_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.YELLOW_CANDLE, TofuBlocks.YELLOW_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.LIME_CANDLE, TofuBlocks.LIME_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.PINK_CANDLE, TofuBlocks.PINK_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.GRAY_CANDLE, TofuBlocks.GRAY_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.LIGHT_GRAY_CANDLE, TofuBlocks.LIGHT_GRAY_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.CYAN_CANDLE, TofuBlocks.CYAN_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.PURPLE_CANDLE, TofuBlocks.PURPLE_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.BLUE_CANDLE, TofuBlocks.BLUE_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.BROWN_CANDLE, TofuBlocks.BROWN_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.GREEN_CANDLE, TofuBlocks.GREEN_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.RED_CANDLE, TofuBlocks.RED_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.BLACK_CANDLE, TofuBlocks.BLACK_ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+		this.createTofuCandleCake(Blocks.CANDLE, TofuBlocks.ZUNDA_TOFU_CANDLE_CAKE.get(), TofuBlocks.ZUNDATOFUCAKE.get());
+
+		this.createTofuCandleCake(Blocks.WHITE_CANDLE, TofuBlocks.WHITE_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.ORANGE_CANDLE, TofuBlocks.ORANGE_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.MAGENTA_CANDLE, TofuBlocks.MAGENTA_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.LIGHT_BLUE_CANDLE, TofuBlocks.LIGHT_BLUE_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.YELLOW_CANDLE, TofuBlocks.YELLOW_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.LIME_CANDLE, TofuBlocks.LIME_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.PINK_CANDLE, TofuBlocks.PINK_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.GRAY_CANDLE, TofuBlocks.GRAY_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.LIGHT_GRAY_CANDLE, TofuBlocks.LIGHT_GRAY_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.CYAN_CANDLE, TofuBlocks.CYAN_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.PURPLE_CANDLE, TofuBlocks.PURPLE_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.BLUE_CANDLE, TofuBlocks.BLUE_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.BROWN_CANDLE, TofuBlocks.BROWN_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.GREEN_CANDLE, TofuBlocks.GREEN_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.RED_CANDLE, TofuBlocks.RED_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.BLACK_CANDLE, TofuBlocks.BLACK_SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+		this.createTofuCandleCake(Blocks.CANDLE, TofuBlocks.SOYCHEESE_CANDLE_TART.get(), TofuBlocks.SOYCHEESE_TART.get());
+
 		//createSingleCarpetBlocks(TofuBlocks.YUBA.get());
 		createTrivialCube(TofuBlocks.SUSPICIOUS_TOFU_TERRAIN.get());
 
