@@ -5,6 +5,7 @@ import baguchi.tofucraft.registry.TofuBlocks;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.Level;
@@ -16,14 +17,16 @@ public class TofuCreeper extends Creeper {
 		super(p_32278_, p_32279_);
 	}
 
+	@Override
 	public void explodeCreeper() {
-		if (!this.level().isClientSide) {
+		if (this.level() instanceof ServerLevel serverlevel) {
 			float f = this.isPowered() ? 1.8F : 0.8F;
 			this.dead = true;
-			this.level().explode(this, this.getX(), this.getY(), this.getZ(), (float) this.explosionRadius * f, Level.ExplosionInteraction.NONE);
-			this.discard();
+			serverlevel.explode(this, this.getX(), this.getY(), this.getZ(), (float) this.explosionRadius * f, Level.ExplosionInteraction.NONE);
 			this.spawnTofu();
 			this.spawnLingeringCloud();
+			this.triggerOnDeathMobEffects(serverlevel, Entity.RemovalReason.KILLED);
+			this.discard();
 		}
 	}
 
