@@ -208,9 +208,9 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateFlatItem(TofuItems.HIYAYAKKO_GLASS.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.NATTOHIYAYAKKO_GLASS.get(), ModelTemplates.FLAT_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFUSCOOP.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFUSTICK.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.ROLLINGPIN.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFUSCOOP.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFUSTICK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.ROLLINGPIN.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 		this.generateFlatItem(TofuItems.BUGLE.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.FUKUMAME.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.NETHER_FUKUMAME.get(), ModelTemplates.FLAT_ITEM);
@@ -235,36 +235,36 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateFlatItem(TofuItems.TOFU_CORE.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.TF_BATTERY.get(), ModelTemplates.FLAT_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFU_KINU_SWORD.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_AXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_SHOVEL.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_HOE.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_KINU_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_KINU_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_KINU_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_KINU_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_KINU_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_SWORD.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_AXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_SHOVEL.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_HOE.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_MOMEN_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_MOMEN_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_MOMEN_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_MOMEN_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_MOMEN_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFU_SOLID_SWORD.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_SOLID_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_SOLID_AXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_SOLID_SHOVEL.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_SOLID_HOE.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_SOLID_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_SOLID_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_SOLID_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_SOLID_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_SOLID_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFU_METAL_SWORD.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_AXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_SHOVEL.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_HOE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_SHEARS.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_METAL_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_METAL_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_METAL_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_METAL_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_METAL_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_METAL_SHEARS.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_SWORD.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_AXE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_SHOVEL.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_HOE.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_DIAMOND_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_DIAMOND_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_DIAMOND_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_DIAMOND_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_DIAMOND_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 		generateTofuShield(this, TofuItems.TOFU_SHIELD.get());
 
 
