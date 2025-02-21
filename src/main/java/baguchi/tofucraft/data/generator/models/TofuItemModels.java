@@ -1,6 +1,7 @@
 package baguchi.tofucraft.data.generator.models;
 
 import baguchi.tofucraft.client.render.special.TofuShieldSpecialRenderer;
+import baguchi.tofucraft.data.generator.TofuEquipmentAssets;
 import baguchi.tofucraft.registry.TofuItems;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
@@ -271,30 +272,30 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateFlatItem(TofuItems.TOFU_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.ZUNDA_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
 
-		this.generateFlatItem(TofuItems.TOFU_KINU_HELMET.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_KINU_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+		this.generateTrimmableItem(TofuItems.TOFU_KINU_HELMET.get(), TofuEquipmentAssets.KINU, "helmet", false);
+		this.generateTrimmableItem(TofuItems.TOFU_KINU_CHESTPLATE.get(), TofuEquipmentAssets.KINU, "chestplate", false);
+		this.generateTrimmableItem(TofuItems.TOFU_KINU_LEGGINGS.get(), TofuEquipmentAssets.KINU, "leggings", false);
+		this.generateTrimmableItem(TofuItems.TOFU_KINU_BOOTS.get(), TofuEquipmentAssets.KINU, "boots", false);
 
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_HELMET.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_MOMEN_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+		this.generateTrimmableItem(TofuItems.TOFU_MOMEN_HELMET.get(), TofuEquipmentAssets.MOMEN, "helmet", false);
+		this.generateTrimmableItem(TofuItems.TOFU_MOMEN_CHESTPLATE.get(), TofuEquipmentAssets.MOMEN, "chestplate", false);
+		this.generateTrimmableItem(TofuItems.TOFU_MOMEN_LEGGINGS.get(), TofuEquipmentAssets.MOMEN, "leggings", false);
+		this.generateTrimmableItem(TofuItems.TOFU_MOMEN_BOOTS.get(), TofuEquipmentAssets.MOMEN, "boots", false);
 
-		this.generateFlatItem(TofuItems.ARMOR_TOFU_SOLIDHELMET.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.ARMOR_TOFU_SOLIDCHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.ARMOR_TOFU_SOLIDLEGGINGS.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.ARMOR_TOFU_SOLIDBOOTS.get(), ModelTemplates.FLAT_ITEM);
+		this.generateTrimmableItem(TofuItems.ARMOR_TOFU_SOLIDHELMET.get(), TofuEquipmentAssets.SOLID, "helmet", false);
+		this.generateTrimmableItem(TofuItems.ARMOR_TOFU_SOLIDCHESTPLATE.get(), TofuEquipmentAssets.SOLID, "chestplate", false);
+		this.generateTrimmableItem(TofuItems.ARMOR_TOFU_SOLIDLEGGINGS.get(), TofuEquipmentAssets.SOLID, "leggings", false);
+		this.generateTrimmableItem(TofuItems.ARMOR_TOFU_SOLIDBOOTS.get(), TofuEquipmentAssets.SOLID, "boots", false);
 
-		this.generateFlatItem(TofuItems.TOFU_METAL_HELMET.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_METAL_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+		this.generateTrimmableItem(TofuItems.TOFU_METAL_HELMET.get(), TofuEquipmentAssets.METAL, "helmet", false);
+		this.generateTrimmableItem(TofuItems.TOFU_METAL_CHESTPLATE.get(), TofuEquipmentAssets.METAL, "chestplate", false);
+		this.generateTrimmableItem(TofuItems.TOFU_METAL_LEGGINGS.get(), TofuEquipmentAssets.METAL, "leggings", false);
+		this.generateTrimmableItem(TofuItems.TOFU_METAL_BOOTS.get(), TofuEquipmentAssets.METAL, "boots", false);
 
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_HELMET.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
-		this.generateFlatItem(TofuItems.TOFU_DIAMOND_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+		this.generateTrimmableItem(TofuItems.TOFU_DIAMOND_HELMET.get(), TofuEquipmentAssets.DIAMOND, "helmet", false);
+		this.generateTrimmableItem(TofuItems.TOFU_DIAMOND_CHESTPLATE.get(), TofuEquipmentAssets.DIAMOND, "chestplate", false);
+		this.generateTrimmableItem(TofuItems.TOFU_DIAMOND_LEGGINGS.get(), TofuEquipmentAssets.DIAMOND, "leggings", false);
+		this.generateTrimmableItem(TofuItems.TOFU_DIAMOND_BOOTS.get(), TofuEquipmentAssets.DIAMOND, "boots", false);
 
 		this.generateSpawnEgg(TofuItems.TOFUNIAN_SPAWNEGG.get(), 15460584, 13291425);
 		this.generateSpawnEgg(TofuItems.TRAVELER_TOFUNIAN_SPAWNEGG.get(), 15460584, 8763986);
