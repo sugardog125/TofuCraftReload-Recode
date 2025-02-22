@@ -302,10 +302,10 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateSpawnEgg(TofuItems.TOFU_GANDLEM_SPAWNEGG.get(), 15526085, 2332114);
 		this.generateSpawnEgg(TofuItems.TOFU_GOLEM_SPAWNEGG.get(), 15526085, 14935011);
 		this.generateSpawnEgg(TofuItems.SHUDOFUSPIDER_SPAWNEGG.get(), 15526085, 6198590);
-		this.generateSpawnEgg(TofuItems.TOFUCOW_SPAWNEGG.get(), 15460584, 10724259);
-		this.generateSpawnEgg(TofuItems.TOFUPIG_SPAWNEGG.get(), 15460584, 10066329);
-		this.generateSpawnEgg(TofuItems.TOFUSLIME_SPAWNEGG.get(), 15460584, 3026478);
-		this.generateSpawnEgg(TofuItems.TOFUCREEPER_SPAWNEGG.get(), 15460584, 3026478);
+		this.generateSpawnEgg(TofuItems.TOFU_COW_SPAWNEGG.get(), 15460584, 10724259);
+		this.generateSpawnEgg(TofuItems.TOFU_PIG_SPAWNEGG.get(), 15460584, 10066329);
+		this.generateSpawnEgg(TofuItems.TOFU_SLIME_SPAWNEGG.get(), 15460584, 3026478);
+		this.generateSpawnEgg(TofuItems.TOFU_CREEPER_SPAWNEGG.get(), 15460584, 3026478);
 		this.generateSpawnEgg(TofuItems.TOFUSPIDER_SPAWNEGG.get(), 15460584, 3026478);
 		this.generateSpawnEgg(TofuItems.TOFUFISH_SPAWNEGG.get(), 15460584, 3026478);
 		this.generateSpawnEgg(TofuItems.FUKUMAME_THROWER_SPAWNEGG.get(), -6725824, -396380);
