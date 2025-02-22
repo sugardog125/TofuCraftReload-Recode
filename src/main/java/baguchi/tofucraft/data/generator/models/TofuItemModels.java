@@ -310,7 +310,21 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateSpawnEgg(TofuItems.TOFUFISH_SPAWNEGG.get(), 15460584, 3026478);
 		this.generateSpawnEgg(TofuItems.FUKUMAME_THROWER_SPAWNEGG.get(), -6725824, -396380);
 		this.generateSpawnEgg(TofuItems.ZUNDAMITE_SPAWNEGG.get(), 12770119, 13551297);
-
+/*
+		this.generateFlatItem(TofuItems.TOFUNIAN_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TRAVELER_TOFUNIAN_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_GANDLEM_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_GOLEM_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.SHUDOFUSPIDER_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_COW_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_PIG_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_SLIME_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFU_CREEPER_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFUSPIDER_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.TOFUFISH_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.FUKUMAME_THROWER_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		this.generateFlatItem(TofuItems.ZUNDAMITE_SPAWNEGG.get(), ModelTemplates.FLAT_ITEM);
+		*/
 		this.generateFlatItem(TofuItems.TOMATO_SOYBEAN_STEW.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.YUDOFU.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.EDAMAME_RICE.get(), ModelTemplates.FLAT_ITEM);
