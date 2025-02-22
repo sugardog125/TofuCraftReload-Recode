@@ -297,7 +297,7 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateTrimmableItem(TofuItems.TOFU_DIAMOND_LEGGINGS.get(), TofuEquipmentAssets.DIAMOND, "leggings", false);
 		this.generateTrimmableItem(TofuItems.TOFU_DIAMOND_BOOTS.get(), TofuEquipmentAssets.DIAMOND, "boots", false);
 
-		/*this.generateSpawnEgg(TofuItems.TOFUNIAN_SPAWN_EGG.get(), 15460584, 13291425);
+		this.generateSpawnEgg(TofuItems.TOFUNIAN_SPAWN_EGG.get(), 15460584, 13291425);
 		this.generateSpawnEgg(TofuItems.TRAVELER_TOFUNIAN_SPAWN_EGG.get(), 15460584, 8763986);
 		this.generateSpawnEgg(TofuItems.TOFU_GANDLEM_SPAWN_EGG.get(), 15526085, 2332114);
 		this.generateSpawnEgg(TofuItems.TOFU_GOLEM_SPAWN_EGG.get(), 15526085, 14935011);
@@ -309,9 +309,9 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateSpawnEgg(TofuItems.TOFUSPIDER_SPAWN_EGG.get(), 15460584, 3026478);
 		this.generateSpawnEgg(TofuItems.TOFUFISH_SPAWN_EGG.get(), 15460584, 3026478);
 		this.generateSpawnEgg(TofuItems.FUKUMAME_THROWER_SPAWN_EGG.get(), -6725824, -396380);
-		this.generateSpawnEgg(TofuItems.ZUNDAMITE_SPAWN_EGG.get(), 12770119, 13551297);*/
+		this.generateSpawnEgg(TofuItems.ZUNDAMITE_SPAWN_EGG.get(), 12770119, 13551297);
 
-		this.generateFlatItem(TofuItems.TOFUNIAN_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+		/*this.generateFlatItem(TofuItems.TOFUNIAN_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.TRAVELER_TOFUNIAN_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.TOFU_GANDLEM_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.TOFU_GOLEM_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
@@ -324,7 +324,7 @@ public class TofuItemModels extends ItemModelGenerators {
 		this.generateFlatItem(TofuItems.TOFUFISH_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.FUKUMAME_THROWER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.ZUNDAMITE_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
-
+*/
 		this.generateFlatItem(TofuItems.TOMATO_SOYBEAN_STEW.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.YUDOFU.get(), ModelTemplates.FLAT_ITEM);
 		this.generateFlatItem(TofuItems.EDAMAME_RICE.get(), ModelTemplates.FLAT_ITEM);
