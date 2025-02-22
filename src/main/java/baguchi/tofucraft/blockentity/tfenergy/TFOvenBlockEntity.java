@@ -58,7 +58,7 @@ public class TFOvenBlockEntity extends WorkerBaseBlockEntity implements WorldlyC
 	private int progress = 0;
 
 	private int refreshTime = 0;
-	public static final int MAX_CRAFT_TIME = 200;
+	public static final int MAX_CRAFT_TIME = 100;
 	private final RecipeType<? extends SmeltingRecipe> recipeType;
 
 	private final RecipeManager.CachedCheck<SingleRecipeInput, ? extends Recipe> quickCheck;
@@ -130,7 +130,7 @@ public class TFOvenBlockEntity extends WorkerBaseBlockEntity implements WorldlyC
 						}
 						worked = true;
 
-						tfoven.drain(20, false);
+						tfoven.drain(5, false);
 
 					} else {
 						tfoven.refreshTime = 30 + tfoven.level.random.nextInt(30);
