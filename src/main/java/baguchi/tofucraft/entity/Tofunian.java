@@ -51,7 +51,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.SpawnUtil;
@@ -545,7 +544,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 	@Override
 	public InteractionResult mobInteract(Player p_35472_, InteractionHand p_35473_) {
 		ItemStack itemstack = p_35472_.getItemInHand(p_35473_);
-		if (itemstack.getItem() != TofuItems.TOFUNIAN_SPAWNEGG.get() && this.isAlive() && !this.isTrading() && !this.isSleeping() && !p_35472_.isSecondaryUseActive()) {
+		if (itemstack.getItem() != TofuItems.TOFUNIAN_SPAWN_EGG.get() && this.isAlive() && !this.isTrading() && !this.isSleeping() && !p_35472_.isSecondaryUseActive()) {
 			if (p_35472_ instanceof ServerPlayer) {
 				TofuAdvancements.MY_TOFU_CHILD.get().trigger((ServerPlayer) p_35472_);
 			}
@@ -563,7 +562,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 						this.setUnhappy();
 					}
 
-					p_35472_.awardStat(Stats.TALKED_TO_VILLAGER);
+					//p_35472_.awardStat(Stats.TALKED_TO_VILLAGER);
 				}
 
 				if (flag) {

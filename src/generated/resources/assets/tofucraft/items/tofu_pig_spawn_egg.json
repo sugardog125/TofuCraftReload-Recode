@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -1316632
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -6710887
-      }
-    ]
+    "model": "tofucraft:item/tofu_pig_spawn_egg"
   }
 }

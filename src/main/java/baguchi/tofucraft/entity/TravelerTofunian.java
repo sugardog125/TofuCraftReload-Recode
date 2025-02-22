@@ -9,7 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
@@ -100,9 +99,9 @@ public class TravelerTofunian extends AbstractTofunian {
 
 	public InteractionResult mobInteract(Player p_35856_, InteractionHand p_35857_) {
 		ItemStack itemstack = p_35856_.getItemInHand(p_35857_);
-		if (!itemstack.is(TofuItems.TRAVELER_TOFUNIAN_SPAWNEGG.get()) && this.isAlive() && !this.isTrading() && !this.isBaby()) {
+		if (!itemstack.is(TofuItems.TRAVELER_TOFUNIAN_SPAWN_EGG.get()) && this.isAlive() && !this.isTrading() && !this.isBaby()) {
 			if (p_35857_ == InteractionHand.MAIN_HAND) {
-				p_35856_.awardStat(Stats.TALKED_TO_VILLAGER);
+				//p_35856_.awardStat(Stats.TALKED_TO_VILLAGER);
 			}
 
 			if (this.getOffers().isEmpty()) {
