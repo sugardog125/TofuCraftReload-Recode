@@ -790,9 +790,10 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		return this.xp;
 	}
 
-	protected void pickUpItem(ItemEntity p_175445_1_) {
+	@Override
+	protected void pickUpItem(ServerLevel serverLevel, ItemEntity p_175445_1_) {
 		ItemStack itemstack = p_175445_1_.getItem();
-		if (wantsToPickUp(itemstack)) {
+		if (wantsToPickUp(serverLevel, itemstack)) {
 			SimpleContainer inventory = getInventory();
 			boolean flag = inventory.canAddItem(itemstack);
 			if (!flag)
@@ -816,7 +817,8 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		return (this.foodLevel < 12);
 	}
 
-	public boolean wantsToPickUp(ItemStack p_230293_1_) {
+	@Override
+	public boolean wantsToPickUp(ServerLevel serverLevel, ItemStack p_230293_1_) {
 		Item item = p_230293_1_.getItem();
 		return (WANTED_ITEMS.contains(item) && this.getInventory().canAddItem(p_230293_1_));
 	}
