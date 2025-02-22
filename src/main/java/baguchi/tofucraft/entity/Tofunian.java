@@ -84,18 +84,16 @@ import net.minecraft.world.entity.ai.goal.InteractGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.gossip.GossipContainer;
 import net.minecraft.world.entity.ai.gossip.GossipType;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.village.ReputationEventType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Evoker;
-import net.minecraft.world.entity.monster.Illusioner;
-import net.minecraft.world.entity.monster.Pillager;
+import net.minecraft.world.entity.monster.AbstractIllager;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Vex;
-import net.minecraft.world.entity.monster.Vindicator;
 import net.minecraft.world.entity.monster.Zoglin;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.VillagerData;
@@ -175,6 +173,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 
 	public final AnimationState happyAnimationState = new AnimationState();
 	public final AnimationState eatFoodAnimationState = new AnimationState();
+	public final AnimationState callAnimationState = new AnimationState();
 
 	public Tofunian(EntityType<? extends Tofunian> type, Level worldIn) {
 		super(type, worldIn);
@@ -196,11 +195,9 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		});
 		this.goalSelector.addGoal(1, new OpenTofuDoorGoal(this, true));
 		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.25D, 1.3D));
-		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Evoker.class, 12.0F, 1.25D, 1.3D));
-		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Vindicator.class, 8.0F, 1.25D, 1.3D));
+		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, AbstractIllager.class, 12.0F, 1.25D, 1.3D));
+		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, EnderMan.class, 10.0F, 1.25D, 1.3D));
 		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Vex.class, 8.0F, 1.25D, 1.3D));
-		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Pillager.class, 15.0F, 1.25D, 1.3D));
-		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Illusioner.class, 12.0F, 1.25D, 1.3D));
 		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, Zoglin.class, 10.0F, 1.25D, 1.3D));
 		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, ShuDofuSpider.class, 10.0F, 1.25D, 1.3D));
 		this.goalSelector.addGoal(1, new TofunianAvoidEntityGoal<>(this, TofuGandlem.class, 10.0F, 1.25D, 1.3D));
@@ -233,15 +230,31 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		this.goalSelector.addGoal(13, new FindJobBlockGoal(this, 0.85F, 6));
 		this.goalSelector.addGoal(14, new FindStatueBlockGoal(this, 0.85F, 6));
 
-		this.goalSelector.addGoal(15, new RandomStrollGoal(this, 0.9D));
+		this.goalSelector.addGoal(15, new WaterAvoidingRandomStrollGoal(this, 0.9D));
 		this.goalSelector.addGoal(16, new InteractGoal(this, Player.class, 3.0F, 1.0F));
 		this.goalSelector.addGoal(17, new ShareItemAndGossipGoal(this, 0.9F));
-		this.goalSelector.addGoal(18, new LookAtPlayerGoal(this, Mob.class, 8.0F));
+		this.goalSelector.addGoal(18, new InteractGoal(this, AbstractTofunian.class, 4.0F, 0.25F) {
+			@Override
+			public void start() {
+				super.start();
+				setAction(Actions.CALL);
+			}
+		});
+		this.goalSelector.addGoal(18, new InteractGoal(this, Player.class, 3.0F, 1.0F) {
+			@Override
+			public void start() {
+				super.start();
+				setAction(Actions.CALL);
+			}
+		});
+
+		this.goalSelector.addGoal(18, new LookAtPlayerGoal(this, Mob.class, 6.0F));
+
 		this.goalSelector.addGoal(19, new RandomLookAroundGoal(this));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.24D).add(Attributes.MAX_HEALTH, 20.0D);
+		return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.24D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.SAFE_FALL_DISTANCE, 5.0F);
 	}
 
 
@@ -408,6 +421,10 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 				case HAPPY:
 					this.stopAnimations();
 					happyAnimationState.start(this.tickCount);
+					break;
+				case CALL:
+					this.stopAnimations();
+					callAnimationState.start(this.tickCount);
 					break;
 				case EAT:
 					if (!loop && !actions.loop) {
@@ -1048,6 +1065,7 @@ public class Tofunian extends AbstractTofunian implements ReputationEventHandler
 		AVOID(true, -1),
 		SIT(true, -1),
 		HAPPY(false, 30),
+		CALL(false, 25),
 		EAT(true, -1);
 
 		private final boolean loop;

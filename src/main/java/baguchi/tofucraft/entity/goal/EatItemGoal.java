@@ -28,6 +28,9 @@ public class EatItemGoal<T extends Tofunian> extends Goal {
 	}
 
 	public boolean canUse() {
+		if (this.mob.isBaby()) {
+			return false;
+		}
 		if (!this.mob.getMainHandItem().isEmpty() && this.mob.getMainHandItem().get(DataComponents.FOOD) != null) {
 			return true;
 		}

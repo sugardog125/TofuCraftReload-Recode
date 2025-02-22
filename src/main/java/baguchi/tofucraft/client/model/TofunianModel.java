@@ -50,6 +50,12 @@ public class TofunianModel<T extends TofunianRenderState> extends AbstractTofuni
 		}
 		this.animate(entity.happyAnimationState, TofunianAnimation.HAPPY, entity.ageInTicks);
 		this.animate(entity.eatFoodAnimationState, TofunianAnimation.EAT, entity.ageInTicks);
+		if (entity.isBaby) {
+			this.animate(entity.callAnimationState, TofunianAnimation.call_child, entity.ageInTicks);
+		} else {
+			this.animate(entity.callAnimationState, TofunianAnimation.call, entity.ageInTicks);
+		}
+
 		if (entity.actions == Tofunian.Actions.CRY) {
 			this.head.xRot = 0.0F;
 			this.head.yRot = 0.0F;

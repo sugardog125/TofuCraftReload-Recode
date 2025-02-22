@@ -1,6 +1,7 @@
 package baguchi.tofucraft.entity.goal;
 
 import baguchi.tofucraft.entity.AbstractTofunian;
+import baguchi.tofucraft.entity.Tofunian;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
 
@@ -37,6 +38,9 @@ public class TofunianTradeWithPlayerGoal extends Goal {
 
     public void start() {
         this.mob.getNavigation().stop();
+		if (this.mob instanceof Tofunian tofunian) {
+			tofunian.setAction(Tofunian.Actions.CALL);
+		}
     }
 
     public void stop() {
